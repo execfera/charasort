@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    display: grid;
+    grid-row-gap: 1em;
+}
+
+.progress {
+    margin: 1em auto;
+    width: 500px;
+}
+
+.progressbar {
+    position: relative;
+    width: 492px;
+    border: 1px solid black;
+    padding: 3px;
+    margin: 2px 0px;
+    margin-bottom: 1em;
+}
+
+.progresstext {
+    position: absolute;
+    width: 492px;
+    margin: 3px 0px;
+    text-align: center;
+    font-size: 0.7em;
+}
+
+.progressfill {
+    height: 20px;
+    background-color: lightgreen;
+    width: 79%;
+}
+
+.sorter {
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: 120px 1fr 120px;
+    grid-gap: 5px;
+    width: 420px;
+}
+
+.button {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10%;
+    grid-column: 2 / 3;
+}
+
+.starting.button {
+    grid-row: span 3;
+}
+
+.sorting.button {
+    grid-row: span 2;
+    display: none;
+}
+
+.sorter > .image {
+    width: 120px;
+    height: 180px;
+    margin: auto;
+    grid-row: 1 / 7;
+}
+
+.sorter > .text {
+    width: 120px;
+    height: 60px;
+}
+
+.sorter > .text > p {
+    margin: 5px 5px;
+    width: calc(100%-10px);
+    text-align: center;
+    font-size: 0.8em;
+    line-height: 1.5em;
+}
+
+.sorter > .left {
+    grid-column: 1 / 2;
+    border: 1px solid #000000;
+}
+
+.sorter > .right {
+    grid-column: 3 / 4;
+    border: 1px solid #000000;
+}
+
+.sorteroptions {
+    margin: 1em auto;
+    display: grid;
+    text-align: left;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    width: 450px;
+}
+
+.sorteroptions > div {
+    font-size: 0.5625em;
+}
+
+label {
+    cursor: pointer;
+}
+
+.sorteroptions > .large.option,  .sorteroptions > hr {
+    grid-column: span 3;
+    text-align: center;
+    width: 100%;
+}
