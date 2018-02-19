@@ -1,3 +1,6 @@
+/**
+ * Initialize script.
+*/
 function init() {
   const optList = document.querySelector('.options');
   const optInsert = (name, id, tooltip = '', checked = true, disabled = false) => {
@@ -7,6 +10,9 @@ function init() {
     return `<div class="large option"><label title="${tooltip}"><input id="cbgroup-${id}" type="checkbox" ${checked?'checked':''}> ${name}</label></div>`;
   };
 
+  /**
+   * Insert sorter options and set grouped option behavior.
+   */
   options.forEach(opt => {
     if ('sub' in opt) {
       optList.insertAdjacentHTML('beforeend', optInsertLarge(opt.name, opt.key, opt.tooltip, opt.checked));
