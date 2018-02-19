@@ -108,7 +108,7 @@ const characterData = [
     stage: [3]
   },
   {
-    name: 'Patchouli',
+    name: 'Patchouli Knowledge',
     img: 'A7ZnuHo.png',
     series: [0, 6, 8, 11, 12, 16, 20],
     stage: [3, 6]
@@ -120,13 +120,13 @@ const characterData = [
     stage: [4, 5]
   },
   {
-    name: 'Remilia',
+    name: 'Remilia Scarlet',
     img: '8UX7hKE.png',
     series: [0, 6, 8, 9, 11, 12, 16, 20, 22],
     stage: [5]
   },
   {
-    name: 'Flandre',
+    name: 'Flandre Scarlet',
     img: 'OhaDcnc.png',
     series: [0, 6, 11],
     stage: [6]
