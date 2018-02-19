@@ -1,19 +1,23 @@
-window.onload = init;
-
 function init() {
-  const optionElem = document.querySelector('.options');
-  const optionInserted = (size, tooltip, name) => `<div class="${size} option"><label title="${tooltip}"><input type="checkbox" checked> ${name}</label></div>`;
+  const optList = document.querySelector('.options');
+  const optInsert = (name, tooltip = '', checked = true, disabled = false) => {
+    return `<div><label title="${tooltip}"><input type="checkbox" ${checked?'checked':''} ${disabled?'disabled':''}> ${name}</label></div>`;
+  };
+  const optInsertLarge = (name, tooltip = '', checked = true) => {
+    return `<div class="large option"><label title="${tooltip}"><input type="checkbox" ${checked?'checked':''}> ${name}</label></div>`;
+  };
 
   options.forEach(opt => {
-    if(opt === '-----') {
-      optionElem.insertAdjacentHTML('beforeend', '<hr>');
-    } else if (Object.keys(opt).length > 1) {
-      optionElem.insertAdjacentHTML('beforeend', optionInserted('large', opt.tooltip, opt.name));
+    if ('sub' in opt) {
+      optList.insertAdjacentHTML('beforeend', optInsertLarge(opt.name, opt.tooltip, opt.checked));
       opt.sub.forEach(subopt => {
-        optionElem.insertAdjacentHTML('beforeend', optionInserted('small', Object.values(subopt)[0], Object.keys(subopt)[0]));
+        optList.insertAdjacentHTML('beforeend', optInsert(subopt.name, subopt.tooltip, subopt.checked, opt.checked === false));
       });
+      optList.insertAdjacentHTML('beforeend', '<hr>');
     } else {
-      optionElem.insertAdjacentHTML('beforeend', optionInserted('small', Object.values(opt)[0], Object.keys(opt)[0]));
+      optList.insertAdjacentHTML('beforeend', optInsert(opt.name, opt.tooltip, opt.checked));
     }
   });
 }
+
+window.onload = init;
