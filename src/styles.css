@@ -6,11 +6,13 @@ body {
 .container {
     display: grid;
     grid-row-gap: 1em;
+    margin-top: 1em;
 }
 
 .progress {
     margin: 1em auto;
     width: 500px;
+    display: none;
 }
 
 .progressbar {
@@ -19,7 +21,6 @@ body {
     border: 1px solid black;
     padding: 3px;
     margin: 2px 0px;
-    margin-bottom: 1em;
 }
 
 .progresstext {
@@ -42,6 +43,10 @@ body {
     grid-template-columns: 120px 1fr 120px;
     grid-gap: 5px;
     width: 420px;
+}
+
+.sorter > * {
+  cursor: pointer;
 }
 
 .button {
@@ -70,6 +75,7 @@ body {
 .sorter > .text {
     width: 120px;
     height: 60px;
+    display: none;
 }
 
 .sorter > .text > p {
@@ -90,7 +96,7 @@ body {
     border: 1px solid #000000;
 }
 
-.sorteroptions {
+.options {
     margin: 1em auto;
     display: grid;
     text-align: left;
@@ -99,7 +105,7 @@ body {
     width: 450px;
 }
 
-.sorteroptions > div {
+.options > div {
     font-size: 0.5625em;
 }
 
@@ -107,8 +113,31 @@ label {
     cursor: pointer;
 }
 
-.sorteroptions > .large.option,  .sorteroptions > hr {
+.options > .large.option,  .options > hr {
     grid-column: span 3;
     text-align: center;
     width: 100%;
+}
+
+.info {
+  margin: 0px auto 3em;
+  display: block;
+  text-align: center;
+  font-size: 0.6875em;
+  width: 80%;
+  line-height: 1.2em;
+}
+
+a {
+  color: #990000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FF6600;
+}
+
+a:visited {
+  color: #6600FF;
 }

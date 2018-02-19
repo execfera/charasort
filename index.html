@@ -1,29 +1,33 @@
 <html>
 
 <head>
-  <link rel="shortcut icon" href="yinyang.ico" type="image/x-icon">
-  <link rel="icon" href="yinyang.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="src/yinyang.ico" type="image/x-icon">
+  <link rel="icon" href="src/yinyang.ico" type="image/x-icon">
   <meta charset="utf-8">
-  <meta name="og:site_name" content="Touhou Character Sorting v2">
+  <meta name="og:site_name" content="Touhou Character Sorting">
   <meta name="og:description" content="A simple website for sorting Touhou characters in a formatted list.">
-  <meta name="og:image" content="https://i.imgur.com/IZzJMk6.jpg"><title>Touhou Character Sorting</title>  
+  <meta name="og:image" content="https://i.imgur.com/IZzJMk6.jpg">
+  <title>Touhou Character Sorting</title>  
   <!-- 4chan identifier tripcode: !FreliaEfl2 -->
   <link rel="stylesheet" type="text/css" href="src/reset.css">
   <link rel="stylesheet" type="text/css" href="src/styles.css">
+  <script src="src/main.js"></script>
 </head>
 
 <body>
 <div class="container">
+
     <div class="progress">
-        Battle No. XX
+        <span class="progressbattle"></span>
         <div class="progressbar">
-            <div class="progressfill"><span class="progresstext">79%</span></div>
+            <div class="progressfill"><span class="progresstext"></span></div>
         </div>
     </div>
+
     <div class="sorter">
         <img src="src/defaultL.jpg" class="left sort image">
 
-        <div class="starting button">Click to Start!</div>
+        <div class="starting button">Touhou Project Character Sorter<br><br>Click to Start!</div>
         <div class="starting button">Load Progress</div>
         <div class="sorting button">Tie</div>
         <div class="sorting button">Undo</div>
@@ -31,37 +35,31 @@
 
         <img src="src/defaultR.jpg" class="right sort image">
 
-        <div class="left sort text"><p>Touhou Project</p></div>
-        <div class="right sort text"><p>Character Sorter</p></div>
+        <div class="left sort text"></div>
+        <div class="right sort text"></div>
     </div>
-    <div class="sorteroptions">
-        <div class="large option">
-            <label><input type="checkbox"> Filter Option 1</label>
-        </div>
-        <div><label><input type="checkbox"> Touhou Game Option 1</label></div>
-        <div><label><input type="checkbox"> Touhou Game Option 2</label></div>
-        <div><label><input type="checkbox"> Touhou Game Option 3</label></div>
-        <div><label><input type="checkbox"> Touhou Game Option 4</label></div>
-        <div><label><input type="checkbox"> Touhou Game Option 5</label></div>
 
-        <hr>
+    <div class="options"></div>
+    <div class="result"></div>
 
-        <div class="large option">
-            <label><input type="checkbox"> Filter Option 2</label>
-        </div>
-        <div><label><input type="checkbox"> Stage 1</label></div>
-        <div><label><input type="checkbox"> Stage 2</label></div>
-        <div><label><input type="checkbox"> Stage 3</label></div>
-        <div><label><input type="checkbox"> Stage 4</label></div>
-        <div><label><input type="checkbox"> Stage 5</label></div>
-        <div><label><input type="checkbox"> Stage 6/Final Stage</label></div>
-        <div><label><input type="checkbox"> Extra/Phantasm Stage</label></div>
+    <div class="info">
+      <p><a href="https://relick.me/song/">Song Sorter</a> | <a href="mailto:fera@imouto.my">Contact</a>
+      
+      <br><br>
 
-        <hr>
+      <p>Sorter for Touhou characters. Pick your sources, and hit the Start button.</p>
+      <p>Click on the character you like better from the two, or tie them if you like them equally or don't know them.</p>
+      <p>Depending on how many sources you pick, you'll get up to 700+ picks, so set aside a good few cups of tea for this.</p>
+      
+      <br><br>
 
-        <div><label><input type="checkbox"> Filter Option 3</label></div>
-        <div><label><input type="checkbox"> Filter Option 4</label></div>
-        <div><label><input type="checkbox"> Filter Option 5</label></div>
+      <p>Inspired by <a href="http://mainyan.sakura.ne.jp/thsort.html">this site</a>. Thumbnail Art: <a href="http://www.tasofro.net/">alphes</a>, <a href="http://www.pixiv.net/member.php?id=743845">kaoru</a>, <a href="http://www.pixiv.net/member.php?id=4920496">dairi</a>. Splash Art: <a href="http://kahluamilk.la.coocan.jp/illust/2004/056_hyakkiyakou.jpg">toto nemigi</a>.</p>
+
+      <br><br>
+
+      <p>Month Xth, 2018 - Refactored site.</p>
+      <p>January 7th, 2018 - Added Antinomy of Common Flowers characters.</p>
+      <p>August 11th, 2017 - Added Hidden Star in Four Seasons full version characters.</p>
     </div>
 </div>
 </body>
