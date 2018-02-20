@@ -34,7 +34,7 @@ body {
 .progressfill {
   height: 20px;
   background-color: lightgreen;
-  width: 79%;
+  width: 0%;
 }
 
 .sorter {
@@ -45,15 +45,12 @@ body {
   width: 420px;
 }
 
-.sorter > * {
-  cursor: pointer;
-}
-
 .button {
   border: 1px solid black;
   text-align: center;
   padding: 10%;
   grid-column: 2 / 3;
+  cursor: pointer;
 }
 
 .starting.button {
@@ -65,11 +62,54 @@ body {
   display: none;
 }
 
+.loading.button {
+  grid-row: span 6;
+  display: none;
+}
+
+.loading.button > div {
+  width: 25px;
+  height: 25px;
+  margin: 50px auto;
+  background-color: #333;
+
+  border-radius: 100%;  
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+/* Animation taken from: http://tobiasahlin.com/spinkit/ */
+
+.loading.button > span {
+  margin: auto auto 20%;
+  font-size: 0.7em;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
 .sorter > .image {
   width: 120px;
   height: 180px;
   margin: auto;
   grid-row: 1 / 7;
+  cursor: pointer;
 }
 
 .sorter > .text {
@@ -79,7 +119,7 @@ body {
 }
 
 .sorter > .text > p {
-  margin: 5px 5px;
+  margin: 0.5em 5px 0px;
   width: calc(100%-10px);
   text-align: center;
   font-size: 0.8em;
