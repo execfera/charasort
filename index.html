@@ -1,19 +1,27 @@
 <html>
 
 <head>
-  <link rel="shortcut icon" href="src/yinyang.ico" type="image/x-icon">
-  <link rel="icon" href="src/yinyang.ico" type="image/x-icon">
+  <!-- Metadata -->
+  <link rel="shortcut icon" href="src/assets/yinyang.ico" type="image/x-icon">
+  <link rel="icon" href="src/assets/yinyang.ico" type="image/x-icon">
   <meta charset="utf-8">
   <meta name="og:site_name" content="Touhou Character Sorting">
   <meta name="og:description" content="A simple website for sorting Touhou characters in a formatted list.">
   <meta name="og:image" content="https://i.imgur.com/IZzJMk6.jpg">
-  <title>Touhou Character Sorting</title>  
+  <title>Touhou Character Sorting</title>
+
+  <link rel="stylesheet" type="text/css" href="src/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+
+  <script src="src/js/data.js"></script>
+  <script src="src/js/data/2017-05-01.js"></script>
+  <script src="src/js/data/2018-02-20.js"></script>
+
+  <script src="src/js/lz-string.min.js"></script>
+  <script src="src/js/seedrandom.min.js"></script>
+  <script src="src/js/main.js"></script>
+
   <!-- 4chan identifier tripcode: !FreliaEfl2 -->
-  <link rel="stylesheet" type="text/css" href="src/reset.css">
-  <link rel="stylesheet" type="text/css" href="src/styles.css">
-  <script src="src/data.js"></script>
-  <script src="src/seedrandom.min.js"></script>
-  <script src="src/main.js"></script>
 </head>
 
 <body>
@@ -27,15 +35,15 @@
     </div>
 
     <div class="sorter">
-        <img src="src/defaultL.jpg" class="left sort image">
+        <img src="src/assets/defaultL.jpg" class="left sort image">
 
-        <div class="starting button">Touhou Project Character Sorter<br><br>Click to Start!</div>
-        <div class="starting button">Load Progress</div>
-        <div class="sorting button">Tie</div>
-        <div class="sorting button">Undo</div>
-        <div class="sorting button">Save Progress</div>
+        <div class="starting start button">Touhou Project Character Sorter<br><br>Click to Start!</div>
+        <div class="starting load button">Load Progress</div>
+        <div class="sorting tie button">Tie</div>
+        <div class="sorting undo button">Undo</div>
+        <div class="sorting save button">Save Progress</div>
 
-        <img src="src/defaultR.jpg" class="right sort image">
+        <img src="src/assets/defaultR.jpg" class="right sort image">
 
         <div class="left sort text"></div>
         <div class="right sort text"></div>
@@ -50,6 +58,7 @@
         <br><br>
 
         <p>Sorter for Touhou characters. Pick your sources, and hit the Start button.</p>
+        <p><strong>Certain options have details that you can hover to read.</strong></p>
         <p>Click on the character you like better from the two, or tie them if you like them equally or don't know them.</p>
         <p>Depending on how many sources you pick, you'll get up to 700+ picks, so set aside a good few cups of tea for this.</p>
         
