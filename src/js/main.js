@@ -24,6 +24,7 @@ let sortedIndexList = [];
 let recordDataList = [];
 let parentIndexList = [];
 
+let loading = false;
 let leftIndex = 0;
 let leftInnerIndex = 0;
 let rightIndex = 0;
@@ -172,8 +173,10 @@ function start() {
   document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.disabled = true);
   document.querySelectorAll('.starting.button').forEach(el => el.style.display = 'none');
   document.querySelector('.loading.button').style.display = 'block';
+  loading = true;
 
   preloadImages().then(() => {
+    loading = false;
     document.querySelector('.progress').style.display = 'block';
     document.querySelector('.loading.button').style.display = 'none';
     document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'block');
@@ -207,8 +210,8 @@ function display() {
  * @param {'left'|'right'|'tie'} sortType
  */
 function pick(sortType) {
-  if (!timestamp) { return start(); }   // Start the sort if it hasn't yet.
-  else if (timeTaken) { return; }       // Don't do anything if the sort finished.
+  if (timeTaken || loading) { return; }
+  else if (!timestamp) { return start(); }
 }
 
 /** Undo previous choice. */
