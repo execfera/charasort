@@ -68,6 +68,21 @@ function init() {
   document.querySelector('.finished.getimg.button').addEventListener('click', generateImage);
   document.querySelector('.finished.list.button').addEventListener('click', generateTextList);
 
+  document.querySelector('.image.selector').insertAdjacentElement('beforeend', document.createElement('select'));
+
+  for (let i = 1; i <= 10; i++) {
+    const select = document.createElement('option');
+    select.value = i;
+    select.text = i;
+    if (i === 3) { select.selected = 'selected'; }
+    document.querySelector('.image.selector > select').insertAdjacentElement('beforeend', select);
+  }
+
+  document.querySelector('.image.selector > select').addEventListener('input', (e) => {
+    const imageNum = e.target.options[e.target.selectedIndex].value;
+    result(Number(imageNum));
+  });
+
   setLatestDataset();
 
   /** Decode query string if available. */
@@ -385,8 +400,10 @@ function recordData(sortType) {
  * @param {number} [imageNum=3] Number of images to display. Defaults to 3.
  */
 function result(imageNum = 3) {
-  document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'none');
   document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
+  document.querySelector('.image.selector').style.display = 'block';
+  
+  document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'none');
   document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'none');
   document.querySelector('.options').style.display = 'none';
   document.querySelector('.info').style.display = 'none';
