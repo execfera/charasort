@@ -1,38 +1,55 @@
 /** @type {CharData} */
-let characterData = [];
+let characterData = [];         // Initial character data set used.
 /** @type {CharData} */
-let characterDataToSort = [];
+let characterDataToSort = [];   // Character data set after filtering.
 
 /** @type {Options} */
-let options = [];
+let options = [];               // Initial option set used.
 
-let currentVersion = '';
+let currentVersion = '';        // Which version of characterData and options are used.
 
 /** @type {(boolean|boolean[])[]} */
-let optTaken = [];
+let optTaken = [];              // Records which options are set.
 
-let timeError = false;
-let timestamp = 0;
-let timeTaken = 0;
-let choices = '';
-let optStr = '';
-let suboptStr = '';
+/** Save Data. Concatenated into array, joined into string (delimited by '|') and compressed with lz-string. */
+let timestamp = 0;        // savedata[0]      (Unix time when sorter was started, used as initial PRNG seed and in dataset selection)
+let timeTaken = 0;        // savedata[1]      (Number of ms elapsed when sorter ends, used as end-of-sort flag and in filename generation)
+let optStr = '';          // savedata[2]      (String of '0' and '1' that denotes top-level option selection)
+let choices = '';         // savedata[3]      (String of '0', '1' and '2' that records what sorter choices are made)
+let suboptStr = '';       // savedata[4...n]  (String of '0' and '1' that denotes nested option selection, separated by '|')
+let timeError = false;    // Shifts entire savedata array to the right by 1 and adds an empty element at savedata[0] if true.
 
-let leftList = [];
-let rightList = [];
+/** Intermediate sorter data. */
 let sortedIndexList = [];
 let recordDataList = [];
 let parentIndexList = [];
+let tiedDataList = [];
 
-let loading = false;
 let leftIndex = 0;
 let leftInnerIndex = 0;
 let rightIndex = 0;
 let rightInnerIndex = 0;
 let battleNo = 1;
 let sortedNo = 0;
-let totalBattles = 0;
 let pointer = 0;
+
+/** A copy of intermediate sorter data is recorded for undo() purposes. */
+let sortedIndexListPrev = [];
+let recordDataListPrev = [];
+let parentIndexListPrev = [];
+let tiedDataListPrev = [];
+
+let leftIndexPrev = 0;
+let leftInnerIndexPrev = 0;
+let rightIndexPrev = 0;
+let rightInnerIndexPrev = 0;
+let battleNoPrev = 1;
+let sortedNoPrev = 0;
+let pointerPrev = 0;
+
+/** Miscellaneous sorter data that doesn't need to be saved for undo(). */
+let loading = false;
+let totalBattles = 0;
 
 /** Initialize script. */
 function init() {
@@ -121,7 +138,8 @@ function start() {
 
   /**
    * tiedDataList will keep a record of indexes on which characters are equal (i.e. tied) 
-   * to another one.
+   * to another one. recordDataList will have an interim list of sorted elements during
+   * the mergesort process.
    */
 
   recordDataList = characterDataToSort.map(() => 0);
@@ -159,7 +177,7 @@ function start() {
       totalBattles += sortedIndexList[marker].length;                   // The result's length will add to our total number of comparisons.
       parentIndexList[marker] = i;                                      // Record where it came from.
 
-      marker++;                                                         // Rinse and repeat, until we get arrays of length 1.
+      marker++;                                                         // Rinse and repeat, until we get arrays of length 1. This is initialization of merge sort.
     }
   }
 
@@ -169,7 +187,7 @@ function start() {
   leftInnerIndex = 0;                         // Inner indexes, because we'll be comparing the left array
   rightInnerIndex = 0;                        // to the right array, in order to merge them into one sorted array.
 
-  /** Disable all checkboxes and hide/show appropriate parts. */
+  /** Disable all checkboxes and hide/show appropriate parts while we preload the images. */
   document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.disabled = true);
   document.querySelectorAll('.starting.button').forEach(el => el.style.display = 'none');
   document.querySelector('.loading.button').style.display = 'block';
@@ -212,11 +230,154 @@ function display() {
 function pick(sortType) {
   if (timeTaken || loading) { return; }
   else if (!timestamp) { return start(); }
+
+  let sortedIndexListPrev = sortedIndexList.slice(0);
+  let recordDataListPrev = recordDataList.slice(0);
+  let parentIndexListPrev = parentIndexList.slice(0);
+  let tiedDataListPrev = tiedDataList.slice(0);
+
+  let leftIndexPrev = leftIndex;
+  let leftInnerIndexPrev = leftInnerIndex;
+  let rightIndexPrev = rightIndex;
+  let rightInnerIndexPrev = rightInnerIndex;
+  let battleNoPrev = battleNo;
+  let sortedNoPrev = sortedNo;
+  let pointerPrev = pointer;
+
+  /** 
+   * For picking 'left' or 'right':
+   * 
+   * Input the selected character's index into recordDataList. Increment the pointer of
+   * recordDataList. Then, check if there are any ties with this character, and keep
+   * incrementing until we find no more ties. 
+   */
+  switch (sortType) {
+    case 'left': {
+      choices += '0';
+      recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
+      leftInnerIndex++;
+      pointer++;
+      sortedNo++;
+      while (tiedDataList[recordDataList[pointer - 1]] != -1) {
+        recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
+        leftInnerIndex++;
+        pointer++;
+        sortedNo++;
+      }
+      break;
+    }
+    case 'right': {
+      choices += '1';
+      recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
+      rightInnerIndex;
+      pointer++;
+      sortedNo++;
+      while (tiedDataList[recordDataList [pointer - 1]] != -1) {
+        recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
+        rightInnerIndex;
+        pointer++;
+        sortedNo++;
+      }
+      break;
+    }
+
+  /** 
+   * For picking 'tie' (i.e. heretics):
+   * 
+   * Proceed as if we picked the 'left' character. Then, we record the right character's
+   * index value into the list of ties (at the left character's index) and then proceed
+   * as if we picked the 'right' character.
+   */
+    case 'tie': {
+      choices += '2';
+      recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
+      leftInnerIndex++;
+      pointer++;
+      sortedNo++;
+      while (tiedDataList[recordDataList[pointer - 1]] != -1) {
+        recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
+        leftInnerIndex++;
+        pointer++;
+        sortedNo++;
+      }
+      tiedDataList[recordDataList[pointer - 1]] = sortedIndexList[rightIndex][rightInnerIndex];
+      recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
+      rightInnerIndex++;
+      pointer++;
+      sortedNo++;
+      while (tiedDataList[recordDataList [pointer - 1]] != -1) {
+        recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
+        rightInnerIndex;
+        pointer++;
+        sortedNo++;
+      }
+      break;
+    }
+    default: return;
+  }
+
+  /**
+   * Once we reach the limit of the 'right' character list, we 
+   * insert all of the 'left' characters into the record, or vice versa.
+   */
+  const leftListLen = sortedIndexList[leftIndex].length;
+  const rightListLen = sortedIndexList[rightIndex].length;
+
+  if (leftInnerIndex < leftListLen && rightInnerIndex === rightListLen) {
+    while (leftInnerIndex < leftListLen) {
+      recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
+      leftInnerIndex++;
+      pointer++;
+      sortedNo++;
+    }
+  } else if (leftInnerIndex === leftListLen && rightInnerIndex < rightListLen) {
+    while (rightInnerIndex < rightListLen) {
+      recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
+      rightInnerIndex++;
+      pointer++;
+      sortedNo++;
+    }
+  }
+
+  /**
+   * Once we reach the end of both 'left' and 'right' character lists, we can remove 
+   * the arrays from the initial mergesort array, since they are now recorded. This
+   * record is a sorted version of both lists, so we can replace their original 
+   * (unsorted) parent with a sorted version. Purge the record afterwards.
+   */
+  if (leftInnerIndex === leftListLen && rightInnerIndex === rightListLen) {
+    for (let i = 0; i < leftListLen + rightListLen; i++) {
+      sortedIndexList[parentIndexList[leftIndex]][i] = recordDataList[i];
+    }
+    sortedIndexList.pop();
+    sortedIndexList.pop();
+    leftIndex = leftIndex - 2;
+    rightIndex = rightIndex - 2;
+    leftInnerIndex = 0;
+    rightInnerIndex = 0;
+
+    sortedIndexList.forEach((val, idx) => recordDataList[idx] = 0);
+    pointer = 0;
+  }
+
+  /**
+   * If, after shifting the 'left' index on the sorted list, we reach past the beginning
+   * of the sorted array, that means the entire array is now sorted. The original unsorted
+   * array in index 0 is now replaced with a sorted version, and we will now output this.
+   */
+  if (leftIndex < 0) {
+    timeTaken = timeTaken || new Date().getTime() - timestamp;
+    result();
+  } else {
+    battleNo++;
+    display();
+  }
 }
 
 /** Undo previous choice. */
 function undo() {}
 
+/** Shows the result of the sorter. */
 function result() {}
 
 function saveProgress() {}
