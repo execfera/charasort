@@ -133,11 +133,11 @@ function start() {
     if ('sub' in opt) {
       if (optTaken[index]) {
         const subArray = optTaken[index].reduce((subList, subBool, subIndex) => {
-          if (subBool) { subList.push(subIndex); }
+          if (subBool) { subList.push(options[index].sub[subIndex].key); }
           return subList;
         }, []);
         characterDataToSort = characterDataToSort.filter(char => {
-          return char.opts[opt.key].some(subidx => subArray.includes(subidx));
+          return char.opts[opt.key].some(key => subArray.includes(key));
         });
       }
     } else if (optTaken[index]) {
