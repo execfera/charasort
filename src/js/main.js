@@ -208,11 +208,11 @@ function start() {
   document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.disabled = true);
   document.querySelectorAll('.starting.button').forEach(el => el.style.display = 'none');
   document.querySelector('.loading.button').style.display = 'block';
+  document.querySelector('.progress').style.display = 'block';
   loading = true;
 
   preloadImages().then(() => {
     loading = false;
-    document.querySelector('.progress').style.display = 'block';
     document.querySelector('.loading.button').style.display = 'none';
     document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'block');
     document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'block');
@@ -222,15 +222,13 @@ function start() {
 
 /** Displays the current state of the sorter. */
 function display() {
-  const percent         = Math.floor(sortedNo * 100 / totalBattles) + '%';
+  const percent         = Math.floor(sortedNo * 100 / totalBattles);
   const leftCharIndex   = sortedIndexList[leftIndex][leftInnerIndex];
   const rightCharIndex  = sortedIndexList[rightIndex][rightInnerIndex];
   const leftChar        = characterDataToSort[leftCharIndex];
   const rightChar       = characterDataToSort[rightCharIndex];
 
-  document.querySelector('.progressbattle').innerHTML = `Battle No. ${battleNo}`;
-  document.querySelector('.progressfill').style.width = percent;
-  document.querySelector('.progresstext').innerHTML = percent;
+  progressBar(`Battle No. ${battleNo}`, percent);
 
   document.querySelector('.left.sort.image').src = leftChar.img;
   document.querySelector('.right.sort.image').src = rightChar.img;
@@ -365,9 +363,7 @@ function pick(sortType) {
   if (leftIndex < 0) {
     timeTaken = timeTaken || new Date().getTime() - timestamp;
 
-    document.querySelector('.progressbattle').innerHTML = `Battle No. ${battleNo} - Completed!`;
-    document.querySelector('.progressfill').style.width = '100%';
-    document.querySelector('.progresstext').innerHTML = '100%';
+    progressBar(`Battle No. ${battleNo} - Completed!`, 100);
 
     result();
   } else {
@@ -392,6 +388,18 @@ function recordData(sortType) {
   
   pointer++;
   sortedNo++;
+}
+
+/**
+ * Modifies the progress bar.
+ * 
+ * @param {string} indicator
+ * @param {number} percentage
+ */
+function progressBar(indicator, percentage) {
+  document.querySelector('.progressbattle').innerHTML = indicator;
+  document.querySelector('.progressfill').style.width = `${percentage}%`;
+  document.querySelector('.progresstext').innerHTML = `${percentage}%`;
 }
 
 /**
@@ -657,6 +665,9 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
  * Preloads images in the filtered character data and converts to base64 representation.
 */
 function preloadImages() {
+  const totalLength = characterDataToSort.length;
+  let imagesLoaded = 0;
+
   const loadImage = (src, idx) => {
       return new Promise((resolve, reject) => {
           const img = new Image();
@@ -680,6 +691,7 @@ function preloadImages() {
     canvas.height = img.naturalHeight;
     canvas.getContext('2d').drawImage(img, 0, 0);
     characterDataToSort[idx].img = canvas.toDataURL();
+    progressBar(`Loading Image ${++imagesLoaded}`, Math.floor(imagesLoaded * 100 / totalLength));
   };
 
   const promises = characterDataToSort.map((char, idx) => loadImage(imageRoot + char.img, idx));
