@@ -47,8 +47,9 @@ let sortedNoPrev        = 0;
 let pointerPrev         = 0;
 
 /** Miscellaneous sorter data that doesn't need to be saved for undo(). */
-let loading       = false;
-let totalBattles  = 0;
+let finalCharacters = [];
+let loading         = false;
+let totalBattles    = 0;
 
 /** Initialize script. */
 function init() {
@@ -216,8 +217,8 @@ function display() {
   document.querySelector('.progressfill').style.width = percent;
   document.querySelector('.progresstext').innerHTML = percent;
 
-  document.querySelector('.left.sort.image').src = imageRoot + leftChar.img;
-  document.querySelector('.right.sort.image').src = imageRoot + rightChar.img;
+  document.querySelector('.left.sort.image').src = leftChar.img;
+  document.querySelector('.right.sort.image').src = rightChar.img;
 
   document.querySelector('.left.sort.text > p').innerHTML = leftChar.name;
   document.querySelector('.right.sort.text > p').innerHTML = rightChar.name;
@@ -390,7 +391,7 @@ function result(imageNum = 3) {
   document.querySelector('.options').style.display = 'none';
 
   const header = '<div class="result head"><div class="left">Order</div><div class="right">Name</div></div>';
-  const imgRes = (char, num) => `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${imageRoot + char.img}"><div>${char.name}</div></div></div>`;
+  const imgRes = (char, num) => `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${char.img}"><div>${char.name}</div></div></div>`;
   const res = (char, num) => `<div class="result"><div class="left">${num}</div><div class="right">${char.name}</div></div>`;
 
   let rankNum       = 1;
@@ -410,6 +411,8 @@ function result(imageNum = 3) {
     } else {
       resultTable.insertAdjacentHTML('beforeend', res(character, rankNum));
     }
+    finalCharacters.push({ rank: rankNum, name: character.name });
+
     if (idx < characterDataToSort.length - 1) {
       if (tiedDataList[characterIndex] === finalSortedIndexes[idx + 1]) {
         tiedRankNum++;            // Indicates how many people are tied at the same rank.
@@ -467,9 +470,30 @@ function loadProgress() {
   if (saveData) decodeQuery(saveData);
 }
 
-function generateImage() {}
+function generateImage() {
+  const timeFinished = timestamp + timeTaken;
+  const tzoffset = (new Date()).getTimezoneOffset() * 60000;
+  const filename = 'sort-' + (new Date(timeFinished - tzoffset)).toISOString().slice(0, -5).replace('T', '(') + ').png';
 
-function generateTextList() {}
+  domtoimage.toBlob(document.querySelector('.results'), { bgcolor: 'white' })
+    .then(blob => {
+        const blobURL = URL.createObjectURL(blob);
+        const imgButton = document.querySelector('.finished.getimg.button');
+
+        imgButton.removeEventListener('click', generateImage);
+        imgButton.innerHTML = '';
+        imgButton.insertAdjacentHTML('beforeend', `<a href="${blobURL}" download="${filename}">Download Image</a>`);
+    });
+}
+
+function generateTextList() {
+  const data = finalCharacters.reduce((str, char) => {
+    str += `${char.rank}. ${char.name}<br>`;
+    return str;
+  }, '');
+  const oWindow = window.open("", "", "height=640,width=480");
+  oWindow.document.write(data);
+}
 
 function generateSavedata() {
   const saveData = `${timeError?'|':''}${timestamp}|${timeTaken}|${choices}|${optStr}${suboptStr}`;
@@ -619,20 +643,28 @@ function preloadImages() {
       return new Promise((resolve, reject) => {
           const img = new Image();
 
+          img.crossOrigin = 'Anonymous';
           img.onload = () => {
-            const canvas = document.createElement('canvas');
-            canvas.width = this.naturalWidth;
-            canvas.height = this.naturalHeight;
-            canvas.getContext('2d').drawImage(img, 0, 0);
-
-            characterDataToSort[idx].img = canvas.toDataURL('image/png');
+            setImageToData(img, idx);
             resolve(img);
           };
           img.onerror = img.onabort = () => reject(src);
+          if ( img.complete || img.complete === undefined ) {
+            img.src = src;
+          }
           img.src = src;
       });
   };
-  const promises = characterDataToSort.map((char, idx) => loadImage(imageRoot + char.img));
+
+  const setImageToData = (img, idx) => {
+    const canvas = document.createElement('canvas');
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    canvas.getContext('2d').drawImage(img, 0, 0);
+    characterDataToSort[idx].img = canvas.toDataURL();
+  };
+
+  const promises = characterDataToSort.map((char, idx) => loadImage(imageRoot + char.img, idx));
   return Promise.all(promises);
 }
 
