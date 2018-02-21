@@ -1,55 +1,54 @@
 /** @type {CharData} */
-let characterData = [];         // Initial character data set used.
+let characterData       = [];   // Initial character data set used.
 /** @type {CharData} */
 let characterDataToSort = [];   // Character data set after filtering.
-
 /** @type {Options} */
-let options = [];               // Initial option set used.
+let options             = [];   // Initial option set used.
 
-let currentVersion = '';        // Which version of characterData and options are used.
+let currentVersion      = '';   // Which version of characterData and options are used.
 
 /** @type {(boolean|boolean[])[]} */
-let optTaken = [];              // Records which options are set.
+let optTaken  = [];             // Records which options are set.
 
 /** Save Data. Concatenated into array, joined into string (delimited by '|') and compressed with lz-string. */
 let timestamp = 0;        // savedata[0]      (Unix time when sorter was started, used as initial PRNG seed and in dataset selection)
 let timeTaken = 0;        // savedata[1]      (Number of ms elapsed when sorter ends, used as end-of-sort flag and in filename generation)
-let optStr = '';          // savedata[2]      (String of '0' and '1' that denotes top-level option selection)
-let choices = '';         // savedata[3]      (String of '0', '1' and '2' that records what sorter choices are made)
+let choices   = '';       // savedata[2]      (String of '0', '1' and '2' that records what sorter choices are made)
+let optStr    = '';       // savedata[3]      (String of '0' and '1' that denotes top-level option selection)
 let suboptStr = '';       // savedata[4...n]  (String of '0' and '1' that denotes nested option selection, separated by '|')
 let timeError = false;    // Shifts entire savedata array to the right by 1 and adds an empty element at savedata[0] if true.
 
 /** Intermediate sorter data. */
 let sortedIndexList = [];
-let recordDataList = [];
+let recordDataList  = [];
 let parentIndexList = [];
-let tiedDataList = [];
+let tiedDataList    = [];
 
-let leftIndex = 0;
-let leftInnerIndex = 0;
-let rightIndex = 0;
+let leftIndex       = 0;
+let leftInnerIndex  = 0;
+let rightIndex      = 0;
 let rightInnerIndex = 0;
-let battleNo = 1;
-let sortedNo = 0;
-let pointer = 0;
+let battleNo        = 1;
+let sortedNo        = 0;
+let pointer         = 0;
 
 /** A copy of intermediate sorter data is recorded for undo() purposes. */
 let sortedIndexListPrev = [];
-let recordDataListPrev = [];
+let recordDataListPrev  = [];
 let parentIndexListPrev = [];
-let tiedDataListPrev = [];
+let tiedDataListPrev    = [];
 
-let leftIndexPrev = 0;
-let leftInnerIndexPrev = 0;
-let rightIndexPrev = 0;
+let leftIndexPrev       = 0;
+let leftInnerIndexPrev  = 0;
+let rightIndexPrev      = 0;
 let rightInnerIndexPrev = 0;
-let battleNoPrev = 1;
-let sortedNoPrev = 0;
-let pointerPrev = 0;
+let battleNoPrev        = 1;
+let sortedNoPrev        = 0;
+let pointerPrev         = 0;
 
 /** Miscellaneous sorter data that doesn't need to be saved for undo(). */
-let loading = false;
-let totalBattles = 0;
+let loading       = false;
+let totalBattles  = 0;
 
 /** Initialize script. */
 function init() {
@@ -63,6 +62,10 @@ function init() {
   document.querySelector('.sorting.tie.button').addEventListener('click', () => pick('tie'));
   document.querySelector('.sorting.undo.button').addEventListener('click', undo);
   document.querySelector('.sorting.save.button').addEventListener('click', saveProgress);
+  
+  document.querySelector('.finished.save.button').addEventListener('click', saveProgress);
+  document.querySelector('.finished.getimg.button').addEventListener('click', generateImage);
+  document.querySelector('.finished.list.button').addEventListener('click', generateTextList);
 
   setLatestDataset();
 
@@ -90,7 +93,7 @@ function start() {
   });
 
   /** Convert boolean array form to string form. */
-  optStr = '';
+  optStr    = '';
   suboptStr = '';
 
   optStr = optTaken
@@ -142,8 +145,8 @@ function start() {
    * the mergesort process.
    */
 
-  recordDataList = characterDataToSort.map(() => 0);
-  tiedDataList = characterDataToSort.map(() => -1);
+  recordDataList  = characterDataToSort.map(() => 0);
+  tiedDataList    = characterDataToSort.map(() => -1);
 
   /** 
    * Put a list of indexes that we'll be sorting into sortedIndexList. These will refer back
@@ -160,7 +163,7 @@ function start() {
   parentIndexList[0] = -1;
 
   let midpoint = 0;   // Indicates where to split the array.
-  let marker = 1;     // Indicates where to place our newly split array.
+  let marker   = 1;   // Indicates where to place our newly split array.
 
   for (let i = 0; i < sortedIndexList.length; i++) {
     if (sortedIndexList[i].length > 1) {
@@ -170,21 +173,19 @@ function start() {
       sortedIndexList[marker] = parent.slice(0, midpoint);              // Split the array in half, and put the left half into the marked index.
       totalBattles += sortedIndexList[marker].length;                   // The result's length will add to our total number of comparisons.
       parentIndexList[marker] = i;                                      // Record where it came from.
-      
       marker++;                                                         // Increment the marker to put the right half into.
 
       sortedIndexList[marker] = parent.slice(midpoint, parent.length);  // Put the right half next to its left half.
       totalBattles += sortedIndexList[marker].length;                   // The result's length will add to our total number of comparisons.
       parentIndexList[marker] = i;                                      // Record where it came from.
-
       marker++;                                                         // Rinse and repeat, until we get arrays of length 1. This is initialization of merge sort.
     }
   }
 
-  leftIndex = sortedIndexList.length - 2;     // Start with the second last value and...
+  leftIndex  = sortedIndexList.length - 2;    // Start with the second last value and...
   rightIndex = sortedIndexList.length - 1;    // the last value in the sorted list and work our way down to index 0.
 
-  leftInnerIndex = 0;                         // Inner indexes, because we'll be comparing the left array
+  leftInnerIndex  = 0;                        // Inner indexes, because we'll be comparing the left array
   rightInnerIndex = 0;                        // to the right array, in order to merge them into one sorted array.
 
   /** Disable all checkboxes and hide/show appropriate parts while we preload the images. */
@@ -205,11 +206,11 @@ function start() {
 
 /** Displays the current state of the sorter. */
 function display() {
-  const percent = Math.floor(sortedNo * 100 / totalBattles) + '%';
-  const leftCharIndex = sortedIndexList[leftIndex][leftInnerIndex];
-  const rightCharIndex = sortedIndexList[rightIndex][rightInnerIndex];
-  const leftChar = characterDataToSort[leftCharIndex];
-  const rightChar = characterDataToSort[rightCharIndex];
+  const percent         = Math.floor(sortedNo * 100 / totalBattles) + '%';
+  const leftCharIndex   = sortedIndexList[leftIndex][leftInnerIndex];
+  const rightCharIndex  = sortedIndexList[rightIndex][rightInnerIndex];
+  const leftChar        = characterDataToSort[leftCharIndex];
+  const rightChar       = characterDataToSort[rightCharIndex];
 
   document.querySelector('.progressbattle').innerHTML = `Battle No. ${battleNo}`;
   document.querySelector('.progressfill').style.width = percent;
@@ -220,6 +221,16 @@ function display() {
 
   document.querySelector('.left.sort.text > p').innerHTML = leftChar.name;
   document.querySelector('.right.sort.text > p').innerHTML = rightChar.name;
+
+  /** Autopick if choice has been given. */
+  if (choices.length + 1 > battleNo) {
+    switch (Number(choices[battleNo - 1])) {
+      case 0: pick('left'); break;
+      case 1: pick('right'); break;
+      case 2: pick('tie'); break;
+      default: break;
+    }
+  }
 }
 
 /**
@@ -228,21 +239,21 @@ function display() {
  * @param {'left'|'right'|'tie'} sortType
  */
 function pick(sortType) {
-  if (timeTaken || loading) { return; }
+  if (timeTaken && !(choices.length + 1 > battleNo) || loading) { return; }
   else if (!timestamp) { return start(); }
 
-  let sortedIndexListPrev = sortedIndexList.slice(0);
-  let recordDataListPrev = recordDataList.slice(0);
-  let parentIndexListPrev = parentIndexList.slice(0);
-  let tiedDataListPrev = tiedDataList.slice(0);
+  sortedIndexListPrev = sortedIndexList.slice(0);
+  recordDataListPrev  = recordDataList.slice(0);
+  parentIndexListPrev = parentIndexList.slice(0);
+  tiedDataListPrev    = tiedDataList.slice(0);
 
-  let leftIndexPrev = leftIndex;
-  let leftInnerIndexPrev = leftInnerIndex;
-  let rightIndexPrev = rightIndex;
-  let rightInnerIndexPrev = rightInnerIndex;
-  let battleNoPrev = battleNo;
-  let sortedNoPrev = sortedNo;
-  let pointerPrev = pointer;
+  leftIndexPrev       = leftIndex;
+  leftInnerIndexPrev  = leftInnerIndex;
+  rightIndexPrev      = rightIndex;
+  rightInnerIndexPrev = rightInnerIndex;
+  battleNoPrev        = battleNo;
+  sortedNoPrev        = sortedNo;
+  pointerPrev         = pointer;
 
   /** 
    * For picking 'left' or 'right':
@@ -253,30 +264,18 @@ function pick(sortType) {
    */
   switch (sortType) {
     case 'left': {
-      choices += '0';
-      recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
-      leftInnerIndex++;
-      pointer++;
-      sortedNo++;
+      if (!(choices.length + 1 > battleNo)) { choices += '0'; }
+      recordData('left');
       while (tiedDataList[recordDataList[pointer - 1]] != -1) {
-        recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
-        leftInnerIndex++;
-        pointer++;
-        sortedNo++;
+        recordData('left');
       }
       break;
     }
     case 'right': {
-      choices += '1';
-      recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
-      rightInnerIndex;
-      pointer++;
-      sortedNo++;
+      if (!(choices.length + 1 > battleNo)) { choices += '1'; }
+      recordData('right');
       while (tiedDataList[recordDataList [pointer - 1]] != -1) {
-        recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
-        rightInnerIndex;
-        pointer++;
-        sortedNo++;
+        recordData('right');
       }
       break;
     }
@@ -289,27 +288,15 @@ function pick(sortType) {
    * as if we picked the 'right' character.
    */
     case 'tie': {
-      choices += '2';
-      recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
-      leftInnerIndex++;
-      pointer++;
-      sortedNo++;
+      if (!(choices.length + 1 > battleNo)) { choices += '2'; }
+      recordData('left');
       while (tiedDataList[recordDataList[pointer - 1]] != -1) {
-        recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
-        leftInnerIndex++;
-        pointer++;
-        sortedNo++;
+        recordData('left');
       }
       tiedDataList[recordDataList[pointer - 1]] = sortedIndexList[rightIndex][rightInnerIndex];
-      recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
-      rightInnerIndex++;
-      pointer++;
-      sortedNo++;
+      recordData('right');
       while (tiedDataList[recordDataList [pointer - 1]] != -1) {
-        recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
-        rightInnerIndex;
-        pointer++;
-        sortedNo++;
+        recordData('right');
       }
       break;
     }
@@ -325,17 +312,11 @@ function pick(sortType) {
 
   if (leftInnerIndex < leftListLen && rightInnerIndex === rightListLen) {
     while (leftInnerIndex < leftListLen) {
-      recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
-      leftInnerIndex++;
-      pointer++;
-      sortedNo++;
+      recordData('left');
     }
   } else if (leftInnerIndex === leftListLen && rightInnerIndex < rightListLen) {
     while (rightInnerIndex < rightListLen) {
-      recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
-      rightInnerIndex++;
-      pointer++;
-      sortedNo++;
+      recordData('right');
     }
   }
 
@@ -367,6 +348,11 @@ function pick(sortType) {
    */
   if (leftIndex < 0) {
     timeTaken = timeTaken || new Date().getTime() - timestamp;
+
+    document.querySelector('.progressbattle').innerHTML = `Battle No. ${battleNo} - Completed!`;
+    document.querySelector('.progressfill').style.width = '100%';
+    document.querySelector('.progresstext').innerHTML = '100%';
+
     result();
   } else {
     battleNo++;
@@ -374,24 +360,120 @@ function pick(sortType) {
   }
 }
 
+/**
+ * Records data in recordDataList.
+ * 
+ * @param {'left'|'right'} sortType Record from the left or the right character array.
+ */
+function recordData(sortType) {
+  if (sortType === 'left') {
+    recordDataList[pointer] = sortedIndexList[leftIndex][leftInnerIndex];
+    leftInnerIndex++;
+  } else {
+    recordDataList[pointer] = sortedIndexList[rightIndex][rightInnerIndex];
+    rightInnerIndex++;
+  }
+  
+  pointer++;
+  sortedNo++;
+}
+
+/**
+ * Shows the result of the sorter.
+ * 
+ * @param {number} [imageNum=3] Number of images to display. Defaults to 3.
+ */
+function result(imageNum = 3) {
+  document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
+  document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'none');
+  document.querySelector('.options').style.display = 'none';
+
+  const header = '<div class="result head"><div class="left">Order</div><div class="right">Name</div></div>';
+  const imgRes = (char, num) => `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${imageRoot + char.img}"><div>${char.name}</div></div></div>`;
+  const res = (char, num) => `<div class="result"><div class="left">${num}</div><div class="right">${char.name}</div></div>`;
+
+  let rankNum       = 1;
+  let tiedRankNum   = 1;
+  let imageDisplay  = imageNum;
+
+  const finalSortedIndexes = sortedIndexList[0].slice(0);
+  const resultTable = document.querySelector('.results');
+
+  resultTable.innerHTML = header;
+
+  characterDataToSort.forEach((val, idx) => {
+    const characterIndex = finalSortedIndexes[idx];
+    const character = characterDataToSort[characterIndex];
+    if (imageDisplay-- > 0) {
+      resultTable.insertAdjacentHTML('beforeend', imgRes(character, rankNum));
+    } else {
+      resultTable.insertAdjacentHTML('beforeend', res(character, rankNum));
+    }
+    if (idx < characterDataToSort.length - 1) {
+      if (tiedDataList[characterIndex] === finalSortedIndexes[idx + 1]) {
+        tiedRankNum++;            // Indicates how many people are tied at the same rank.
+      } else {
+        rankNum += tiedRankNum;   // Add it to the actual ranking, then reset it.
+        tiedRankNum = 1;          // The default value is 1, so it increments as normal if no ties.
+      }
+    }
+  });
+}
+
 /** Undo previous choice. */
-function undo() {}
+function undo() {
+  if (timeTaken) { return; }
 
-/** Shows the result of the sorter. */
-function result() {}
+  choices = battleNo === battleNoPrev ? choices : choices.slice(0, -1);
 
-function saveProgress() {}
+  sortedIndexList = sortedIndexListPrev.slice(0);
+  recordDataList  = recordDataListPrev.slice(0);
+  parentIndexList = parentIndexListPrev.slice(0);
+  tiedDataList    = tiedDataListPrev.slice(0);
 
-function loadProgress() {}
+  leftIndex       = leftIndexPrev;
+  leftInnerIndex  = leftInnerIndexPrev;
+  rightIndex      = rightIndexPrev;
+  rightInnerIndex = rightInnerIndexPrev;
+  battleNo        = battleNoPrev;
+  sortedNo        = sortedNoPrev;
+  pointer         = pointerPrev;
 
-function loadResult() {}
+  display();
+}
+
+/** 
+ * Save progress to local browser storage and generate save URL.
+*/
+function saveProgress() {
+  const saveData = generateSavedata();
+
+  localStorage.setItem('saveData', saveData);
+
+  const saveURL = `${window.location.origin}${window.location.pathname}?${saveData}`;
+  const inProgressText = 'You may click Load Progress after this to resume, or use this URL.';
+  const finishedText = 'You may use this URL to share this result.';
+
+  window.prompt(timeTaken ? finishedText : inProgressText, saveURL);
+}
+
+/**
+ * Load progress from local browser storage.
+*/
+function loadProgress() {
+  const saveData = localStorage.getItem('saveData');
+
+  if (saveData) decodeQuery(saveData);
+}
 
 function generateImage() {}
 
 function generateTextList() {}
 
-function generateLink() {
-  // LZString.compressToEncodedURIComponent()
+function generateSavedata() {
+  const saveData = `${timeError?'|':''}${timestamp}|${timeTaken}|${choices}|${optStr}${suboptStr}`;
+  return LZString.compressToEncodedURIComponent(saveData);
 }
 
 /** Retrieve latest character data and options from dataset. */
@@ -399,7 +481,7 @@ function setLatestDataset() {
   /** Set some defaults. */
   timestamp = 0;
   timeTaken = 0;
-  choices = '';
+  choices   = '';
 
   const latestDateIndex = Object.keys(dataSet)
     .map(date => new Date(date))
@@ -468,11 +550,11 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
       timeError = true;
     }
 
-    timestamp = Number(decoded[0]);
-    timeTaken = Number(decoded[1]);
-    choices = decoded[3];
+    timestamp = Number(decoded.splice(0, 1)[0]);
+    timeTaken = Number(decoded.splice(0, 1)[0]);
+    choices   = decoded.splice(0, 1)[0];
 
-    const optDecoded = decoded[2];
+    const optDecoded    = decoded.splice(0, 1)[0];
     const suboptDecoded = decoded.slice(0);
 
     /** 
@@ -521,6 +603,7 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
 
     successfulLoad = true;
   } catch (err) {
+    alert(`Error loading shareable link: ${err}`);
     console.error(`Error loading shareable link: ${err}`);
     setLatestDataset(); // Restore to default function if loading link does not work.
   }
@@ -528,16 +611,28 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
   if (successfulLoad) { start(); }
 }
 
+/** 
+ * Preloads images in the filtered character data and converts to base64 representation.
+*/
 function preloadImages() {
-  const loadImage = (src) => {
+  const loadImage = (src, idx) => {
       return new Promise((resolve, reject) => {
           const img = new Image();
-          img.onload = () => resolve(img);
+
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = this.naturalWidth;
+            canvas.height = this.naturalHeight;
+            canvas.getContext('2d').drawImage(img, 0, 0);
+
+            characterDataToSort[idx].img = canvas.toDataURL('image/png');
+            resolve(img);
+          };
           img.onerror = img.onabort = () => reject(src);
           img.src = src;
       });
   };
-  const promises = characterDataToSort.map(char => loadImage(imageRoot + char.img));
+  const promises = characterDataToSort.map((char, idx) => loadImage(imageRoot + char.img));
   return Promise.all(promises);
 }
 

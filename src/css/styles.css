@@ -4,8 +4,9 @@ body {
 }
 
 .container {
-  display: grid;
-  grid-row-gap: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
   margin-top: 1em;
 }
 
@@ -57,7 +58,7 @@ body {
   grid-row: span 3;
 }
 
-.sorting.button {
+.sorting.button, .finished.button {
   grid-row: span 2;
   display: none;
 }
@@ -157,14 +158,90 @@ label.tooltip:hover {
   color: #990000;
 }
 
-.options > .large.option,  .options > hr {
+.options > .large.option, .options > hr {
   grid-column: span 3;
   text-align: center;
   width: 100%;
 }
 
+.results {
+  font-size: 0.75em;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  width: 80%;
+}
+
+@media all and (min-width: 600px) {
+  .results {
+    flex-flow: column wrap;
+    max-height: calc(5 * (175px + 2px) + 1 * (15px + 2px));
+    /* 2px for borders */
+  }
+}
+
+@media all and (max-width: 600px) {
+  .results {
+    flex-flow: column nowrap;
+  }
+}
+
+.result {
+  height: 15px;
+  margin-bottom: -1px;
+  display: grid;
+  width: 211px;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid #000;
+  margin-right: 5px;
+}
+
+.result.image {
+  height: 175px;
+}
+
+.result.image img {
+  height: 160px;
+}
+
+.result.spacer {
+  height: 1px;
+  background-color: #000;
+}
+
+.result.head {
+  background-color: #000;
+  color: #FFF;
+}
+
+.result > .left {
+  width: 35px;
+  padding: 1px 3px 1px 0.5em;
+  grid-column: 1 / 2;
+  text-align: right;
+}
+
+.result.image .left {
+  position: relative;
+}
+
+.result.image > .left span {
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  margin-top: -0.375em;
+}
+
+.result > .right {
+  width: 160px;
+  padding: 1px 0em 1px 0em;
+  grid-column: 2 / 3;
+  border-left: 1px solid #000;
+  text-align: center;
+}
+
 .info {
-  margin: 0px auto 3em;
+  margin: 2em auto 3em;
   display: block;
   text-align: center;
   font-size: 0.6875em;
