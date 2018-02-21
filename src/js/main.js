@@ -239,7 +239,7 @@ function display() {
   document.querySelector('.right.sort.text > p').innerHTML = rightChar.name;
 
   /** Autopick if choice has been given. */
-  if (choices.length + 1 > battleNo) {
+  if (choices.length !== battleNo - 1) {
     switch (Number(choices[battleNo - 1])) {
       case 0: pick('left'); break;
       case 1: pick('right'); break;
@@ -255,7 +255,7 @@ function display() {
  * @param {'left'|'right'|'tie'} sortType
  */
 function pick(sortType) {
-  if (timeTaken && !(choices.length + 1 > battleNo) || loading) { return; }
+  if ((timeTaken && choices.length === battleNo - 1) || loading) { return; }
   else if (!timestamp) { return start(); }
 
   sortedIndexListPrev = sortedIndexList.slice(0);
@@ -280,7 +280,7 @@ function pick(sortType) {
    */
   switch (sortType) {
     case 'left': {
-      if (!(choices.length + 1 > battleNo)) { choices += '0'; }
+      if (choices.length === battleNo - 1) { choices += '0'; }
       recordData('left');
       while (tiedDataList[recordDataList[pointer - 1]] != -1) {
         recordData('left');
@@ -288,7 +288,7 @@ function pick(sortType) {
       break;
     }
     case 'right': {
-      if (!(choices.length + 1 > battleNo)) { choices += '1'; }
+      if (choices.length === battleNo - 1) { choices += '1'; }
       recordData('right');
       while (tiedDataList[recordDataList [pointer - 1]] != -1) {
         recordData('right');
@@ -304,7 +304,7 @@ function pick(sortType) {
    * as if we picked the 'right' character.
    */
     case 'tie': {
-      if (!(choices.length + 1 > battleNo)) { choices += '2'; }
+      if (choices.length === battleNo - 1) { choices += '2'; }
       recordData('left');
       while (tiedDataList[recordDataList[pointer - 1]] != -1) {
         recordData('left');
