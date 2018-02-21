@@ -50,6 +50,7 @@ let pointerPrev         = 0;
 let finalCharacters = [];
 let loading         = false;
 let totalBattles    = 0;
+let storedSaveType  = localStorage.getItem('saveType');
 
 /** Initialize script. */
 function init() {
@@ -62,14 +63,47 @@ function init() {
   
   document.querySelector('.sorting.tie.button').addEventListener('click', () => pick('tie'));
   document.querySelector('.sorting.undo.button').addEventListener('click', undo);
-  document.querySelector('.sorting.save.button').addEventListener('click', saveProgress);
+  document.querySelector('.sorting.save.button').addEventListener('click', () => saveProgress('Progress'));
   
-  document.querySelector('.finished.save.button').addEventListener('click', saveProgress);
+  document.querySelector('.finished.save.button').addEventListener('click', () => saveProgress('Last Result'));
   document.querySelector('.finished.getimg.button').addEventListener('click', generateImage);
   document.querySelector('.finished.list.button').addEventListener('click', generateTextList);
 
+  document.querySelector('.clearsave').addEventListener('click', clearProgress);
+
+  /** Define keyboard controls (up/down/left/right vimlike k/j/h/l). */
+  document.addEventListener('keypress', (ev) => {
+    /** If sorting is in progress. */
+    if (timestamp && !loading && choices.length !== battleNo - 1) {
+      switch(ev.key) {
+        case 's': case '3':                   saveProgress('Progress'); break;
+        case 'h': case 'ArrowLeft':           pick('left'); break;
+        case 'l': case 'ArrowRight':          pick('right'); break;
+        case 'k': case '1': case 'ArrowUp':   pick('tie'); break;
+        case 'j': case '2': case 'ArrowDown': undo(); break;
+        default: break;
+      }
+    }
+    /** If sorting has ended. */
+    if (timeTaken && choices.length === battleNo - 1) {
+      switch(ev.key) {
+        case 'k': case '1': saveProgress('Last Result'); break;
+        case 'j': case '2': generateImage(); break;
+        case 's': case '3': generateTextList(); break;
+        default: break;
+      }
+    } else { // If sorting hasn't started yet.
+      switch(ev.key) {
+        case '1': case 's': case 'Enter': start(); break;
+        case '2': case 'l':               loadProgress(); break;
+        default: break;
+      }
+    }
+  });
+
   document.querySelector('.image.selector').insertAdjacentElement('beforeend', document.createElement('select'));
 
+  /** Initialize image quantity selector for results. */
   for (let i = 1; i <= 10; i++) {
     const select = document.createElement('option');
     select.value = i;
@@ -82,6 +116,15 @@ function init() {
     const imageNum = e.target.options[e.target.selectedIndex].value;
     result(Number(imageNum));
   });
+
+  /** Show load button if save data exists. */
+  if (storedSaveType) {
+    document.querySelector('.starting.load.button > span').insertAdjacentText('beforeend', storedSaveType);
+    document.querySelectorAll('.starting.button').forEach(el => {
+      el.style['grid-row'] = 'span 3';
+      el.style.display = 'block';
+    });
+  }
 
   setLatestDataset();
 
@@ -209,6 +252,7 @@ function start() {
   document.querySelectorAll('.starting.button').forEach(el => el.style.display = 'none');
   document.querySelector('.loading.button').style.display = 'block';
   document.querySelector('.progress').style.display = 'block';
+  document.querySelector('.info').style.display = 'none';
   loading = true;
 
   preloadImages().then(() => {
@@ -244,7 +288,7 @@ function display() {
       case 2: pick('tie'); break;
       default: break;
     }
-  }
+  } else { saveProgress('Autosave'); }
 }
 
 /**
@@ -473,18 +517,23 @@ function undo() {
 }
 
 /** 
- * Save progress to local browser storage and generate save URL.
+ * Save progress to local browser storage.
+ * 
+ * @param {'Autosave'|'Progress'|'Last Result'} saveType
 */
-function saveProgress() {
+function saveProgress(saveType) {
   const saveData = generateSavedata();
 
   localStorage.setItem('saveData', saveData);
+  localStorage.setItem('saveType', saveType);
 
-  const saveURL = `${window.location.origin}${window.location.pathname}?${saveData}`;
-  const inProgressText = 'You may click Load Progress after this to resume, or use this URL.';
-  const finishedText = 'You may use this URL to share this result.';
+  if (saveType !== 'Autosave') {
+    const saveURL = `${window.location.origin}${window.location.pathname}?${saveData}`;
+    const inProgressText = 'You may click Load Progress after this to resume, or use this URL.';
+    const finishedText = 'You may use this URL to share this result, or click Load Last Result to view it again.';
 
-  window.prompt(timeTaken ? finishedText : inProgressText, saveURL);
+    window.prompt(saveType === 'Last Result' ? finishedText : inProgressText, saveURL);
+  }
 }
 
 /**
@@ -494,6 +543,19 @@ function loadProgress() {
   const saveData = localStorage.getItem('saveData');
 
   if (saveData) decodeQuery(saveData);
+}
+
+/** 
+ * Clear progress from local browser storage.
+*/
+function clearProgress() {
+  storedSaveType = '';
+
+  localStorage.removeItem('saveData');
+  localStorage.removeItem('saveType');
+
+  document.querySelectorAll('.starting.start.button').forEach(el => el.style['grid-row'] = 'span 6');
+  document.querySelectorAll('.starting.load.button').forEach(el => el.style.display = 'none');
 }
 
 function generateImage() {
@@ -653,7 +715,6 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
 
     successfulLoad = true;
   } catch (err) {
-    alert(`Error loading shareable link: ${err}`);
     console.error(`Error loading shareable link: ${err}`);
     setLatestDataset(); // Restore to default function if loading link does not work.
   }

@@ -850,12 +850,16 @@ dataSet[dataSetVersion].characterData = [
       stage: []
     }
   },
-  { name: "Tokiko", img: "Y4maOc8.png", opts: {
+  { 
+    name: "Tokiko",
+    img: "Y4maOc8.png", 
+    opts: {
       series: ["book"],
       stage: []
-    } },
+    } 
+  },
   {
-    name: "Reisen (Manga)",
+    name: "Rei'sen (Manga)",
     img: "cWjCo2j.png",
     opts: {
       series: ["book"],

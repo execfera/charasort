@@ -54,8 +54,13 @@ body {
   cursor: pointer;
 }
 
-.starting.button {
+.starting.start.button {
+  grid-row: span 6;
+}
+
+.starting.load.button {
   grid-row: span 3;
+  display: none;
 }
 
 .sorting.button, .finished.button {
@@ -261,6 +266,7 @@ a {
   color: #990000;
   font-weight: bold;
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {
