@@ -167,9 +167,9 @@ label.tooltip:hover {
 .results {
   font-size: 0.75em;
   display: flex;
-  justify-content: center;
   align-content: flex-start;
   width: 80%;
+  margin: 2em auto;
 }
 
 @media all and (min-width: 600px) {

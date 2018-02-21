@@ -389,6 +389,7 @@ function result(imageNum = 3) {
   document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
   document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'none');
   document.querySelector('.options').style.display = 'none';
+  document.querySelector('.info').style.display = 'none';
 
   const header = '<div class="result head"><div class="left">Order</div><div class="right">Name</div></div>';
   const imgRes = (char, num) => `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${char.img}"><div>${char.name}</div></div></div>`;
