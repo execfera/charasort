@@ -252,7 +252,6 @@ function start() {
   document.querySelectorAll('.starting.button').forEach(el => el.style.display = 'none');
   document.querySelector('.loading.button').style.display = 'block';
   document.querySelector('.progress').style.display = 'block';
-  document.querySelector('.info').style.display = 'none';
   loading = true;
 
   preloadImages().then(() => {
