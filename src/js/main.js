@@ -74,7 +74,7 @@ function init() {
   /** Define keyboard controls (up/down/left/right vimlike k/j/h/l). */
   document.addEventListener('keypress', (ev) => {
     /** If sorting is in progress. */
-    if (timestamp && !timeTaken && !loading && choices.length !== battleNo - 1) {
+    if (timestamp && !timeTaken && !loading && choices.length === battleNo - 1) {
       switch(ev.key) {
         case 's': case '3':                   saveProgress('Progress'); break;
         case 'h': case 'ArrowLeft':           pick('left'); break;
