@@ -55,9 +55,9 @@ This is a list of things you need to change for your sorter, for each file.
 
     ```
     {
-    name: "Flandre Scarlet",
-    img: "OhaDcnc.png",
-    opts: {
+      name: "Flandre Scarlet",
+      img: "OhaDcnc.png",
+      opts: {
         series: ["book", "EoSD", "StB"],
         stage: ["ex"],
         loli: true
