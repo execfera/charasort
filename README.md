@@ -159,3 +159,4 @@ The script will automatically get the latest version, but will retain the previo
 ## Known Issues
 
  * Does not work with CloudFlare's Rocket Loader.
+ * Breaks on older versions of IE and mobile Safari, due to various incompatibilities.
