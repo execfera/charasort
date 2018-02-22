@@ -1,6 +1,6 @@
 # charasort
 A web based character sorter. Allows users to run through a manual merge sort of their favorite
-characters from a set
+characters from a set.
 
 **Features**
  * Entirely client side, no backend server required.
@@ -88,7 +88,7 @@ This is a list of things you need to change for your sorter, for each file.
     ```
     {
       name: 'Filter Lolis',
-      key: 'lolis',
+      key: 'loli',
       tooltip: 'Check this if you want to remove lolis from being listed.'
       checked: true,
     }
