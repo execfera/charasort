@@ -453,6 +453,7 @@ function progressBar(indicator, percentage) {
 function result(imageNum = 3) {
   document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
   document.querySelector('.image.selector').style.display = 'block';
+  document.querySelector('.time.taken').style.display = 'block';
   
   document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'none');
   document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'none');
@@ -460,6 +461,7 @@ function result(imageNum = 3) {
   document.querySelector('.info').style.display = 'none';
 
   const header = '<div class="result head"><div class="left">Order</div><div class="right">Name</div></div>';
+  const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}.`;
   const imgRes = (char, num) => `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${char.img}"><div>${char.name}</div></div></div>`;
   const res = (char, num) => `<div class="result"><div class="left">${num}</div><div class="right">${char.name}</div></div>`;
 
@@ -469,8 +471,10 @@ function result(imageNum = 3) {
 
   const finalSortedIndexes = sortedIndexList[0].slice(0);
   const resultTable = document.querySelector('.results');
+  const timeElem = document.querySelector('.time.taken');
 
   resultTable.innerHTML = header;
+  timeElem.innerHTML = timeStr;
 
   characterDataToSort.forEach((val, idx) => {
     const characterIndex = finalSortedIndexes[idx];
@@ -562,15 +566,14 @@ function generateImage() {
   const tzoffset = (new Date()).getTimezoneOffset() * 60000;
   const filename = 'sort-' + (new Date(timeFinished - tzoffset)).toISOString().slice(0, -5).replace('T', '(') + ').png';
 
-  domtoimage.toBlob(document.querySelector('.results'), { bgcolor: 'white' })
-    .then(blob => {
-        const blobURL = URL.createObjectURL(blob);
-        const imgButton = document.querySelector('.finished.getimg.button');
+  html2canvas(document.querySelector('.results')).then(canvas => {
+    const dataURL = canvas.toDataURL();
+    const imgButton = document.querySelector('.finished.getimg.button');
 
-        imgButton.removeEventListener('click', generateImage);
-        imgButton.innerHTML = '';
-        imgButton.insertAdjacentHTML('beforeend', `<a href="${blobURL}" download="${filename}">Download Image</a>`);
-    });
+    imgButton.removeEventListener('click', generateImage);
+    imgButton.innerHTML = '';
+    imgButton.insertAdjacentHTML('beforeend', `<a href="${dataURL}" download="${filename}">Download Image</a>`);
+  });
 }
 
 function generateTextList() {
@@ -756,6 +759,33 @@ function preloadImages() {
 
   const promises = characterDataToSort.map((char, idx) => loadImage(imageRoot + char.img, idx));
   return Promise.all(promises);
+}
+
+/**
+ * Returns a readable time string from milliseconds.
+ * 
+ * @param {number} milliseconds
+ */
+function msToReadableTime (milliseconds) {
+  let t = Math.floor(milliseconds/1000);
+  const years = Math.floor(t / 31536000);
+  t = t - (years * 31536000);
+  const months = Math.floor(t / 2592000);
+  t = t - (months * 2592000);
+  const days = Math.floor(t / 86400);
+  t = t - (days * 86400);
+  const hours = Math.floor(t / 3600);
+  t = t - (hours * 3600);
+  const minutes = Math.floor(t / 60);
+  t = t - (minutes * 60);
+  const content = [];
+	if (years) content.push(years + " year" + (years > 1 ? "s" : ""));
+	if (months) content.push(months + " month" + (months > 1 ? "s" : ""));
+	if (days) content.push(days + " day" + (days > 1 ? "s" : ""));
+	if (hours) content.push(hours + " hour"  + (hours > 1 ? "s" : ""));
+	if (minutes) content.push(minutes + " minute" + (minutes > 1 ? "s" : ""));
+	if (t) content.push(t + " second" + (t > 1 ? "s" : ""));
+  return content.slice(0,3).join(', ');
 }
 
 window.onload = init;

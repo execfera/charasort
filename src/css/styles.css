@@ -177,6 +177,14 @@ label.tooltip:hover {
   font-size: 0.75em;
 }
 
+.time.taken {
+  margin-top: 0.5em;
+  width: 500px;
+  display: none;
+  text-align: center;
+  font-size: 0.75em;
+}
+
 .results {
   font-size: 0.75em;
   display: flex;
