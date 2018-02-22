@@ -25,7 +25,7 @@ This is a list of things you need to change for your sorter, for each file.
 
     Change `imageRoot` if you are not uploading your images to imgur.
 
- * `src/js/YYYY-MM-DD.js`
+ * `src/js/data/YYYY-MM-DD.js`
 
     Creating your own set of data is relatively simple. First, change the `dataSetVersion` date to the date when you are creating the dataset. Example: `dataSetVersion = 2018-02-20`. The actual filename does not matter, it is just for your own easy reference.
     
