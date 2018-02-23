@@ -104,7 +104,7 @@ function init() {
   document.querySelector('.image.selector').insertAdjacentElement('beforeend', document.createElement('select'));
 
   /** Initialize image quantity selector for results. */
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 0; i <= 10; i++) {
     const select = document.createElement('option');
     select.value = i;
     select.text = i;
@@ -569,10 +569,19 @@ function generateImage() {
   html2canvas(document.querySelector('.results')).then(canvas => {
     const dataURL = canvas.toDataURL();
     const imgButton = document.querySelector('.finished.getimg.button');
+    const resetButton = document.createElement('a');
 
     imgButton.removeEventListener('click', generateImage);
     imgButton.innerHTML = '';
-    imgButton.insertAdjacentHTML('beforeend', `<a href="${dataURL}" download="${filename}">Download Image</a>`);
+    imgButton.insertAdjacentHTML('beforeend', `<a href="${dataURL}" download="${filename}">Download Image</a><br><br>`);
+
+    resetButton.insertAdjacentText('beforeend', 'Reset');
+    resetButton.addEventListener('click', (event) => {
+      imgButton.addEventListener('click', generateImage);
+      imgButton.innerHTML = 'Generate Image';
+      event.stopPropagation();
+    });
+    imgButton.insertAdjacentElement('beforeend', resetButton);
   });
 }
 
@@ -613,11 +622,11 @@ function setLatestDataset() {
 /** Populate option list. */
 function populateOptions() {
   const optList = document.querySelector('.options');
-  const optInsert = (name, id, tooltip = '', checked = true, disabled = false) => {
-    return `<div><label class="${tooltip?'tooltip':''}" title="${tooltip}"><input id="cb-${id}" type="checkbox" ${checked?'checked':''} ${disabled?'disabled':''}> ${name}</label></div>`;
+  const optInsert = (name, id, tooltip, checked = true, disabled = false) => {
+    return `<div><label class="${tooltip?'tooltip':''}" title="${tooltip?tooltip:name}"><input id="cb-${id}" type="checkbox" ${checked?'checked':''} ${disabled?'disabled':''}> ${name}</label></div>`;
   };
-  const optInsertLarge = (name, id, tooltip = '', checked = true) => {
-    return `<div class="large option"><label class="${tooltip?'tooltip':''}" title="${tooltip}"><input id="cbgroup-${id}" type="checkbox" ${checked?'checked':''}> ${name}</label></div>`;
+  const optInsertLarge = (name, id, tooltip, checked = true) => {
+    return `<div class="large option"><label class="${tooltip?'tooltip':''}" title="${tooltip?tooltip:name}"><input id="cbgroup-${id}" type="checkbox" ${checked?'checked':''}> ${name}</label></div>`;
   };
 
   /** Clear out any previous options. */

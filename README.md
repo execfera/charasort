@@ -80,7 +80,7 @@ This is a list of things you need to change for your sorter, for each file.
 
     * `name`: The name of the option to be displayed. **Required.**
     * `key`: A shorthand reference, used to refer to it in the character data. **Required.**
-    * `tooltip`: Some optional information that appears when you hover over the option.
+    * `tooltip`: Some optional information that appears when you hover over the option. If not provided, defaults to the option's name.
     * `checked`: If set to `true`, this option will be checked when your sorter starts. If not provided, defaults to `false`.
 
     Example:
