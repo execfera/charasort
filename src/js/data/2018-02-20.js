@@ -62,7 +62,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Hakurei Reimu",
     img: "c5DqpgX.png",
     opts: {
-      series: [ "book", "EoSD", "PCB", "IaMP", "IN", "PoFV", "StB", "MoF", "SWR", "SA", "UFO", "soku", "DS", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS" ],
+      series: [ "book", "EoSD", "PCB", "IaMP", "IN", "PoFV", "StB", "SWR", "MoF", "SA", "UFO", "soku", "DS", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS" ],
       stage: ["st4"]
     }
   },
@@ -70,7 +70,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Kirisame Marisa",
     img: "tJnkSzK.png",
     opts: {
-      series: [ "book", "EoSD", "PCB", "IaMP", "IN", "PoFV", "StB", "MoF", "SWR", "SA", "UFO", "soku", "DS", "GFW", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS" ],
+      series: [ "book", "EoSD", "PCB", "IaMP", "IN", "PoFV", "StB", "SWR", "MoF", "SA", "UFO", "soku", "DS", "GFW", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS" ],
       stage: ["st4", "ex"]
     }
   },
@@ -118,7 +118,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Patchouli Knowledge",
     img: "A7ZnuHo.png",
     opts: {
-      series: ["book", "EoSD", "IaMP", "StB", "MoF", "soku", "HM"],
+      series: ["book", "EoSD", "IaMP", "StB", "SWR", "soku", "HM"],
       stage: ["st4", "ex"]
     }
   },
@@ -126,7 +126,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Izayoi Sakuya",
     img: "sgZPf11.png",
     opts: {
-      series: [ "book", "EoSD", "PCB", "IaMP", "IN", "PoFV", "StB", "MoF", "soku", "HM", "DDC", "ISC" ],
+      series: [ "book", "EoSD", "PCB", "IaMP", "IN", "PoFV", "StB", "SWR", "soku", "HM", "DDC", "ISC" ],
       stage: ["st5", "st6"]
     }
   },
@@ -134,7 +134,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Remilia Scarlet",
     img: "8UX7hKE.png",
     opts: {
-      series: ["book", "EoSD", "IaMP", "IN", "StB", "MoF", "soku", "HM", "ISC"],
+      series: ["book", "EoSD", "IaMP", "IN", "StB", "SWR", "soku", "HM", "ISC"],
       stage: ["st6"]
     }
   },
@@ -158,7 +158,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Chen",
     img: "ohmetZh.png",
     opts: {
-      series: ["book", "PCB", "IaMP", "StB", "MoF", "soku", "HM"],
+      series: ["book", "PCB", "IaMP", "StB", "SWR", "soku", "HM"],
       stage: ["st2", "ex"]
     }
   },
@@ -166,7 +166,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Alice Margatroid",
     img: "aDIf0pN.png",
     opts: {
-      series: ["book", "PCB", "IaMP", "IN", "StB", "MoF", "soku", "HM"],
+      series: ["book", "PCB", "IaMP", "IN", "StB", "SWR", "soku", "HM"],
       stage: ["st3"]
     }
   },
@@ -206,7 +206,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Konpaku Youmu",
     img: "WMjyRLJ.png",
     opts: {
-      series: [ "book", "PCB", "IaMP", "IN", "PoFV", "StB", "MoF", "soku", "TD", "HM", "ISC" ],
+      series: [ "book", "PCB", "IaMP", "IN", "PoFV", "StB", "SWR", "soku", "TD", "HM", "ISC" ],
       stage: ["st5", "st6"]
     }
   },
@@ -214,7 +214,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Saigyouji Yuyuko",
     img: "VT9mTGb.png",
     opts: {
-      series: [ "book", "PCB", "IaMP", "IN", "StB", "MoF", "soku", "TD", "HM", "ISC" ],
+      series: [ "book", "PCB", "IaMP", "IN", "StB", "SWR", "soku", "TD", "HM", "ISC" ],
       stage: ["st1", "st6"]
     }
   },
@@ -222,7 +222,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Yakumo Ran",
     img: "rshnJPV.png",
     opts: {
-      series: ["book", "PCB", "IaMP", "IN", "StB", "MoF", "soku", "HM"],
+      series: ["book", "PCB", "IaMP", "IN", "StB", "SWR", "soku", "HM"],
       stage: ["ex"]
     }
   },
@@ -230,7 +230,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Yakumo Yukari",
     img: "qsceD4I.png",
     opts: {
-      series: [ "book", "PCB", "IaMP", "IN", "StB", "MoF", "soku", "HM", "ISC", "AoCF" ],
+      series: [ "book", "PCB", "IaMP", "IN", "StB", "SWR", "soku", "HM", "ISC", "AoCF" ],
       stage: ["ex"]
     }
   },
@@ -238,7 +238,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Ibuki Suika",
     img: "pLdMjQ3.png",
     opts: {
-      series: ["book", "IaMP", "StB", "MoF", "soku", "DS", "HM", "ISC"],
+      series: ["book", "IaMP", "StB", "SWR", "soku", "DS", "HM", "ISC"],
       stage: ["st6"]
     }
   },
@@ -310,7 +310,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Shameimaru Aya",
     img: "8TLXMST.png",
     opts: {
-      series: [ "book", "PoFV", "StB", "MoF", "SWR", "soku", "HM", "ISC", "HSiFS" ],
+      series: [ "book", "PoFV", "StB", "SWR", "MoF", "soku", "HM", "ISC", "HSiFS" ],
       stage: ["st4"]
     }
   },
@@ -334,7 +334,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Onozuka Komachi",
     img: "aX4WIH8.png",
     opts: {
-      series: ["book", "PoFV", "StB", "MoF", "soku", "HM"],
+      series: ["book", "PoFV", "StB", "SWR", "soku", "HM"],
       stage: ["st5"]
     }
   },
@@ -350,7 +350,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Aki Shizuha",
     img: "3pDRgvR.png",
     opts: {
-      series: ["SWR", "DS", "HM"],
+      series: ["MoF", "DS", "HM"],
       stage: ["st1"]
     }
   },
@@ -358,7 +358,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Aki Minoriko",
     img: "bV0DaN7.png",
     opts: {
-      series: ["SWR", "DS", "HM"],
+      series: ["MoF", "DS", "HM"],
       stage: ["st1"]
     }
   },
@@ -366,7 +366,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Kagiyama Hina",
     img: "J11NjNj.png",
     opts: {
-      series: ["SWR", "DS", "HM"],
+      series: ["MoF", "DS", "HM"],
       stage: ["st2"]
     }
   },
@@ -374,7 +374,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Kawashiro Nitori",
     img: "4Ufced2.png",
     opts: {
-      series: ["SWR", "DS", "HM", "ISC", "ULiL", "AoCF"],
+      series: ["MoF", "DS", "HM", "ISC", "ULiL", "AoCF"],
       stage: ["st3"]
     }
   },
@@ -382,7 +382,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Inubashiri Momiji",
     img: "qGMjnYk.png",
     opts: {
-      series: ["SWR", "DS", "ISC"],
+      series: ["MoF", "DS", "ISC"],
       stage: ["st4"]
     }
   },
@@ -390,7 +390,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Kochiya Sanae",
     img: "ATTRSWU.png",
     opts: {
-      series: ["SWR", "SA", "UFO", "soku", "DS", "TD", "HM", "ISC", "LoLK"],
+      series: ["MoF", "SA", "UFO", "soku", "DS", "TD", "HM", "ISC", "LoLK"],
       stage: ["st5", "ex"]
     }
   },
@@ -398,7 +398,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Yasaka Kanako",
     img: "nQ78Lz7.png",
     opts: {
-      series: ["SWR", "soku", "DS", "HM", "ISC"],
+      series: ["MoF", "soku", "DS", "HM", "ISC"],
       stage: ["st6", "ex"]
     }
   },
@@ -406,7 +406,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Moriya Suwako",
     img: "yJaD5ZV.png",
     opts: {
-      series: ["SWR", "SA", "soku", "DS", "HM", "ISC"],
+      series: ["MoF", "SA", "soku", "DS", "HM", "ISC"],
       stage: ["ex"]
     }
   },
@@ -414,7 +414,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Nagae Iku",
     img: "xgAlECj.png",
     opts: {
-      series: ["MoF", "soku", "DS", "HM"],
+      series: ["SWR", "soku", "DS", "HM"],
       stage: ["st5"]
     }
   },
@@ -422,7 +422,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Hinanawi Tenshi",
     img: "tZLYivt.png",
     opts: {
-      series: ["MoF", "soku", "DS", "HM", "ISC", "AoCF"],
+      series: ["SWR", "soku", "DS", "HM", "ISC", "AoCF"],
       stage: ["st6"]
     }
   },
