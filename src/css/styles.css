@@ -159,7 +159,7 @@ label {
   cursor: pointer;
 }
 
-label.tooltip:hover {
+label:hover {
   color: #990000;
 }
 
