@@ -660,7 +660,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Imaizumi Kagerou",
-    img: "b5UMjD8.png",
+    img: "qwwL0bB.png",
     opts: {
       series: ["DDC", "ISC"],
       stage: ["st3"]

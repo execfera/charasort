@@ -138,6 +138,8 @@ function start() {
   characterDataToSort = characterData.slice(0);
 
   /** Check selected options and convert to boolean array form. */
+  optTaken = [];
+
   options.forEach(opt => {
     if ('sub' in opt) {
       if (!document.getElementById(`cbgroup-${opt.key}`).checked) optTaken.push(false);
@@ -180,13 +182,19 @@ function start() {
           return subList;
         }, []);
         characterDataToSort = characterDataToSort.filter(char => {
-          return char.opts[opt.key].some(key => subArray.includes(key));
+          if (!(opt.key in char.opts)) console.warn(`Warning: ${opt.key} not set for ${char.name}.`);
+          return opt.key in char.opts && char.opts[opt.key].some(key => subArray.includes(key));
         });
       }
     } else if (optTaken[index]) {
       characterDataToSort = characterDataToSort.filter(char => !char.opts[opt.key]);
     }
   });
+
+  if (characterDataToSort.length < 2) {
+    alert('Cannot sort with less than two characters. Please reselect.');
+    return;
+  }
 
   /** Shuffle character array with timestamp seed. */
   timestamp = timestamp || new Date().getTime();
