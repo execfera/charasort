@@ -835,11 +835,4 @@ function reduceTextWidthTo(text, font, width) {
   }
 }
 
-function getTextWidthArial(text) {
-  const canvas = getTextWidthArial.canvas || (getTextWidthArial.canvas = document.createElement("canvas"));
-  const context = canvas.getContext("2d");
-  context.font = 'Arial 12px';
-  return context.measureText(text).width;
-}
-
 window.onload = init;
