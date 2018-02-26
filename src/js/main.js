@@ -271,13 +271,21 @@ function display() {
   const leftChar        = characterDataToSort[leftCharIndex];
   const rightChar       = characterDataToSort[rightCharIndex];
 
+  const charNameDisp = name => {
+    const charName = reduceTextWidthTo(name, 'Arial 12.8px', 220);
+    const charTooltip = name !== charName ? name : '';
+    return `<p title="${charTooltip}">${charName}</p>`;
+  };
+
   progressBar(`Battle No. ${battleNo}`, percent);
 
   document.querySelector('.left.sort.image').src = leftChar.img;
   document.querySelector('.right.sort.image').src = rightChar.img;
 
-  document.querySelector('.left.sort.text > p').innerHTML = leftChar.name;
-  document.querySelector('.right.sort.text > p').innerHTML = rightChar.name;
+  
+
+  document.querySelector('.left.sort.text').innerHTML = charNameDisp(leftChar.name);
+  document.querySelector('.right.sort.text').innerHTML = charNameDisp(rightChar.name);
 
   /** Autopick if choice has been given. */
   if (choices.length !== battleNo - 1) {
@@ -461,9 +469,17 @@ function result(imageNum = 3) {
   document.querySelector('.info').style.display = 'none';
 
   const header = '<div class="result head"><div class="left">Order</div><div class="right">Name</div></div>';
-  const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}.`;
-  const imgRes = (char, num) => `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${char.img}"><div>${char.name}</div></div></div>`;
-  const res = (char, num) => `<div class="result"><div class="left">${num}</div><div class="right">${char.name}</div></div>`;
+  const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <a href="${location.protocol}//${location.host}${location.pathname}">Do another sorter?</a>`;
+  const imgRes = (char, num) => {
+    const charName = reduceTextWidthTo(char.name, 'Arial 12px', 160);
+    const charTooltip = char.name !== charName ? char.name : '';
+    return `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${char.img}"><div><span title="${charTooltip}">${charName}</span></div></div></div>`;
+  }
+  const res = (char, num) => {
+    const charName = reduceTextWidthTo(char.name, 'Arial 12px', 160);
+    const charTooltip = char.name !== charName ? char.name : '';
+    return `<div class="result"><div class="left">${num}</div><div class="right"><span title="${charTooltip}">${charName}</span></div></div>`;
+  }
 
   let rankNum       = 1;
   let tiedRankNum   = 1;
@@ -795,6 +811,35 @@ function msToReadableTime (milliseconds) {
 	if (minutes) content.push(minutes + " minute" + (minutes > 1 ? "s" : ""));
 	if (t) content.push(t + " second" + (t > 1 ? "s" : ""));
   return content.slice(0,3).join(', ');
+}
+
+/**
+ * Reduces text to a certain rendered width.
+ *
+ * @param {string} text Text to reduce.
+ * @param {string} font Font applied to text. Example "12px Arial".
+ * @param {number} width Width of desired width in px.
+ */
+function reduceTextWidthTo(text, font, width) {
+  const canvas = reduceTextWidthTo.canvas || (reduceTextWidthTo.canvas = document.createElement("canvas"));
+  const context = canvas.getContext("2d");
+  context.font = font;
+  if (context.measureText(text).width < width) {
+    return text;
+  } else {
+    let reducedText = text;
+    while (context.measureText(reducedText).width + context.measureText('..').width > width * 0.8) {
+      reducedText = reducedText.slice(0, -1);
+    }
+    return reducedText + '..';
+  }
+}
+
+function getTextWidthArial(text) {
+  const canvas = getTextWidthArial.canvas || (getTextWidthArial.canvas = document.createElement("canvas"));
+  const context = canvas.getContext("2d");
+  context.font = 'Arial 12px';
+  return context.measureText(text).width;
 }
 
 window.onload = init;
