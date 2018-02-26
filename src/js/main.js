@@ -272,7 +272,7 @@ function display() {
   const rightChar       = characterDataToSort[rightCharIndex];
 
   const charNameDisp = name => {
-    const charName = reduceTextWidthTo(name, 'Arial 12.8px', 220);
+    const charName = reduceTextWidth(name, 'Arial 12.8px', 220);
     const charTooltip = name !== charName ? name : '';
     return `<p title="${charTooltip}">${charName}</p>`;
   };
@@ -471,12 +471,12 @@ function result(imageNum = 3) {
   const header = '<div class="result head"><div class="left">Order</div><div class="right">Name</div></div>';
   const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <a href="${location.protocol}//${location.host}${location.pathname}">Do another sorter?</a>`;
   const imgRes = (char, num) => {
-    const charName = reduceTextWidthTo(char.name, 'Arial 12px', 160);
+    const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
     const charTooltip = char.name !== charName ? char.name : '';
     return `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${char.img}"><div><span title="${charTooltip}">${charName}</span></div></div></div>`;
   }
   const res = (char, num) => {
-    const charName = reduceTextWidthTo(char.name, 'Arial 12px', 160);
+    const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
     const charTooltip = char.name !== charName ? char.name : '';
     return `<div class="result"><div class="left">${num}</div><div class="right"><span title="${charTooltip}">${charName}</span></div></div>`;
   }
@@ -820,11 +820,11 @@ function msToReadableTime (milliseconds) {
  * @param {string} font Font applied to text. Example "12px Arial".
  * @param {number} width Width of desired width in px.
  */
-function reduceTextWidthTo(text, font, width) {
-  const canvas = reduceTextWidthTo.canvas || (reduceTextWidthTo.canvas = document.createElement("canvas"));
+function reduceTextWidth(text, font, width) {
+  const canvas = reduceTextWidth.canvas || (reduceTextWidth.canvas = document.createElement("canvas"));
   const context = canvas.getContext("2d");
   context.font = font;
-  if (context.measureText(text).width < width) {
+  if (context.measureText(text).width < width * 0.8) {
     return text;
   } else {
     let reducedText = text;
