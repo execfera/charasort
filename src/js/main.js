@@ -50,13 +50,11 @@ let pointerPrev         = 0;
 let finalCharacters = [];
 let loading         = false;
 let totalBattles    = 0;
-let sorterName      = '';
-let storedSaveType  = '';
+let sorterURL       = window.location.host + window.location.pathname;
+let storedSaveType  = localStorage.getItem(`${sorterURL}_saveType`);
 
 /** Initialize script. */
 function init() {
-  sorterName = document.querySelector('.sortername').textContent;
-  storedSaveType = localStorage.getItem(`${sorterName}_saveType`);
 
   /** Define button behavior. */
   document.querySelector('.starting.start.button').addEventListener('click', start);
@@ -481,7 +479,7 @@ function result(imageNum = 3) {
   document.querySelector('.info').style.display = 'none';
 
   const header = '<div class="result head"><div class="left">Order</div><div class="right">Name</div></div>';
-  const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <a href="${location.protocol}//${location.host}${location.pathname}">Do another sorter?</a>`;
+  const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <a href="${location.protocol}//${sorterURL}">Do another sorter?</a>`;
   const imgRes = (char, num) => {
     const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
     const charTooltip = char.name !== charName ? char.name : '';
@@ -555,11 +553,11 @@ function undo() {
 function saveProgress(saveType) {
   const saveData = generateSavedata();
 
-  localStorage.setItem(`${sorterName}_saveData`, saveData);
-  localStorage.setItem(`${sorterName}_saveType`, saveType);
+  localStorage.setItem(`${sorterURL}_saveData`, saveData);
+  localStorage.setItem(`${sorterURL}_saveType`, saveType);
 
   if (saveType !== 'Autosave') {
-    const saveURL = `${location.protocol}//${location.host}${location.pathname}?${saveData}`;
+    const saveURL = `${location.protocol}//${sorterURL}?${saveData}`;
     const inProgressText = 'You may click Load Progress after this to resume, or use this URL.';
     const finishedText = 'You may use this URL to share this result, or click Load Last Result to view it again.';
 
