@@ -50,10 +50,14 @@ let pointerPrev         = 0;
 let finalCharacters = [];
 let loading         = false;
 let totalBattles    = 0;
-let storedSaveType  = localStorage.getItem('saveType');
+let sorterName      = '';
+let storedSaveType  = '';
 
 /** Initialize script. */
 function init() {
+  sorterName = document.querySelector('.sortername').textContent;
+  storedSaveType = localStorage.getItem(`${sorterName}_saveType`);
+
   /** Define button behavior. */
   document.querySelector('.starting.start.button').addEventListener('click', start);
   document.querySelector('.starting.load.button').addEventListener('click', loadProgress);
@@ -551,11 +555,11 @@ function undo() {
 function saveProgress(saveType) {
   const saveData = generateSavedata();
 
-  localStorage.setItem('saveData', saveData);
-  localStorage.setItem('saveType', saveType);
+  localStorage.setItem(`${sorterName}_saveData`, saveData);
+  localStorage.setItem(`${sorterName}_saveType`, saveType);
 
   if (saveType !== 'Autosave') {
-    const saveURL = `${window.location.origin}${window.location.pathname}?${saveData}`;
+    const saveURL = `${location.protocol}//${location.host}${location.pathname}?${saveData}`;
     const inProgressText = 'You may click Load Progress after this to resume, or use this URL.';
     const finishedText = 'You may use this URL to share this result, or click Load Last Result to view it again.';
 
@@ -567,7 +571,7 @@ function saveProgress(saveType) {
  * Load progress from local browser storage.
 */
 function loadProgress() {
-  const saveData = localStorage.getItem('saveData');
+  const saveData = localStorage.getItem(`${sorterName}_saveData`);
 
   if (saveData) decodeQuery(saveData);
 }
@@ -578,8 +582,8 @@ function loadProgress() {
 function clearProgress() {
   storedSaveType = '';
 
-  localStorage.removeItem('saveData');
-  localStorage.removeItem('saveType');
+  localStorage.removeItem(`${sorterName}_saveData`);
+  localStorage.removeItem(`${sorterName}_saveType`);
 
   document.querySelectorAll('.starting.start.button').forEach(el => el.style['grid-row'] = 'span 6');
   document.querySelectorAll('.starting.load.button').forEach(el => el.style.display = 'none');

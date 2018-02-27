@@ -15,7 +15,7 @@ game series, but the sorter can be easily edited to create any custom sorter des
 This is a list of things you need to change for your sorter, for each file.
 
  * `index.html`
-   * Sorter name: Change under `starting start button` and the `<title>` tags.
+   * Sorter name: Change under `sortername` and the `<title>` tags.
    * Starting banner images: 120px x 180px, under `left sort image` and `right sort image`.
    * OpenGraph tags: `og:site_name`, `og:description` and `og:image` will show up on embeds when linked to social media such as Facebook, Twitter and Discord.
    * Sorter info: Insert whatever you like under the `info` tag.
