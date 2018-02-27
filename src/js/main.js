@@ -569,7 +569,7 @@ function saveProgress(saveType) {
  * Load progress from local browser storage.
 */
 function loadProgress() {
-  const saveData = localStorage.getItem(`${sorterName}_saveData`);
+  const saveData = localStorage.getItem(`${sorterURL}_saveData`);
 
   if (saveData) decodeQuery(saveData);
 }
