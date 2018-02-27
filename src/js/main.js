@@ -580,8 +580,8 @@ function loadProgress() {
 function clearProgress() {
   storedSaveType = '';
 
-  localStorage.removeItem(`${sorterName}_saveData`);
-  localStorage.removeItem(`${sorterName}_saveType`);
+  localStorage.removeItem(`${sorterURL}_saveData`);
+  localStorage.removeItem(`${sorterURL}_saveType`);
 
   document.querySelectorAll('.starting.start.button').forEach(el => el.style['grid-row'] = 'span 6');
   document.querySelectorAll('.starting.load.button').forEach(el => el.style.display = 'none');
