@@ -11,6 +11,16 @@ characters from a set.
 The version in this repo is built for characters from the [Touhou Project](https://en.wikipedia.org/wiki/Touhou_Project)
 game series, but the sorter can be easily edited to create any custom sorter desired.
 
+## Related Sorters
+
+ * [Hyperdimension Neptunia Sorter](https://jamessliu.com/NepSort/) - [Source](https://github.com/james7132/NepSort)
+ * [Idol M@ster Sorter](https://jamessliu.com/ImasSort/) - [Source](https://github.com/james7132/ImasSort)
+ * [100% Orange Juice Sorter](https://sort.hazu.moe/100oj/)
+ * [Disneyland Sorter](https://sort.hazu.moe/disneyland/)
+ * [Danganronpa Sorter](https://sort.hazu.moe/dr/)
+ * [Fate/Grand Order Sorter](https://sort.hazu.moe/fgo/)
+ * [Metal Gear Revengance Sorter](https://sort.hazu.moe/mgr/)
+
 ## Creating Your Own Sorter
 This is a list of things you need to change for your sorter, for each file.
 
@@ -160,13 +170,3 @@ The script will automatically get the latest version, but will retain the previo
 
  * Does not work with CloudFlare's Rocket Loader.
  * Breaks on older versions of IE and mobile Safari, due to various incompatibilities.
-
-## Related Sorters
-
- * [Hyperdimension Neptunia Sorter](https://jamessliu.com/NepSort/) - [Source](https://github.com/james7132/NepSort)
- * [Idol M@ster Sorter](https://jamessliu.com/ImasSort/) - [Source](https://github.com/james7132/ImasSort)
- * [100% Orange Juice Sorter](https://sort.hazu.moe/100oj/)
- * [Disneyland Sorter](https://sort.hazu.moe/disneyland/)
- * [Danganronpa Sorter](https://sort.hazu.moe/dr/)
- * [Fate/Grand Order Sorter](https://sort.hazu.moe/fgo/)
- * [Metal Gear Revengance Sorter](https://sort.hazu.moe/mgr/)
