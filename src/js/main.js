@@ -766,34 +766,15 @@ function preloadImages() {
   const totalLength = characterDataToSort.length;
   let imagesLoaded = 0;
 
-  const loadImage = (src, idx) => {
-      return new Promise((resolve, reject) => {
-          const img = new Image();
-
-          img.crossOrigin = 'Anonymous';
-          img.onload = () => {
-            setImageToData(img, idx);
-            resolve(img);
-          };
-          img.onerror = img.onabort = () => reject(src);
-          if ( img.complete || img.complete === undefined ) {
-            img.src = src;
-          }
-          img.src = src;
-      });
-  };
-
-  const setImageToData = (img, idx) => {
-    const canvas = document.createElement('canvas');
-    canvas.width = img.naturalWidth;
-    canvas.height = img.naturalHeight;
-    canvas.getContext('2d').drawImage(img, 0, 0);
-    characterDataToSort[idx].img = canvas.toDataURL();
+  const loadImage = async (src) => {
+    const res = await ((await fetch(src)).blob());
     progressBar(`Loading Image ${++imagesLoaded}`, Math.floor(imagesLoaded * 100 / totalLength));
+    return URL.createObjectURL(res);
   };
 
-  const promises = characterDataToSort.map((char, idx) => loadImage(imageRoot + char.img, idx));
-  return Promise.all(promises);
+  return Promise.all(characterDataToSort.map(async (char, idx) => {
+    characterDataToSort[idx].img = await loadImage(imageRoot + char.img);
+  }));
 }
 
 /**
