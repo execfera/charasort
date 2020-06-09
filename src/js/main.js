@@ -510,7 +510,7 @@ function result(imageNum = 3) {
     } else {
       resultTable.insertAdjacentHTML('beforeend', res(character, rankNum));
     }
-    finalCharacters.push({ rank: rankNum, name: character.name });
+    finalCharacters.push({ rank: rankNum, name: character.name, tag: character.tag });
 
     if (idx < characterDataToSort.length - 1) {
       if (tiedDataList[characterIndex] === finalSortedIndexes[idx + 1]) {
