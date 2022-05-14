@@ -1,11 +1,11 @@
-/** @type {CharData} */
-let characterData       = [];   // Initial character data set used.
-/** @type {CharData} */
-let characterDataToSort = [];   // Character data set after filtering.
+/** @type {SongData} */
+let songData       = [];   // Initial song data set used.
+/** @type {SongData} */
+let songDataToSort = [];   // Song data set after filtering.
 /** @type {Options} */
 let options             = [];   // Initial option set used.
 
-let currentVersion      = '';   // Which version of characterData and options are used.
+let currentVersion      = '';   // Which version of songData and options are used.
 
 /** @type {(boolean|boolean[])[]} */
 let optTaken  = [];             // Records which options are set.
@@ -47,7 +47,7 @@ let sortedNoPrev        = 0;
 let pointerPrev         = 0;
 
 /** Miscellaneous sorter data that doesn't need to be saved for undo(). */
-let finalCharacters = [];
+let finalSongs = [];
 let loading         = false;
 let totalBattles    = 0;
 let sorterURL       = window.location.host + window.location.pathname;
@@ -137,7 +137,7 @@ function init() {
 /** Begin sorting. */
 function start() {
   /** Copy data into sorting array to filter. */
-  characterDataToSort = characterData.slice(0);
+  songDataToSort = songData.slice(0);
 
   /** Check selected options and convert to boolean array form. */
   optTaken = [];
@@ -183,43 +183,43 @@ function start() {
           if (subBool) { subList.push(options[index].sub[subIndex].key); }
           return subList;
         }, []);
-        characterDataToSort = characterDataToSort.filter(char => {
-          if (!(opt.key in char.opts)) console.warn(`Warning: ${opt.key} not set for ${char.name}.`);
-          return opt.key in char.opts && char.opts[opt.key].some(key => subArray.includes(key));
+        songDataToSort = songDataToSort.filter(song => {
+          if (!(opt.key in song.opts)) console.warn(`Warning: ${opt.key} not set for ${song.name}.`);
+          return opt.key in song.opts && song.opts[opt.key].some(key => subArray.includes(key));
         });
       }
     } else if (optTaken[index]) {
-      characterDataToSort = characterDataToSort.filter(char => !char.opts[opt.key]);
+      songDataToSort = songDataToSort.filter(song => !song.opts[opt.key]);
     }
   });
 
-  if (characterDataToSort.length < 2) {
-    alert('Cannot sort with less than two characters. Please reselect.');
+  if (songDataToSort.length < 2) {
+    alert('Cannot sort with less than two songs. Please reselect.');
     return;
   }
 
-  /** Shuffle character array with timestamp seed. */
+  /** Shuffle song array with timestamp seed. */
   timestamp = timestamp || new Date().getTime();
   if (new Date(timestamp) < new Date(currentVersion)) { timeError = true; }
   Math.seedrandom(timestamp);
 
-  characterDataToSort = characterDataToSort
+  songDataToSort = songDataToSort
     .map(a => [Math.random(), a])
     .sort((a,b) => a[0] - b[0])
     .map(a => a[1]);
 
   /**
-   * tiedDataList will keep a record of indexes on which characters are equal (i.e. tied) 
+   * tiedDataList will keep a record of indexes on which songs are equal (i.e. tied) 
    * to another one. recordDataList will have an interim list of sorted elements during
    * the mergesort process.
    */
 
-  recordDataList  = characterDataToSort.map(() => 0);
-  tiedDataList    = characterDataToSort.map(() => -1);
+  recordDataList  = songDataToSort.map(() => 0);
+  tiedDataList    = songDataToSort.map(() => -1);
 
   /** 
    * Put a list of indexes that we'll be sorting into sortedIndexList. These will refer back
-   * to characterDataToSort.
+   * to songDataToSort.
    * 
    * Begin splitting each element into little arrays and spread them out over sortedIndexList
    * increasing its length until it become arrays of length 1 and you can't split it anymore. 
@@ -228,7 +228,7 @@ function start() {
    * for the first element, which has no parent.
    */
 
-  sortedIndexList[0] = characterDataToSort.map((val, idx) => idx);
+  sortedIndexList[0] = songDataToSort.map((val, idx) => idx);
   parentIndexList[0] = -1;
 
   let midpoint = 0;   // Indicates where to split the array.
@@ -276,26 +276,26 @@ function start() {
 /** Displays the current state of the sorter. */
 function display() {
   const percent         = Math.floor(sortedNo * 100 / totalBattles);
-  const leftCharIndex   = sortedIndexList[leftIndex][leftInnerIndex];
-  const rightCharIndex  = sortedIndexList[rightIndex][rightInnerIndex];
-  const leftChar        = characterDataToSort[leftCharIndex];
-  const rightChar       = characterDataToSort[rightCharIndex];
+  const leftSongIndex   = sortedIndexList[leftIndex][leftInnerIndex];
+  const rightSongIndex  = sortedIndexList[rightIndex][rightInnerIndex];
+  const leftSong        = songDataToSort[leftSongIndex];
+  const rightSong       = songDataToSort[rightSongIndex];
 
-  const charNameDisp = name => {
-    const charName = reduceTextWidth(name, 'Arial 12.8px', 220);
-    const charTooltip = name !== charName ? name : '';
-    return `<p title="${charTooltip}">${charName}</p>`;
+  const songNameDisp = name => {
+    const songName = reduceTextWidth(name, 'Arial 12.8px', 220);
+    const songTooltip = name !== songName ? name : '';
+    return `<p title="${songTooltip}">${songName}</p>`;
   };
 
   progressBar(`Battle No. ${battleNo}`, percent);
 
-  document.querySelector('.left.sort.image').src = leftChar.img;
-  document.querySelector('.right.sort.image').src = rightChar.img;
+  document.querySelector('.left.sort.image').src = leftSong.img;
+  document.querySelector('.right.sort.image').src = rightSong.img;
 
   
 
-  document.querySelector('.left.sort.text').innerHTML = charNameDisp(leftChar.name);
-  document.querySelector('.right.sort.text').innerHTML = charNameDisp(rightChar.name);
+  document.querySelector('.left.sort.text').innerHTML = songNameDisp(leftSong.name);
+  document.querySelector('.right.sort.text').innerHTML = songNameDisp(rightSong.name);
 
   /** Autopick if choice has been given. */
   if (choices.length !== battleNo - 1) {
@@ -309,7 +309,7 @@ function display() {
 }
 
 /**
- * Sort between two character choices or tie.
+ * Sort between two song choices or tie.
  * 
  * @param {'left'|'right'|'tie'} sortType
  */
@@ -333,8 +333,8 @@ function pick(sortType) {
   /** 
    * For picking 'left' or 'right':
    * 
-   * Input the selected character's index into recordDataList. Increment the pointer of
-   * recordDataList. Then, check if there are any ties with this character, and keep
+   * Input the selected song's index into recordDataList. Increment the pointer of
+   * recordDataList. Then, check if there are any ties with this song, and keep
    * incrementing until we find no more ties. 
    */
   switch (sortType) {
@@ -358,9 +358,9 @@ function pick(sortType) {
   /** 
    * For picking 'tie' (i.e. heretics):
    * 
-   * Proceed as if we picked the 'left' character. Then, we record the right character's
-   * index value into the list of ties (at the left character's index) and then proceed
-   * as if we picked the 'right' character.
+   * Proceed as if we picked the 'left' song. Then, we record the right song's
+   * index value into the list of ties (at the left song's index) and then proceed
+   * as if we picked the 'right' song.
    */
     case 'tie': {
       if (choices.length === battleNo - 1) { choices += '2'; }
@@ -379,8 +379,8 @@ function pick(sortType) {
   }
 
   /**
-   * Once we reach the limit of the 'right' character list, we 
-   * insert all of the 'left' characters into the record, or vice versa.
+   * Once we reach the limit of the 'right' song list, we 
+   * insert all of the 'left' songs into the record, or vice versa.
    */
   const leftListLen = sortedIndexList[leftIndex].length;
   const rightListLen = sortedIndexList[rightIndex].length;
@@ -396,7 +396,7 @@ function pick(sortType) {
   }
 
   /**
-   * Once we reach the end of both 'left' and 'right' character lists, we can remove 
+   * Once we reach the end of both 'left' and 'right' song lists, we can remove 
    * the arrays from the initial mergesort array, since they are now recorded. This
    * record is a sorted version of both lists, so we can replace their original 
    * (unsorted) parent with a sorted version. Purge the record afterwards.
@@ -436,7 +436,7 @@ function pick(sortType) {
 /**
  * Records data in recordDataList.
  * 
- * @param {'left'|'right'} sortType Record from the left or the right character array.
+ * @param {'left'|'right'} sortType Record from the left or the right song array.
  */
 function recordData(sortType) {
   if (sortType === 'left') {
@@ -480,15 +480,15 @@ function result(imageNum = 3) {
 
   const header = '<div class="result head"><div class="left">Order</div><div class="right">Name</div></div>';
   const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <a href="${location.protocol}//${sorterURL}">Do another sorter?</a>`;
-  const imgRes = (char, num) => {
-    const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
-    const charTooltip = char.name !== charName ? char.name : '';
-    return `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${char.img}"><div><span title="${charTooltip}">${charName}</span></div></div></div>`;
+  const imgRes = (song, num) => {
+    const songName = reduceTextWidth(song.name, 'Arial 12px', 160);
+    const songTooltip = song.name !== songName ? song.name : '';
+    return `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${song.img}"><div><span title="${songTooltip}">${songName}</span></div></div></div>`;
   }
-  const res = (char, num) => {
-    const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
-    const charTooltip = char.name !== charName ? char.name : '';
-    return `<div class="result"><div class="left">${num}</div><div class="right"><span title="${charTooltip}">${charName}</span></div></div>`;
+  const res = (song, num) => {
+    const songName = reduceTextWidth(song.name, 'Arial 12px', 160);
+    const songTooltip = song.name !== songName ? song.name : '';
+    return `<div class="result"><div class="left">${num}</div><div class="right"><span title="${songTooltip}">${songName}</span></div></div>`;
   }
 
   let rankNum       = 1;
@@ -502,19 +502,19 @@ function result(imageNum = 3) {
   resultTable.innerHTML = header;
   timeElem.innerHTML = timeStr;
 
-  characterDataToSort.forEach((val, idx) => {
-    const characterIndex = finalSortedIndexes[idx];
-    const character = characterDataToSort[characterIndex];
+  songDataToSort.forEach((val, idx) => {
+    const songIndex = finalSortedIndexes[idx];
+    const song = songDataToSort[songIndex];
     if (imageDisplay-- > 0) {
-      resultTable.insertAdjacentHTML('beforeend', imgRes(character, rankNum));
+      resultTable.insertAdjacentHTML('beforeend', imgRes(song, rankNum));
     } else {
-      resultTable.insertAdjacentHTML('beforeend', res(character, rankNum));
+      resultTable.insertAdjacentHTML('beforeend', res(song, rankNum));
     }
-    finalCharacters.push({ rank: rankNum, name: character.name });
+    finalSongs.push({ rank: rankNum, name: song.name });
 
-    if (idx < characterDataToSort.length - 1) {
-      if (tiedDataList[characterIndex] === finalSortedIndexes[idx + 1]) {
-        tiedRankNum++;            // Indicates how many people are tied at the same rank.
+    if (idx < songDataToSort.length - 1) {
+      if (tiedDataList[songIndex] === finalSortedIndexes[idx + 1]) {
+        tiedRankNum++;            // Indicates how many songs are tied at the same rank.
       } else {
         rankNum += tiedRankNum;   // Add it to the actual ranking, then reset it.
         tiedRankNum = 1;          // The default value is 1, so it increments as normal if no ties.
@@ -612,8 +612,8 @@ function generateImage() {
 }
 
 function generateTextList() {
-  const data = finalCharacters.reduce((str, char) => {
-    str += `${char.rank}. ${char.name}<br>`;
+  const data = finalSongs.reduce((str, song) => {
+    str += `${song.rank}. ${song.name}<br>`;
     return str;
   }, '');
   const oWindow = window.open("", "", "height=640,width=480");
@@ -625,7 +625,7 @@ function generateSavedata() {
   return LZString.compressToEncodedURIComponent(saveData);
 }
 
-/** Retrieve latest character data and options from dataset. */
+/** Retrieve latest song data and options from dataset. */
 function setLatestDataset() {
   /** Set some defaults. */
   timestamp = 0;
@@ -639,7 +639,7 @@ function setLatestDataset() {
     }, 0);
   currentVersion = Object.keys(dataSet)[latestDateIndex];
 
-  characterData = dataSet[currentVersion].characterData;
+  songData = dataSet[currentVersion].songData;
   options = dataSet[currentVersion].options;
 
   populateOptions();
@@ -731,7 +731,7 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
     }
 
     options = dataSet[currentVersion].options;
-    characterData = dataSet[currentVersion].characterData;
+    songData = dataSet[currentVersion].songData;
 
     /** Populate option list and decode options selected. */
     populateOptions();
@@ -760,10 +760,10 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
 }
 
 /** 
- * Preloads images in the filtered character data and converts to base64 representation.
+ * Preloads images in the filtered song data and converts to base64 representation.
 */
 function preloadImages() {
-  const totalLength = characterDataToSort.length;
+  const totalLength = songDataToSort.length;
   let imagesLoaded = 0;
 
   const loadImage = async (src) => {
@@ -779,8 +779,8 @@ function preloadImages() {
     });
   };
 
-  return Promise.all(characterDataToSort.map(async (char, idx) => {
-    characterDataToSort[idx].img = await loadImage(imageRoot + char.img);
+  return Promise.all(songDataToSort.map(async (song, idx) => {
+    songDataToSort[idx].img = await loadImage(imageRoot + song.img);
   }));
 }
 
