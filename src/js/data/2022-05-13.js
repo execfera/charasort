@@ -79,7 +79,7 @@ dataSet[dataSetVersion].options = [
       { name: "What's My Name", tooltip: "68 - Starr", key: "WMN" },
       { name: "McCartney III", tooltip: "69 - McCartney", key: "MIII" },
     ]
-];
+  }];
 
 dataSet[dataSetVersion].characterData = [
   {
