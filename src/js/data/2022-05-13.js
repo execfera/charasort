@@ -8,7 +8,6 @@ dataSet[dataSetVersion].options = [
     tooltip: "Check this to restrict to certain series.",
     checked: false,
     sub: [
-      { name: "Albums", key: "album" },
       { name: "Wonderwall Music", tooltip: "01 - Harrison", key: "WM" },
       { name: "Two Virgins", tooltip: "02 - Lennon", key: "TV" },
       { name: "Life with the Lions", tooltip: "03 - Lennon", key: "LwtL" },
@@ -86,35 +85,35 @@ dataSet[dataSetVersion].characterData = [
     name: "Imagine",
     img: "https://upload.wikimedia.org/wikipedia/en/6/69/ImagineCover.jpg",
     opts: {
-      series: [ "album", "Im"]
+      series: [ "Im"]
     }
   },
   {
     name: "Too Many People",
     img: "https://upload.wikimedia.org/wikipedia/en/b/bd/RamMcCartneyalbumcover.jpg",
     opts: {
-      series: [ "album", "RAM"]
+      series: [ "RAM"]
     }
   },
   {
     name: "My Sweet Lord",
     img: "https://upload.wikimedia.org/wikipedia/en/a/a1/All_Things_Must_Pass_1970_cover.jpg",
     opts: {
-      series: ["album", "ATMP"]
+      series: [ "ATMP"]
     }
   },
   {
     name: "Love Don't Last Long",
     img: "https://upload.wikimedia.org/wikipedia/en/1/12/BeaucoupsBCover.jpg",
     opts: {
-      series: ["album", "BoB"]
+      series: [ "BoB"]
     },
   },
   {
     name: "Beautiful Night",
     img: "https://upload.wikimedia.org/wikipedia/en/9/95/Flaming_Pie.jpg",
     opts: {
-      series: [ "album", "FP"]
+      series: [ "FP"]
     }
   },
   {
