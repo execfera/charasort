@@ -79,7 +79,7 @@ dataSet[dataSetVersion].options = [
       { name: "What's My Name", tooltip: "68 - Starr", key: "WMN" },
       { name: "McCartney III", tooltip: "69 - McCartney", key: "MIII" },
     ]
-];
+  }];
 
 dataSet[dataSetVersion].characterData = [
   {
@@ -115,6 +115,13 @@ dataSet[dataSetVersion].characterData = [
     img: "https://upload.wikimedia.org/wikipedia/en/9/95/Flaming_Pie.jpg",
     opts: {
       series: [ "album", "FP"]
+    }
+  },
+  {
+    name: "Beautiful Day",
+    img: "https://upload.wikimedia.org/wikipedia/en/9/95/Flaming_Pie.jpg",
+    opts: {
+      series: [ "FP"]
     }
   }
 ];
