@@ -116,5 +116,12 @@ dataSet[dataSetVersion].characterData = [
     opts: {
       series: [ "album", "FP"]
     }
+  },
+  {
+    name: "Beautiful Day",
+    img: "https://upload.wikimedia.org/wikipedia/en/9/95/Flaming_Pie.jpg",
+    opts: {
+      series: [ "FP"]
+    }
   }
 ];
