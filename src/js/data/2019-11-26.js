@@ -8,7 +8,7 @@ dataSet[dataSetVersion].options = [
     tooltip: "Check this to restrict to certain series.",
     checked: false,
     sub: [
-      { name: "Books and CDs", key: "book" },
+      { name: "Phoenix ", key: "book" },
       { name: "The Highly Responsive to Prayers", tooltip: "01 - Reiiden", key: "HRtP" },
       { name: "The Story of Eastern Wonderland", tooltip: "02 - Fuumaroku", key: "SoEW" },
       { name: "Phantasmagoria of Dim.Dream", tooltip: "03 - Yumejikuu", key: "PoDD" },
