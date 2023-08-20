@@ -287,7 +287,7 @@ function display() {
     return `<p title="${charTooltip}">${charName}</p>`;
   };
 
-  progressBar(`Battle No. ${battleNo}`, percent);
+  progressBar(`Trial No. ${battleNo}`, percent);
 
   document.querySelector('.left.sort.image').src = leftChar.img;
   document.querySelector('.right.sort.image').src = rightChar.img;
@@ -424,7 +424,7 @@ function pick(sortType) {
   if (leftIndex < 0) {
     timeTaken = timeTaken || new Date().getTime() - timestamp;
 
-    progressBar(`Battle No. ${battleNo} - Completed!`, 100);
+    progressBar(`Trial No. ${battleNo} - Completed! The verdict is...`, 100);
 
     result();
   } else {
