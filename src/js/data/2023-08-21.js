@@ -1,4 +1,4 @@
-dataSetVersion = '2023-08-21'
+dataSetVersion = "2023-08-21"
 dataSet[dataSetVersion] = {};
 
 dataSet[dataSetVersion].options = [
@@ -15,8 +15,7 @@ dataSet[dataSetVersion].options = [
         { name: "Ace Attorney: Dual Destines", key: "aa5" },
         { name: "Ace Attorney: Spirit of Justice", key: "aa6" },
         { name: "Ace Attorney Investigations: Miles Edgeworth", key: "aai1" },
-        { name: "Gyakuten Kenji 2", ttoltip: "Unofficial title: \"Ace Attorney Investigations: Prosecutor's Path\"", key: "aai2" },
-        { name: "Professor Layton vs. Phoenix Wright: Ace Attorney", checked: false, key: "vs" },
+        { name: "Gyakuten Kenji 2", tooltip: "Unofficial title: \"Ace Attorney Investigations 2: Prosecutor's Path\"", key: "aai2" },
         { name: "The Great Ace Attorney: Adventures", key: "dgs1" },
         { name: "The Great Ace Attorney 2: Resolve", key: "dgs2" }
       ]
@@ -2339,102 +2338,5 @@ dataSet[dataSetVersion].options = [
         game: ["dgs2"],
         role: []
       }
-    },
-    {
-      name: "Hershel Layton",
-      img: "hfMUXud.jpg",
-      opts: {
-        game: ["vs"],
-        role: ["vic", "assi"]
-      }
-    },
-    {
-      name: "Luke Triton",
-      img: "OYQZUkm.jpg",
-      opts: {
-        game: ["vs"],
-        role: ["assi"]
-      }
-    },
-    {
-      name: "Arthur \"Storyteller\" Cantabella",
-      img: "uVwnaSy.jpg",
-      opts: {
-        game: ["vs"],
-        role: [  "vic", "cul"]
-      }
-    },
-    {
-      name: "Espella Cantabella",
-      img: "SLh7eXD.jpg",
-      opts: {
-        game: ["vs"],
-        role: ["assi", "def"]
-      }
-    },
-    {
-      name: "Zacharias Barnham",
-      img: "wImNCTZ.jpg",
-      opts: {
-        game: ["vs"],
-        role: ["pros"]
-      }
-    },
-    {
-      name: "Eve \"Darklaw\" Belduke",
-      img: "95OIRCT.jpg",
-      opts: {
-        game: ["vs"],
-        role: ["pros", "cul"]
-      }
-    },
-    {
-      name: "Labyrinthian Judge",
-      img: "8p4fmDj.jpg",
-      opts: {
-        game: ["vs"],
-        role: []
-      }
-    },
-    {
-      name: "Eve",
-      img: "eYPaFJA.jpg",
-      opts: {
-        game: ["vs"],
-        role: [ ],
-        ani: true
-      }
-    },
-    {
-      name: "Prosecutor Flynch",
-      img: "MsWsj2P.jpg",
-      opts: {
-        game: ["vs"],
-        role: ["pros"]
-      }
-    },
-    {
-      name: "Johny Smiles",
-      img: "mVAw37D.jpg",
-      opts: {
-        game: ["vs"],
-        role: [ ]
-      }
-    },
-    {
-      name: "Olivia Aldente",
-      img: "BuizDg1.jpg",
-      opts: {
-        game: ["vs"],
-        role: ["vic"]
-      }
-    },
-    {
-      name: "Allan",
-      img: "IAxUwRj.jpg",
-      opts: {
-        game: ["vs"],
-        role: []
-      }
     }
-  ];
+  ]
