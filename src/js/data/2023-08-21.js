@@ -133,7 +133,7 @@ dataSet[dataSetVersion].options = [
     },
     {
       name: "Misty Fey (Elise Deauxnim)",
-      img: "",
+      img: "orVIKGJ.jpg",
       opts: {
         game: [ "aa3"],
         role: ["vic"]
@@ -328,7 +328,7 @@ dataSet[dataSetVersion].options = [
       img: "xZRNqeh.jpg",
       opts: {
         game: [ "aa1", "aa2", "aa3", "aa4", "aa5", "aa6"],
-        role: ["pros", "def",  ]
+        role: ["pros", "def"]
       }
     },
     {
@@ -559,6 +559,7 @@ dataSet[dataSetVersion].options = [
       img: "rrhr8iY.jpg",
       opts: {
         game: [ "aa2"],
+        role: []
       }
     },
     {
@@ -590,6 +591,7 @@ dataSet[dataSetVersion].options = [
       img: "tJIVi7e.jpg",
       opts: {
         game: [ "aa3"],
+        role: [ ]
       }
     },
     {
@@ -685,7 +687,7 @@ dataSet[dataSetVersion].options = [
       img: "Kh4kMtP.jpg",
       opts: {
         game: [ "aa3"],
-        role: [  "cul"]
+        role: ["cul"]
       }
     },
     {
@@ -1142,6 +1144,7 @@ dataSet[dataSetVersion].options = [
       img: "j2F0cCu.jpg",
       opts: {
         game: [ "aa5"],
+        role: [ ]
       }
     },
     {
@@ -1165,7 +1168,8 @@ dataSet[dataSetVersion].options = [
       img: "yhB8whY.jpg",
       opts: {
         game: [ "aa5"],
-        role: [ "ani" ]
+        role: [ ],
+        ani: true
       }
     },
     {
@@ -1213,6 +1217,7 @@ dataSet[dataSetVersion].options = [
       img: "I1oB0Uv.jpg",
       opts: {
         game: [ "aa6"],
+        role: [ ],
         ani: true
       }
     },
@@ -1429,7 +1434,7 @@ dataSet[dataSetVersion].options = [
       img: "ctZiatk.jpg",
       opts: {
         game: [ "aai1", "aai2"],
-        role: ["assi",  ]
+        role: ["assi"]
       }
     },
     {
@@ -1485,7 +1490,7 @@ dataSet[dataSetVersion].options = [
       img: "PD2l5wb.jpg",
       opts: {
         game: ["aai1"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -1493,7 +1498,7 @@ dataSet[dataSetVersion].options = [
       img: "ROLmI9T.jpg",
       opts: {
         game: ["aai1"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -1501,7 +1506,7 @@ dataSet[dataSetVersion].options = [
       img: "a7RNPNF.jpg",
       opts: {
         game: ["aai1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1509,7 +1514,7 @@ dataSet[dataSetVersion].options = [
       img: "JVBpLOI.jpg",
       opts: {
         game: ["aai1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1517,7 +1522,7 @@ dataSet[dataSetVersion].options = [
       img: "5Tm2lRn.jpg",
       opts: {
         game: ["aai1"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -1525,7 +1530,7 @@ dataSet[dataSetVersion].options = [
       img: "TCJjQfG.jpg",
       opts: {
         game: ["aai1"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -1533,7 +1538,7 @@ dataSet[dataSetVersion].options = [
       img: "g6ItMnz.jpg",
       opts: {
         game: ["aai1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1541,7 +1546,7 @@ dataSet[dataSetVersion].options = [
       img: "wBVk9rA.jpg",
       opts: {
         game: ["aai1"],
-        role: ["vic", "pros"],
+        role: ["vic", "pros"]
       }
     },
     {
@@ -1549,7 +1554,7 @@ dataSet[dataSetVersion].options = [
       img: "vYSBZUW.jpg",
       opts: {
         game: ["aai1"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -1557,7 +1562,7 @@ dataSet[dataSetVersion].options = [
       img: "JwYI3jE.jpg",
       opts: {
         game: ["aai1"],
-        role: ["vic", "cul"],
+        role: ["vic", "cul"]
       }
     },
     {
@@ -1565,7 +1570,7 @@ dataSet[dataSetVersion].options = [
       img: "gthFAhU.jpg",
       opts: {
         game: ["aai1"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -1573,7 +1578,7 @@ dataSet[dataSetVersion].options = [
       img: "xVpTSO0.jpg",
       opts: {
         game: ["aai1"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -1581,7 +1586,7 @@ dataSet[dataSetVersion].options = [
       img: "i5bRANz.jpg",
       opts: {
         game: ["aai1"],
-        role: ["vic", "cul"],
+        role: ["vic", "cul"]
       }
     },
     {
@@ -1589,7 +1594,7 @@ dataSet[dataSetVersion].options = [
       img: "Uy14068.jpg",
       opts: {
         game: ["aai1"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -1597,7 +1602,7 @@ dataSet[dataSetVersion].options = [
       img: "JTyZawL.jpg",
       opts: {
         game: ["aai1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1605,7 +1610,7 @@ dataSet[dataSetVersion].options = [
       img: "dYWPeCM.jpg",
       opts: {
         game: ["aai2"],
-        role: ["assi", "atto"],
+        role: ["assi", "atto"]
       }
     },
     {
@@ -1613,7 +1618,7 @@ dataSet[dataSetVersion].options = [
       img: "QVqUo6a.jpg",
       opts: {
         game: ["aai2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1621,7 +1626,7 @@ dataSet[dataSetVersion].options = [
       img: "eO4iDlc.jpg",
       opts: {
         game: ["aai2"],
-        role: [  "pros"],
+        role: [  "pros"]
       }
     },
     {
@@ -1629,7 +1634,7 @@ dataSet[dataSetVersion].options = [
       img: "V2fyLBT.jpg",
       opts: {
         game: ["aai2"],
-        role: [  "vic"],
+        role: [  "vic"]
       }
     },
     {
@@ -1637,7 +1642,7 @@ dataSet[dataSetVersion].options = [
       img: "NhT0T3j.jpg",
       opts: {
         game: ["aai2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1645,7 +1650,7 @@ dataSet[dataSetVersion].options = [
       img: "G8c78T2.jpg",
       opts: {
         game: ["aai2"],
-        role: [  "cul", "vic"],
+        role: [  "cul", "vic"]
       }
     },
     {
@@ -1653,7 +1658,7 @@ dataSet[dataSetVersion].options = [
       img: "h6IcKAi.jpg",
       opts: {
         game: ["aai2"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -1661,7 +1666,7 @@ dataSet[dataSetVersion].options = [
       img: "K1dSR1n.jpg",
       opts: {
         game: ["aai2"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -1669,7 +1674,7 @@ dataSet[dataSetVersion].options = [
       img: "pWRjDNe.jpg",
       opts: {
         game: ["aai2"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -1677,7 +1682,7 @@ dataSet[dataSetVersion].options = [
       img: "CClrqMp.jpg",
       opts: {
         game: ["aai2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1685,6 +1690,7 @@ dataSet[dataSetVersion].options = [
       img: "SrGRD0M.jpg",
       opts: {
         game: ["aai2"],
+        role: [ ],
         ani: true
       }
     },
@@ -1693,7 +1699,7 @@ dataSet[dataSetVersion].options = [
       img: "TTa2SVP.jpg",
       opts: {
         game: ["aai2"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -1701,7 +1707,7 @@ dataSet[dataSetVersion].options = [
       img: "UZ2x8ga.jpg",
       opts: {
         game: ["aai2"],
-        role: ["def"],
+        role: ["def"]
       }
     },
     {
@@ -1709,7 +1715,7 @@ dataSet[dataSetVersion].options = [
       img: "aa4anaV.jpg",
       opts: {
         game: ["aai2"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -1717,7 +1723,7 @@ dataSet[dataSetVersion].options = [
       img: "xHbY1Ts.jpg",
       opts: {
         game: ["aai2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1725,7 +1731,7 @@ dataSet[dataSetVersion].options = [
       img: "cJof5Rm.jpg",
       opts: {
         game: ["aai2"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -1733,7 +1739,7 @@ dataSet[dataSetVersion].options = [
       img: "F88iG6z.jpg",
       opts: {
         game: ["aai2"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -1741,7 +1747,7 @@ dataSet[dataSetVersion].options = [
       img: "MAaetK5.jpg",
       opts: {
         game: ["aai2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1749,7 +1755,7 @@ dataSet[dataSetVersion].options = [
       img: "bazH9iP.jpg",
       opts: {
         game: ["aai2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1757,6 +1763,7 @@ dataSet[dataSetVersion].options = [
       img: "lh1ksEk.jpg",
       opts: {
         game: ["aai2"],
+        role: [ ],
         ani: true
       }
     },
@@ -1765,7 +1772,7 @@ dataSet[dataSetVersion].options = [
       img: "3ls2XtA.jpg",
       opts: {
         game: ["aai2"],
-        role: [  "cul", "pros"],
+        role: [  "cul", "pros"]
       }
     },
     {
@@ -1773,7 +1780,7 @@ dataSet[dataSetVersion].options = [
       img: "IIxI8Gz.jpg",
       opts: {
         game: ["aai2"],
-        role: ["vic", "atto"],
+        role: ["vic", "atto"]
       }
     },
     {
@@ -1781,7 +1788,7 @@ dataSet[dataSetVersion].options = [
       img: "rk2tSMx.jpg",
       opts: {
         game: ["aai2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1789,7 +1796,7 @@ dataSet[dataSetVersion].options = [
       img: "XYD2qR4.jpg",
       opts: {
         game: ["aai2"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -1797,7 +1804,7 @@ dataSet[dataSetVersion].options = [
       img: "tgNM28R.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: ["atto", "def"],
+        role: ["atto", "def"]
       }
     },
     {
@@ -1805,7 +1812,7 @@ dataSet[dataSetVersion].options = [
       img: "aTMOIa6.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: ["assi"],
+        role: ["assi"]
       }
     },
     {
@@ -1813,7 +1820,7 @@ dataSet[dataSetVersion].options = [
       img: "7f7a5AM.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: ["atto", "vic", "pros"],
+        role: ["atto", "vic", "pros"]
       }
     },
     {
@@ -1821,7 +1828,7 @@ dataSet[dataSetVersion].options = [
       img: "2bUMLBm.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: ["det", "assi"],
+        role: ["det", "assi"]
       }
     },
     {
@@ -1829,7 +1836,7 @@ dataSet[dataSetVersion].options = [
       img: "4trOsDS.jpg",
       opts: {
         game: ["dgs1", "dgs 2"],
-        role: ["assi"],
+        role: ["assi"]
       }
     },
     {
@@ -1837,7 +1844,7 @@ dataSet[dataSetVersion].options = [
       img: "kRfpUFj.jpg",
       opts: {
         game: ["dgs1"],
-        role: ["pros", "def",  ],
+        role: ["pros", "def"]
       }
     },
     {
@@ -1845,7 +1852,7 @@ dataSet[dataSetVersion].options = [
       img: "KzSC68s.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1853,7 +1860,7 @@ dataSet[dataSetVersion].options = [
       img: "0mTs5y1.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -1861,7 +1868,7 @@ dataSet[dataSetVersion].options = [
       img: "frudI5w.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -1893,7 +1900,7 @@ dataSet[dataSetVersion].options = [
       img: "SmYXvO9.jpg",
       opts: {
         game: ["dgs1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1901,7 +1908,7 @@ dataSet[dataSetVersion].options = [
       img: "nWMcXh1.jpg",
       opts: {
         game: ["dgs1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1909,7 +1916,7 @@ dataSet[dataSetVersion].options = [
       img: "0tIKcca.jpg",
       opts: {
         game: ["dgs1"],
-        role: [  "vic", "cul"],
+        role: [  "vic", "cul"]
       }
     },
     {
@@ -1917,7 +1924,7 @@ dataSet[dataSetVersion].options = [
       img: "P1B0Ubi.jpg",
       opts: {
         game: ["dgs1"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -1925,6 +1932,7 @@ dataSet[dataSetVersion].options = [
       img: "S7BhfEV.jpg",
       opts: {
         game: ["dgs1"],
+        role: [ ],
         ani: true
       }
     },
@@ -1933,6 +1941,7 @@ dataSet[dataSetVersion].options = [
       img: "CkZ8EkY.jpg",
       opts: {
         game: ["dgs1"],
+        role: [ ],
         ani: true
       }
     },
@@ -1941,7 +1950,7 @@ dataSet[dataSetVersion].options = [
       img: "x3NSmHg.jpg",
       opts: {
         game: ["dgs1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1949,7 +1958,7 @@ dataSet[dataSetVersion].options = [
       img: "zsw4HX4.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: ["cul"],
+        role: ["cul"]
       }
     },
     {
@@ -1957,7 +1966,7 @@ dataSet[dataSetVersion].options = [
       img: "FZlz3xz.jpg",
       opts: {
         game: ["dgs1"],
-        role: [  "vic", "cul", "def"],
+        role: [  "vic", "cul", "def"]
       }
     },
     {
@@ -1965,7 +1974,7 @@ dataSet[dataSetVersion].options = [
       img: "qApnvLC.jpg",
       opts: {
         game: ["dgs1"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -1973,7 +1982,7 @@ dataSet[dataSetVersion].options = [
       img: "OIxZEpm.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1981,7 +1990,7 @@ dataSet[dataSetVersion].options = [
       img: "NDPJsth.jpg",
       opts: {
         game: ["dgs1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -1989,7 +1998,7 @@ dataSet[dataSetVersion].options = [
       img: "ieSe0KR.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: [  "det", "def"],
+        role: [  "det", "def"]
       }
     },
     {
@@ -1997,7 +2006,7 @@ dataSet[dataSetVersion].options = [
       img: "DeS11Kn.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: [  "def"],
+        role: [  "def"]
       }
     },
     {
@@ -2005,7 +2014,7 @@ dataSet[dataSetVersion].options = [
       img: "AeowGYR.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: [  "vic", "cul"],
+        role: [  "vic", "cul"]
       }
     },
     {
@@ -2013,7 +2022,7 @@ dataSet[dataSetVersion].options = [
       img: "BcGI6qG.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2021,7 +2030,7 @@ dataSet[dataSetVersion].options = [
       img: "nS6sTW9.jpg",
       opts: {
         game: ["dgs1"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -2029,7 +2038,7 @@ dataSet[dataSetVersion].options = [
       img: "RKONAOC.jpg",
       opts: {
         game: ["dgs1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2037,7 +2046,7 @@ dataSet[dataSetVersion].options = [
       img: "bidrWOJ.jpg",
       opts: {
         game: ["dgs1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2045,7 +2054,7 @@ dataSet[dataSetVersion].options = [
       img: "cVyQVNI.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        role: ["det", "vic"],
+        role: ["det", "vic"]
       }
     },
     {
@@ -2053,6 +2062,7 @@ dataSet[dataSetVersion].options = [
       img: "RncYWSr.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
+        role: [ ],
         ani: true
       }
     },
@@ -2061,7 +2071,7 @@ dataSet[dataSetVersion].options = [
       img: "Uvdeab2.jpg",
       opts: {
         game: ["dgs1"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -2069,7 +2079,7 @@ dataSet[dataSetVersion].options = [
       img: "deDGFWC.jpg",
       opts: {
         game: ["dgs1"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -2077,7 +2087,7 @@ dataSet[dataSetVersion].options = [
       img: "E97XvWZ.jpg",
       opts: {
         game: ["dgs1"],
-        role: [],
+        role: []
       }
     },
     {
@@ -2085,7 +2095,7 @@ dataSet[dataSetVersion].options = [
       img: "9y0gNUs.jpg",
       opts: {
         game: ["dgs1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2093,7 +2103,7 @@ dataSet[dataSetVersion].options = [
       img: "iSp2kQR.jpg",
       opts: {
         game: ["dgs1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2101,7 +2111,7 @@ dataSet[dataSetVersion].options = [
       img: "2IKvxcG.jpg",
       opts: {
         game: ["dgs1"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2109,7 +2119,7 @@ dataSet[dataSetVersion].options = [
       img: "3BpfywJ.jpg",
       opts: {
         game: ["dgs2"],
-        role: ["vic", "cul", "det"],
+        role: ["vic", "cul", "det"]
       }
     },
     {
@@ -2117,7 +2127,7 @@ dataSet[dataSetVersion].options = [
       img: "9wRh67I.jpg",
       opts: {
         game: ["dgs2"],
-        role: ["cul", "vic", "pros"],
+        role: ["cul", "vic", "pros"]
       }
     },
     {
@@ -2125,6 +2135,7 @@ dataSet[dataSetVersion].options = [
       img: "SHDGDrn.jpg",
       opts: {
         game: ["dgs2"],
+        role: [ ],
         ani: true
       }
     },
@@ -2133,7 +2144,7 @@ dataSet[dataSetVersion].options = [
       img: "sxt71Ga.jpg",
       opts: {
         game: ["dgs1"],
-        role: [  "def"],
+        role: [  "def"]
       }
     },
     {
@@ -2141,7 +2152,7 @@ dataSet[dataSetVersion].options = [
       img: "VQB1lQQ.jpg",
       opts: {
         game: ["dgs2"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -2149,7 +2160,7 @@ dataSet[dataSetVersion].options = [
       img: "Yz1PbPT.jpg",
       opts: {
         game: ["dgs2"],
-        role: [  "vic", "cul"],
+        role: [  "vic", "cul"]
       }
     },
     {
@@ -2157,7 +2168,7 @@ dataSet[dataSetVersion].options = [
       img: "Xef18dF.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2165,7 +2176,7 @@ dataSet[dataSetVersion].options = [
       img: "bT2wB3I.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2173,7 +2184,7 @@ dataSet[dataSetVersion].options = [
       img: "WPkvMTB.jpg",
       opts: {
         game: ["dgs2"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -2181,7 +2192,7 @@ dataSet[dataSetVersion].options = [
       img: "YcSlZQv.jpg",
       opts: {
         game: ["dgs2"],
-        role: ["cul"],
+        role: ["cul"]
       }
     },
     {
@@ -2189,7 +2200,7 @@ dataSet[dataSetVersion].options = [
       img: "wmQqZs8.jpg",
       opts: {
         game: ["dgs2"],
-        role: [  "def"],
+        role: [  "def"]
       }
     },
     {
@@ -2197,7 +2208,7 @@ dataSet[dataSetVersion].options = [
       img: "rU7cHad.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2205,7 +2216,7 @@ dataSet[dataSetVersion].options = [
       img: "sLleCyf.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2213,7 +2224,7 @@ dataSet[dataSetVersion].options = [
       img: "zhq3tsEs.jpg",
       opts: {
         game: ["dgs2"],
-        role: ["vic"],
+        role: ["vic"]
       }
     },
     {
@@ -2221,7 +2232,7 @@ dataSet[dataSetVersion].options = [
       img: "7mn3p1G.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2229,7 +2240,7 @@ dataSet[dataSetVersion].options = [
       img: "vEp962O.jpg",
       opts: {
         game: ["dgs2"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -2237,7 +2248,7 @@ dataSet[dataSetVersion].options = [
       img: "cQFMFOV.jpg",
       opts: {
         game: ["dgs2"],
-        role: [  "cul"],
+        role: [  "cul"]
       }
     },
     {
@@ -2253,7 +2264,7 @@ dataSet[dataSetVersion].options = [
       img: "sndLwIl.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2261,7 +2272,7 @@ dataSet[dataSetVersion].options = [
       img: "xpWNUvY.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2269,7 +2280,7 @@ dataSet[dataSetVersion].options = [
       img: "3x8DW2L.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2277,7 +2288,7 @@ dataSet[dataSetVersion].options = [
       img: "vRJSY7A.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2285,7 +2296,7 @@ dataSet[dataSetVersion].options = [
       img: "EKM1YK0.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2293,7 +2304,7 @@ dataSet[dataSetVersion].options = [
       img: "siQSowI.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2301,7 +2312,7 @@ dataSet[dataSetVersion].options = [
       img: "Ns9C4iQ.jpg",
       opts: {
         game: ["dgs2"],
-        role: [ ],
+        role: [ ]
       }
     },
     {
@@ -2309,6 +2320,7 @@ dataSet[dataSetVersion].options = [
       img: "0esanMn.jpg",
       opts: {
         game: ["dgs2"],
+        role: [ ],
         ani: true
       }
     },
@@ -2333,7 +2345,7 @@ dataSet[dataSetVersion].options = [
       img: "hfMUXud.jpg",
       opts: {
         game: ["vs"],
-        role: ["vic", "assi"],
+        role: ["vic", "assi"]
       }
     },
     {
@@ -2341,7 +2353,7 @@ dataSet[dataSetVersion].options = [
       img: "OYQZUkm.jpg",
       opts: {
         game: ["vs"],
-        role: ["assi"],
+        role: ["assi"]
       }
     },
     {
@@ -2349,7 +2361,7 @@ dataSet[dataSetVersion].options = [
       img: "uVwnaSy.jpg",
       opts: {
         game: ["vs"],
-        role: [  "vic", "cul"],
+        role: [  "vic", "cul"]
       }
     },
     {
@@ -2357,7 +2369,7 @@ dataSet[dataSetVersion].options = [
       img: "SLh7eXD.jpg",
       opts: {
         game: ["vs"],
-        role: ["assi", "def"],
+        role: ["assi", "def"]
       }
     },
     {
@@ -2365,7 +2377,7 @@ dataSet[dataSetVersion].options = [
       img: "wImNCTZ.jpg",
       opts: {
         game: ["vs"],
-        role: ["pros"],
+        role: ["pros"]
       }
     },
     {
@@ -2373,7 +2385,7 @@ dataSet[dataSetVersion].options = [
       img: "95OIRCT.jpg",
       opts: {
         game: ["vs"],
-        role: ["pros", "cul"],
+        role: ["pros", "cul"]
       }
     },
     {
@@ -2381,7 +2393,7 @@ dataSet[dataSetVersion].options = [
       img: "8p4fmDj.jpg",
       opts: {
         game: ["vs"],
-        role: [],
+        role: []
       }
     },
     {
@@ -2389,6 +2401,7 @@ dataSet[dataSetVersion].options = [
       img: "eYPaFJA.jpg",
       opts: {
         game: ["vs"],
+        role: [ ],
         ani: true
       }
     },
@@ -2397,7 +2410,7 @@ dataSet[dataSetVersion].options = [
       img: "MsWsj2P.jpg",
       opts: {
         game: ["vs"],
-        role: ["pros"],
+        role: ["pros"]
       }
     },
     {
