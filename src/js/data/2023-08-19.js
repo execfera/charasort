@@ -31,13 +31,18 @@ dataSet[dataSetVersion].options = [
     sub: [ { name: "Defense attorneys", key: "atto" }, 
            { name: "Prosecutors", key: "pros" }, 
            { name: "Assistants", key: "assi" }, 
-           { name: "Witnesses", key: "wit" }, 
            { name: "Culprits", tooltip: "BEWARE OF SPOILERS", key: "cul" }, 
            { name: "Detectives", key: "det" }, 
            { name: "Victims",tooltip: "BEWARE OF SPOILERS", key: "vic" }, 
            { name: "Defendants", key: "def" }
     ]
-  }
+  },
+  {
+    name: "Remove animals",
+    key: "ani",
+    tooltip: "Check this to remove animals",
+    checked: false
+  },
 ];
 
 dataSet[dataSetVersion].characterData = [
@@ -54,7 +59,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/larry.jpg",
     opts: {
       game: [ "aa1", "aa3", "aai1", "aai2", "aa6"],
-      role: ["def", "wit"]
+      role: ["def"]
     }
   },
   {
@@ -86,12 +91,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/frank.jpg",
     opts: {
       game: [ "aa1", "aai2"],
-      role: ["cul", "wit"]
+      role: ["cul",  ]
     }
   },
   {
     name: "Cindy Stone",
-    img: "",
+    img: "src/assets/chars/cindy.jpg",
     opts: {
       game: [ "aa1"],
       role: ["vic"]
@@ -99,15 +104,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Bellboy",
-    img: "",
+    img: "src/assets/chars/bellboy.jpg",
     opts: {
       game: [ "aa1", "aai1"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Charley",
-    img: "",
+    img: "src/assets/chars/charley.jpg",
     opts: {
       game: [ "aa1", "aa2", "aa3", "aa4", "aa5", "aa6"],
     }
@@ -125,7 +130,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/maya.jpg",
     opts: {
       game: [ "aa1", "aa2", "aa3", "vs", "aa6"],
-      role: ["assi", "def", "wit"]
+      role: ["assi", "def",  ]
     }
   },
   {
@@ -141,7 +146,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/april.jpg",
     opts: {
       game: [ "aa1"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -149,7 +154,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/red.jpg",
     opts: {
       game: [ "aa1"],
-      role: ["wit", "cul"]
+      role: [ "cul" ]
     }
   },
   {
@@ -157,15 +162,15 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/sal.jpg",
     opts: {
       game: [ "aa1"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Wendy Oldbag",
-    img: "",
+    img: "src/assets/chars/oldbag.jpg",
     opts: {
       game: [ "aa1", "aa2", "aai1", "aai2"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -173,20 +178,20 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/willp.jpg",
     opts: {
       game: [ "aa1", "aa2", "aai2"],
-      role: ["wit", "def"]
+      role: [ "def"]
     }
   },
   {
     name: "Cody Hackins",
-    img: "",
+    img: "src/assets/chars/cody.jpg",
     opts: {
       game: [ "aa1"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Jack Hammer",
-    img: "",
+    img: "src/assets/chars/jackham.jpg",
     opts: {
       game: [ "aa1"],
       role: ["vic"]
@@ -194,10 +199,10 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Penny Nichols",
-    img: "",
+    img: "src/assets/chars/penny.jpg",
     opts: {
       game: [ "aa1", "aai2"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -205,7 +210,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/deevas.jpg",
     opts: {
       game: [ "aa1"],
-      role: ["wit", "cul"]
+      role: [ "cul"]
     }
   },
   {
@@ -213,7 +218,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/lotta.jpg",
     opts: {
       game: [ "aa1", "aa2", "aai2"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -234,10 +239,10 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Polly (the parrot)",
-    img: "",
+    img: "src/assets/chars/polly.jpg",
     opts: {
       game: [ "aa1"],
-      role: ["wit"]
+      ani: true
     }
   },
   {
@@ -245,7 +250,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/yanni.jpg",
     opts: {
       game: [ "aa1"],
-      role: ["wit", "cul"]
+      role: [ "cul"]
     }
   },
   {
@@ -285,7 +290,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/mike.jpg",
     opts: {
       game: [ "aa1", "aai1", "aa4"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -293,12 +298,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/gant.jpg",
     opts: {
       game: [ "aa1"],
-      role: ["det", "cul", "wit"]
+      role: ["det", "cul"]
     }
   },
   {
     name: "Bruce Goodman",
-    img: "",
+    img: "src/assets/chars/goodman.jpg",
     opts: {
       game: [ "aa1"],
       role: ["det", "vic"]
@@ -309,12 +314,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/marshall.jpg",
     opts: {
       game: [ "aa1"],
-      role: ["wit", "det"]
+      role: [ "det"]
     }
   },
   {
     name: "Neil Marshall",
-    img: "",
+    img: "src/assets/chars/neil.jpg",
     opts: {
       game: [ "aa1"],
       role: ["pros", "vic"]
@@ -325,20 +330,20 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/lana.jpg",
     opts: {
       game: [ "aa1", "aa2", "aa3", "aa4", "aa5", "aa6"],
-      role: ["pros", "def", "wit"]
+      role: ["pros", "def",  ]
     }
   },
   {
     name: "Angel Starr",
-    img: "",
+    img: "src/assets/chars/angel.jpg",
     opts: {
       game: [ "aa1"],
-      role: ["det", "wit"]
+      role: ["det"]
     }
   },
   {
     name: "Joe Darke",
-    img: "",
+    img: "src/assets/chars/joever.jpg",
     opts: {
       game: [ "aa1"],
       role: ["cul"]
@@ -362,7 +367,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Maggey Byrde",
-    img: "",
+    img: "src/assets/chars/maggey.jpg",
     opts: {
       game: [ "aa2", "aa3", "aai1"],
       role: ["def"]
@@ -370,7 +375,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Dustin Prince",
-    img: "",
+    img: "src/assets/chars/prince.jpg",
     opts: {
       game: [ "aa2"],
       role: ["vic"]
@@ -381,7 +386,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/richard.jpg",
     opts: {
       game: [ "aa2"],
-      role: ["cul", "wit"]
+      role: ["cul"]
     }
   },
   {
@@ -397,12 +402,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/morgan.jpg",
     opts: {
       game: [ "aa2", "aa3"],
-      role: ["cul", "wit"]
+      role: ["cul"]
     }
   },
   {
     name: "Turner Grey",
-    img: "",
+    img: "src/assets/chars/grey.jpg",
     opts: {
       game: [ "aa2"],
       role: ["vic"]
@@ -413,35 +418,35 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/mimi.jpg",
     opts: {
       game: [ "aa2"],
-      role: ["wit", "cul"]
+      role: [ "cul"]
     }
   },
    {
     name: "Ini Miney",
-    img: "",
+    img: "src/assets/chars/ini.jpg",
     opts: {
       game: [ "aa2"],
-      role: ["vic"]
+      role: [ ]
     }
   },
    {
     name: "Ami Fey",
-    img: "",
+    img: "src/assets/chars/ami.jpg",
     opts: {
       game: [ "aa2"],
     }
   },
   {
-    name: "Acro",
-    img: "src\assets\chars\acro.jpg",
+    name: "Acro (a.k.a Ken Dingling)",
+    img: "src/assets/chars/acro.jpg",
     opts: {
       game: [ "aa2"],
       role: ["wil", "cul"]
     }
   },
   {
-    name: "Bat",
-    img: "",
+    name: "Bat (a.k.a Sean Dingling)",
+    img: "src/assets/chars/bat.jpg",
     opts: {
       game: [ "aa2"],
       role: ["vic"]
@@ -452,12 +457,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/regina.jpg",
     opts: {
       game: [ "aa2", "aai2"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Russel Berry",
-    img: "",
+    img: "src/assets/chars/russel.jpg",
     opts: {
       game: [ "aa2"],
       role: ["vic"]
@@ -476,21 +481,23 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/moe.jpg",
     opts: {
       game: [ "aa2"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Money",
-    img: "",
+    img: "src/assets/chars/money.jpg",
     opts: {
-      game: [ "aa2"],
+      game: [ "aa2", "aai2"],
+      ani: true
     }
   },
   {
     name: "Regent",
-    img: "",
+    img: "src/assets/chars/regent.jpg",
     opts: {
       game: [ "aa2"],
+      ani: true
     }
   },
   {
@@ -498,30 +505,31 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/benwoods.jpg",
     opts: {
       game: [ "aa2"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Trilo",
-    img: "",
+    img: "src/assets/chars/trilo.jpg",
     opts: {
       game: [ "aa2"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Léon",
-    img: "",
+    img: "src/assets/chars/leon.jpg",
     opts: {
       game: [ "aa2"],
+      ani: true
     }
   },
   {
     name: "Adrian Andrews",
-    img: "src\assets\chars\AA.jpg",
+    img: "src/assets/chars/AA.jpg",
     opts: {
       game: [ "aa2", "aa3"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -529,12 +537,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/dekiller.jpg",
     opts: {
       game: [ "aa2", "aai2"],
-      role: ["cul", "wit"]
+      role: ["cul",  ]
     }
   },
   {
     name: "Juan Corrida",
-    img: "",
+    img: "src/assets/chars/juan.jpg",
     opts: {
       game: [ "aa2"],
       role: ["vic"]
@@ -550,16 +558,17 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Celeste Inpax",
-    img: "",
+    img: "src/assets/chars/celeste.jpg",
     opts: {
       game: [ "aa2"],
     }
   },
   {
     name: "Missile",
-    img: "",
+    img: "src/assets/chars/missile.jpg",
     opts: {
       game: [ "aa2"],
+      ani: true
     }
   },
   {
@@ -575,19 +584,19 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/dahlia.jpg",
     opts: {
       game: [ "aa3"],
-      role: ["wit", "cul", "vic"]
+      role: [  "cul", "vic"]
     }
   },
   {
     name: "Judge's brother",
-    img: "",
+    img: "src/assets/chars/canjudge.jpg",
     opts: {
       game: [ "aa3"],
     }
   },
   {
     name: "Doug Swallow",
-    img: "",
+    img: "src/assets/chars/doug.jpg",
     opts: {
       game: [ "aa3"],
       role: ["vic"]
@@ -598,12 +607,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/ron.jpg",
     opts: {
       game: [ "aa3"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
     name: "Kane Bullard",
-    img: "",
+    img: "src/assets/chars/kane.jpg",
     opts: {
       game: [ "aa3"],
       role: ["wivict"]
@@ -614,12 +623,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/desire.jpg",
     opts: {
       game: [ "aa3"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Glen Elg",
-    img: "",
+    img: "src/assets/chars/glenelg.jpg",
     opts: {
       game: [ "aa3"],
       role: ["vic"]
@@ -630,7 +639,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/viola.jpg",
     opts: {
       game: [ "aa3"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -643,10 +652,10 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Lisa Basil",
-    img: "",
+    img: "src/assets/chars/lisabasil.jpg",
     opts: {
       game: [ "aa3"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -654,7 +663,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/jean.jpg",
     opts: {
       game: [ "aa3"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -662,7 +671,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/victor.jpg",
     opts: {
       game: [ "aa3"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -670,7 +679,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/tigr.jpg",
     opts: {
       game: [ "aa3"],
-      role: ["wit", "cul"]
+      role: [  "cul"]
     }
   },
   {
@@ -678,12 +687,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/terry.jpg",
     opts: {
       game: [ "aa3"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
     name: "Valerie Hawthorne",
-    img: "",
+    img: "src/assets/chars/valerie.jpg",
     opts: {
       game: [ "aa3"],
       role: ["vic"]
@@ -702,7 +711,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/bikini.jpg",
     opts: {
       game: [ "aa3"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -710,7 +719,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/apollo.jpg",
     opts: {
       game: [ "aa4", "aa5", "aa6"],
-      role: ["wit", "atto", "assi"]
+      role: [  "atto", "assi"]
     }
   },
   {
@@ -718,7 +727,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/trucy.jpg",
     opts: {
       game: [ "aa4", "aa5", "aa6"],
-      role: ["wit", "assi", "def"]
+      role: [  "assi", "def"]
     }
   },
   {
@@ -726,7 +735,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/klavier.jpg",
     opts: {
       game: [ "aa4", "aa5"],
-      role: ["wit", "pros"]
+      role: [  "pros"]
     }
   },
   {
@@ -734,7 +743,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/kristoph.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit", "cul", "atto"]
+      role: [  "cul", "atto"]
     }
   },
   {
@@ -747,10 +756,10 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Olga Orly",
-    img: "",
+    img: "src/assets/chars/olga.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -758,23 +767,23 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/guyel.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Plum Kitaki",
-    img: "",
+    img: "src/assets/chars/plum.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Winfred 'Big Wins' Kitaki",
-    img: "",
+    img: "src/assets/chars/win.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -782,12 +791,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/wocky.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
     name: "Pal Meraktis",
-    img: "",
+    img: "src/assets/chars/palmer.jpg",
     opts: {
       game: [ "aa4"],
       role: ["vic"]
@@ -795,18 +804,18 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Wesley Stickler",
-    img: "",
+    img: "src/assets/chars/stickler.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Alita Tiala",
-    img: "src\assets\chars\alita.jpg",
+    img: "src/assets/chars/alita.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit", "cul"]
+      role: [  "cul"]
     }
   },
   {
@@ -814,7 +823,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/valant.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -822,7 +831,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/thalassa.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -830,12 +839,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/darian.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit", "cul", "det"]
+      role: [  "cul", "det"]
     }
   },
   {
     name: "Romein LeTouse",
-    img: "",
+    img: "src/assets/chars/romein.jpg",
     opts: {
       game: [ "aa4"],
       role: ["vic"]
@@ -843,10 +852,10 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Machi Tobaye",
-    img: "",
+    img: "src/assets/chars/machi.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
@@ -854,7 +863,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/spark.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -870,7 +879,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/vera.jpg",
     opts: {
       game: [ "aa4"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
@@ -886,7 +895,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/athena.jpg",
     opts: {
       game: [ "aa5", "aa6"],
-      role: ["wit", "atto", "def", "assi"]
+      role: [  "atto", "def", "assi"]
     }
   },
   {
@@ -894,7 +903,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/blackqu.jpg",
     opts: {
       game: [ "aa5", "aa6"],
-      role: ["wit", "def", "pros"]
+      role: [  "def", "pros"]
     }
   },
   {
@@ -902,7 +911,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/bobby.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit", "det", "cul"]
+      role: [  "det", "cul"]
     }
   },
   {
@@ -918,7 +927,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/junie.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
@@ -926,12 +935,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/ted.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit", "cul"]
+      role: [  "cul"]
     }
   },
   {
     name: "Candice Arme",
-    img: "",
+    img: "src/assets/chars/candice.jpg",
     opts: {
       game: [ "aa4"],
       role: ["vic", "det"]
@@ -939,7 +948,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Rex Kyubi",
-    img: "",
+    img: "src/assets/chars/rex.jpg",
     opts: {
       game: [ "aa5"],
       role: ["vic"]
@@ -950,23 +959,23 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/junxie.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Damian Tenma",
-    img: "",
+    img: "src/assets/chars/damian.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
     name: "Phienas Filch",
-    img: "",
+    img: "src/assets/chars/phineas.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -974,7 +983,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/lebelle.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit", "cul"]
+      role: [  "cul"]
     }
   },
   {
@@ -982,7 +991,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/hugh.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -990,7 +999,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/newman.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -998,12 +1007,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/aristo.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit", "atto", "cul"]
+      role: [  "atto", "cul"]
     }
   },
   {
     name: "Constance Courte",
-    img: "",
+    img: "src/assets/chars/const.jpg",
     opts: {
       game: [ "aa5"],
       role: ["vic"]
@@ -1011,10 +1020,10 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Myriam Scuttlebutt",
-    img: "",
+    img: "src/assets/chars/myriam.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -1030,7 +1039,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/solomon.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
@@ -1038,7 +1047,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/yuri.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -1046,12 +1055,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/aura.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Metis Cykes",
-    img: "",
+    img: "src/assets/chars/metis.jpg",
     opts: {
       game: [ "aa5"],
       role: ["vic"]
@@ -1067,15 +1076,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Orla Shipley",
-    img: "",
+    img: "src/assets/chars/orla.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["def", "wit"]
+      role: ["def", "ani"]
     }
   },
   {
     name: "Jack Shipley",
-    img: "",
+    img: "src/assets/chars/jackshi.jpg",
     opts: {
       game: [ "aa5"],
       role: ["vic"]
@@ -1086,15 +1095,15 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/marlon.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Ora Shipley",
-    img: "",
+    img: "src/assets/chars/ora.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ "ani" ]
     }
   },
   {
@@ -1102,7 +1111,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/herman.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -1110,12 +1119,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/norma.jpg",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Azura Summers",
-    img: "",
+    img: "src/assets/chars/azura.jpg",
     opts: {
       game: [ "aa5"],
     }
@@ -1125,7 +1134,7 @@ dataSet[dataSetVersion].characterData = [
     img: "",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -1133,7 +1142,7 @@ dataSet[dataSetVersion].characterData = [
     img: "",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -1141,7 +1150,7 @@ dataSet[dataSetVersion].characterData = [
     img: "",
     opts: {
       game: [ "aa5"],
-      role: ["wit"]
+      role: [ "ani" ]
     }
   },
   {
@@ -1149,7 +1158,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/nahyuta.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "pros"]
+      role: [  "pros"]
     }
   },
   {
@@ -1157,15 +1166,15 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/rayfa.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Ahlbi Ur'gaid",
-    img: "src\assets\chars\albi.jpg",
+    img: "src/assets/chars/albi.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
@@ -1181,15 +1190,15 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/amara.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "vic"]
+      role: [  "vic"]
     }
   },
   {
     name: "Shah'do",
-    img: "",
+    img: "src/assets/chars/shahdo.jpg",
     opts: {
       game: [ "aa6"],
-      role: []
+      ani: true
     }
   },
   {
@@ -1205,7 +1214,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/dhurke.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "vic", "atto"]
+      role: [  "vic", "atto"]
     }
   },
   {
@@ -1213,7 +1222,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/datz.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -1221,7 +1230,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/garan.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "pros", "cul"]
+      role: [  "pros", "cul"]
     }
   },
   {
@@ -1229,12 +1238,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/peacelove.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "cul"]
+      role: [  "cul"]
     }
   },
   {
     name: "Paht Rohl",
-    img: "",
+    img: "src/assets/chars/paht rol.jpg",
     opts: {
       game: [ "aa6"],
       role: ["vic"]
@@ -1245,7 +1254,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/bonnny.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -1253,7 +1262,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/betty.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -1261,12 +1270,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/retinz.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "cul"]
+      role: [  "cul"]
     }
   },
   {
     name: "Manov Mistree",
-    img: "",
+    img: "src/assets/chars/manov mistree.jpg",
     opts: {
       game: [ "aa6"],
       role: ["vic"]
@@ -1277,7 +1286,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/tahrust.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "vic"]
+      role: [  "vic"]
     }
   },
   {
@@ -1285,12 +1294,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/behleeb.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Puhray Zeh'lot",
-    img: "",
+    img: "src/assets/chars/puhray.jpg",
     opts: {
       game: [ "aa6"],
       role: ["vic"]
@@ -1298,7 +1307,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Taifu Toneido",
-    img: "",
+    img: "src/assets/chars/taifu.jpg",
     opts: {
       game: [ "aa6"],
       role: ["vic"]
@@ -1309,7 +1318,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/bucky.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
@@ -1317,7 +1326,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/geiru.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "cul"]
+      role: [  "cul"]
     }
   },
   {
@@ -1325,7 +1334,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/uend.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -1333,12 +1342,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/paul.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "cul"]
+      role: [  "cul"]
     }
   },
   {
     name: "Archie Buff",
-    img: "",
+    img: "src/assets/chars/archieb.jpg",
     opts: {
       game: [ "aa6"],
       role: ["vic"]
@@ -1349,12 +1358,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/imgonline-com-ua-Resize-htFUKajJ2t.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
     name: "Jove Justice",
-    img: "",
+    img: "src/assets/chars/jove.jpg",
     opts: {
       game: [ "aa6"],
       role: ["vic"]
@@ -1365,7 +1374,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/ellen.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "def"]
+      role: [  "def"]
     }
   },
   {
@@ -1373,7 +1382,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/sorin.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit"]
+      role: [ ]
     }
   },
   {
@@ -1381,12 +1390,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/pierce.jpg",
     opts: {
       game: [ "aa6"],
-      role: ["wit", "cul"]
+      role: [  "cul"]
     }
   },
   {
     name: "Dumas Gloomsbury",
-    img: "",
+    img: "src/assets/chars/dumas.jpg",
     opts: {
       game: [ "aa6"],
       role: ["vic"]
@@ -1394,7 +1403,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Selena Sprocket",
-    img: "",
+    img: "src/assets/chars/selena.jpg",
     opts: {
       game: [ "aa6"],
       role: []
@@ -1405,7 +1414,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/kay.jpg",
     opts: {
       game: [ "aai1", "aai2"],
-      role: ["assi", "wit"]
+      role: ["assi",  ]
     }
   },
   {
@@ -1413,7 +1422,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/lang.jpg",
     opts: {
       game: [ "aai1", "aai2"],
-      role: ["wit", "det"]
+      role: [  "det"]
     }
   },
   {
@@ -1421,7 +1430,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/calisto.jpg",
     opts: {
       game: ["aai1"],
-      role: ["wit", "atto", "cul"],
+      role: [  "atto", "cul"],
     }
   },
   {
@@ -1429,12 +1438,12 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/badd.jpg",
     opts: {
       game: ["aai1", "aai2"],
-      role: ["wit", "det"],
+      role: [  "det"],
     }
   },
   {
     name: "Buddy Faith",
-    img: "",
+    img: "src/assets/chars/buddy.jpg",
     opts: {
       game: ["aai1"],
       role: ["vic", "det"],
@@ -1445,20 +1454,20 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/jaques.jpg",
     opts: {
       game: ["aai1"],
-      role: ["wit", "cul", "pros"],
+      role: [  "cul", "pros"],
     }
   },
   {
     name: "Zinc Lablanc",
-    img: "",
+    img: "src/assets/chars/zinc.jpg",
     opts: {
       game: ["aai1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Ackbey Hicks",
-    img: "",
+    img: "src/assets/chars/ackbey.jpg",
     opts: {
       game: ["aai1"],
       role: ["vic"],
@@ -1466,39 +1475,39 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Cammy Meele",
-    img: "",
+    img: "src/assets/chars/cammy.jpg",
     opts: {
       game: ["aai1"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Rhoda Teneiro",
-    img: "",
+    img: "src/assets/chars/rhoda.jpg",
     opts: {
       game: ["aai1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Ernest Amano",
-    img: "",
+    img: "src/assets/chars/amanosr.jpg",
     opts: {
       game: ["aai1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Lance Amano",
-    img: "",
+    img: "src/assets/chars/lance.jpg",
     opts: {
       game: ["aai1"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Colin Devorae",
-    img: "",
+    img: "src/assets/chars/colin.jpg",
     opts: {
       game: ["aai1"],
       role: ["vic"],
@@ -1506,15 +1515,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Lauren Paups",
-    img: "",
+    img: "src/assets/chars/lauren.jpg",
     opts: {
       game: ["aai1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Byrne Faraday",
-    img: "",
+    img: "src/assets/chars/byrne.jpg",
     opts: {
       game: ["aai1"],
       role: ["vic", "pros"],
@@ -1522,7 +1531,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Dein Mann",
-    img: "",
+    img: "src/assets/chars/deid mann.jpg",
     opts: {
       game: ["aai1"],
       role: ["vic"],
@@ -1530,7 +1539,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Mack Rell",
-    img: "",
+    img: "src/assets/chars/mackrell.jpg",
     opts: {
       game: ["aai1"],
       role: ["vic", "cul"],
@@ -1538,7 +1547,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Cece Yew",
-    img: "",
+    img: "src/assets/chars/cece.jpg",
     opts: {
       game: ["aai1"],
       role: ["vic"],
@@ -1546,15 +1555,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Quercus Alba",
-    img: "",
+    img: "src/assets/chars/querqus.jpg",
     opts: {
       game: ["aai1"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Manny Coachen",
-    img: "",
+    img: "src/assets/chars/manny.jpg",
     opts: {
       game: ["aai1"],
       role: ["vic", "cul"],
@@ -1562,7 +1571,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Ka-Shi Nou",
-    img: "",
+    img: "src/assets/chars/kashi.jpg",
     opts: {
       game: ["aai1"],
       role: ["vic"],
@@ -1570,15 +1579,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Colias Palaeno",
-    img: "",
+    img: "src/assets/chars/colyas.jpg",
     opts: {
       game: ["aai1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Raymond Shields",
-    img: "",
+    img: "src/assets/chars/ray.jpg",
     opts: {
       game: ["aai2"],
       role: ["assi", "atto"],
@@ -1586,47 +1595,47 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Justine Courtney",
-    img: "",
+    img: "src/assets/chars/justine.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Sebastian Debeste",
-    img: "",
+    img: "src/assets/chars/sebastian.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit", "pros"],
+      role: [  "pros"],
     }
   },
   {
     name: "Di-Jun Huang",
-    img: "",
+    img: "src/assets/chars/dijun.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit", "vic"],
+      role: [  "vic"],
     }
   },
   {
     name: "Nicole Swift",
-    img: "src\assets\chars\nicole.jpg",
+    img: "src/assets/chars/nicole.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Horace Knightley",
-    img: "",
+    img: "src/assets/chars/HORACE.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit", "cul", "vic"],
+      role: [  "cul", "vic"],
     }
   },
   {
     name: "Ethan Rooke",
-    img: "",
+    img: "src/assets/chars/rooke.jpg",
     opts: {
       game: ["aai2"],
       role: ["vic"],
@@ -1634,39 +1643,47 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Patricia Roland",
-    img: "",
+    img: "src/assets/chars/patricia.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Simon Keyes",
-    img: "",
+    img: "src/assets/chars/simon.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Jay Elbird",
-    img: "",
+    img: "src/assets/chars/jay.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit"],
+      role: [ ],
+    }
+  },
+  {
+    name: "Rocky",
+    img: "src/assets/chars/rocky.jpg",
+    opts: {
+      game: ["aai2"],
+      ani: true
     }
   },
   {
     name: "Sirhan Dogen",
-    img: "",
+    img: "src/assets/chars/dogen.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Jeffrey Master",
-    img: "",
+    img: "src/assets/chars/master.jpg",
     opts: {
       game: ["aai2"],
       role: ["def"],
@@ -1674,31 +1691,31 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Katherine Hall",
-    img: "",
+    img: "src/assets/chars/kate.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Delicia Scones",
-    img: "",
+    img: "src/assets/chars/delicia.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Dane Gustavia",
-    img: "",
+    img: "src/assets/chars/dane.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
-    name: "Isaac Dover",
-    img: "",
+    name: "Isaac Dover (a.k.a. Pierre Hoquet)",
+    img: "src/assets/chars/isaac.jpg",
     opts: {
       game: ["aai2"],
       role: ["vic"],
@@ -1706,38 +1723,39 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Karin Jenson",
-    img: "",
+    img: "src/assets/chars/karin.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Bonnie Young",
-    img: "",
+    img: "src/assets/chars/bonny.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Anubis",
-    img: "",
+    img: "src/assets/chars/anubis.jpg",
     opts: {
       game: ["aai2"],
+      ani: true
     }
   },
   {
     name: "Blaise Debeste",
-    img: "",
+    img: "src/assets/chars/blaise.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit", "cul", "pros"],
+      role: [  "cul", "pros"],
     }
   },
   {
-    name: "Jil Crane",
-    img: "",
+    name: "Jill Crane",
+    img: "src/assets/chars/jill.jpg",
     opts: {
       game: ["aai2"],
       role: ["vic", "atto"],
@@ -1745,15 +1763,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "John Marsh",
-    img: "",
+    img: "src/assets/chars/john marsh.jpg",
     opts: {
       game: ["aai2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Jack Cameron",
-    img: "",
+    img: "src/assets/chars/cameron.jpg",
     opts: {
       game: ["aai2"],
       role: ["vic"],
@@ -1761,7 +1779,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Ryunosuke Naruhodo",
-    img: "",
+    img: "src/assets/chars/ryu.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
       role: ["atto", "def"],
@@ -1769,7 +1787,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Susato Mikotoba",
-    img: "",
+    img: "src/assets/chars/susa.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
       role: ["assi"],
@@ -1777,7 +1795,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Kazuma Asogi",
-    img: "",
+    img: "src/assets/chars/kazuma.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
       role: ["atto", "vic", "pros"],
@@ -1785,7 +1803,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Herlock Sholmes",
-    img: "",
+    img: "src/assets/chars/hurley.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
       role: ["det", "assi"],
@@ -1793,7 +1811,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Iris Wilson",
-    img: "",
+    img: "src/assets/chars/irisw.jpg",
     opts: {
       game: ["dgs1", "dgs 2"],
       role: ["assi"],
@@ -1801,23 +1819,23 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Barok van Zieks",
-    img: "",
+    img: "src/assets/chars/barok.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["pros", "def", "wit"],
+      role: ["pros", "def",  ],
     }
   },
   {
     name: "Yujin Mikotoba",
-    img: "",
+    img: "src/assets/chars/miko.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "John Wilson",
-    img: "",
+    img: "src/assets/chars/watson.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
       role: ["vic"],
@@ -1825,79 +1843,95 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Seishiro Jigoku",
-    img: "",
+    img: "src/assets/chars/jigoku.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Taketsuchi Auchi",
-    img: "",
+    img: "src/assets/chars/auchi.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
-      role: ["pros"],
+      role: ["pros"]
     }
   },
   {
     name: "Satoru Hosonaga",
-    img: "",
+    img: "src/assets/chars/satoru.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
-      role: ["wit", "det"],
+      role: [  "det"]
     }
   },
   {
     name: "Iyesa Nosa",
-    img: "",
+    img: "src/assets/chars/iyesa.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit"],
+      role: [ ]
     }
   },
   {
     name: "Aido Nosa",
-    img: "",
+    img: "src/assets/chars/aido nosa.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Kyurio Korekuta",
-    img: "",
+    img: "src/assets/chars/kyurio.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
-    name: "Asa Shinn (Jezaille Brett)",
-    img: "",
+    name: "Asa Shinn (a.k.a Jezaille Brett)",
+    img: "src/assets/chars/asashin.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit", "vic", "cul"],
+      role: [  "vic", "cul"],
     }
   },
   {
     name: "Nikolina Pavlova",
-    img: "",
+    img: "src/assets/chars/pavlova.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
+    }
+  },
+  {
+    name: "Darka",
+    img: "src/assets/chars/darka.jpg",
+    opts: {
+      game: ["dgs1"],
+      ani: true
+    }
+  },
+  {
+    name: "Pirozhko",
+    img: "src/assets/chars/pirozhko.jpg",
+    opts: {
+      game: ["dgs1"],
+      ani: true
     }
   },
   {
     name: "Bif Strogenov",
-    img: "",
+    img: "src/assets/chars/bif.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Mael Stronghart",
-    img: "",
+    img: "src/assets/chars/hart.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
       role: ["cul"],
@@ -1905,15 +1939,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Magnus McGilded",
-    img: "",
+    img: "src/assets/chars/nagnus.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit", "vic", "cul", "def"],
+      role: [  "vic", "cul", "def"],
     }
   },
   {
     name: "Mason Milverton ('Thrise-Fired Mason')",
-    img: "",
+    img: "src/assets/chars/mason.jpg",
     opts: {
       game: ["dgs1"],
       role: ["vic"],
@@ -1921,79 +1955,79 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Beppo/Sandwich",
-    img: "",
+    img: "src/assets/chars/beppo.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Lay D. Furst",
-    img: "",
+    img: "src/assets/chars/lady.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Gina Lestrade",
-    img: "",
+    img: "src/assets/chars/gina.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
-      role: ["wit", "det", "def"],
+      role: [  "det", "def"],
     }
   },
   {
     name: "Soseki Natsume",
-    img: "",
+    img: "src/assets/chars/soseki.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
-      role: ["wit", "def"],
+      role: [  "def"],
     }
   },
   {
     name: "Olive Green",
-    img: "",
+    img: "src/assets/chars/olive.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
-      role: ["wit", "vic", "cul"],
+      role: [  "vic", "cul"],
     }
   },
   {
     name: "John Garrideb",
-    img: "",
+    img: "src/assets/chars/garri.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Joan Garrideb",
-    img: "",
+    img: "src/assets/chars/joan.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Roly Beate",
-    img: "",
+    img: "src/assets/chars/beate.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Patricia Beate",
-    img: "",
+    img: "src/assets/chars/patbeate.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Tobias Gregson",
-    img: "",
+    img: "src/assets/chars/gregson.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
       role: ["det", "vic"],
@@ -2001,15 +2035,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Wagahai",
-    img: "",
+    img: "src/assets/chars/wagahai.jpg",
     opts: {
       game: ["dgs1", "dgs2"],
-      role: [],
+      ani: true
     }
   },
   {
     name: "Pop Windibank",
-    img: "",
+    img: "src/assets/chars/pop.jpg",
     opts: {
       game: ["dgs1"],
       role: ["vic"],
@@ -2017,15 +2051,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Ashley Graydon",
-    img: "",
+    img: "src/assets/chars/ahsley.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
-    name: "Britich Judge",
-    img: "",
+    name: "Judge of the Old Bailey",
+    img: "src/assets/chars/santajudge.jpg",
     opts: {
       game: ["dgs1"],
       role: [],
@@ -2033,31 +2067,31 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Nash Skulkin",
-    img: "",
+    img: "src/assets/chars/mash.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Ringo Skulkin",
-    img: "",
+    img: "src/assets/chars/ringo.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Vilen Borshevik",
-    img: "",
+    img: "src/assets/chars/vilen.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Genshin Asogi",
-    img: "",
+    img: "src/assets/chars/genshin.jpg",
     opts: {
       game: ["dgs2"],
       role: ["vic", "cul", "det"],
@@ -2065,7 +2099,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Klint van Zieks",
-    img: "",
+    img: "src/assets/chars/klint.jpg",
     opts: {
       game: ["dgs2"],
       role: ["cul", "vic", "pros"],
@@ -2073,55 +2107,55 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Chief Inspector Toby",
-    img: "",
+    img: "src/assets/chars/toby.jpg",
     opts: {
       game: ["dgs2"],
-      role: [],
+      ani: true
     }
   },
   {
     name: "Rei Membami",
-    img: "",
+    img: "src/assets/chars/haori.jpg",
     opts: {
       game: ["dgs1"],
-      role: ["wit", "def"],
+      role: [  "def"],
     }
   },
   {
     name: "Raiten Menimemo",
-    img: "",
+    img: "src/assets/chars/meni.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "William Shamspeare",
-    img: "",
+    img: "src/assets/chars/sham.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit", "vic", "cul"],
+      role: [  "vic", "cul"],
     }
   },
   {
     name: "Adron B. Metermann",
-    img: "",
+    img: "src/assets/chars/meter.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Quinby Altamont",
-    img: "",
+    img: "src/assets/chars/queen.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Duncan Ross",
-    img: "",
+    img: "src/assets/chars/dunkan.jpg",
     opts: {
       game: ["dgs2"],
       role: ["vic"],
@@ -2129,7 +2163,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Selden",
-    img: "",
+    img: "src/assets/chars/selden.jpg",
     opts: {
       game: ["dgs2"],
       role: ["cul"],
@@ -2137,31 +2171,31 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Albert Harebrayne",
-    img: "",
+    img: "src/assets/chars/albert.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit", "def"],
+      role: [  "def"],
     }
   },
   {
     name: "Esmeralda Tusspells",
-    img: "",
+    img: "src/assets/chars/tuss.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Wilhelm Gottsreich Sigismond 'Gotts' Ormstein",
-    img: "",
+    img: "src/assets/chars/gotts.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Odie Asman",
-    img: "",
+    img: "src/assets/chars/odie.jpg",
     opts: {
       game: ["dgs2"],
       role: ["vic"],
@@ -2169,103 +2203,111 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Balthasar Lune",
-    img: "",
+    img: "src/assets/chars/lune.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Enoch Drebber",
-    img: "",
+    img: "src/assets/chars/dreb.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Courtney Sithe",
-    img: "",
+    img: "src/assets/chars/courtney.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit", "cul"],
+      role: [  "cul"],
     }
   },
   {
     name: "Maria Gorey",
-    img: "",
+    img: "src/assets/chars/maria.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Evie Vigil",
-    img: "",
+    img: "src/assets/chars/evie.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Daley Vigil",
-    img: "",
+    img: "src/assets/chars/daley.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Barry Caidin",
-    img: "",
+    img: "src/assets/chars/barry.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Venus",
-    img: "",
+    img: "src/assets/chars/venus.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Fabien de Rosseau",
-    img: "",
+    img: "src/assets/chars/rosseau.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Peppino de Rossi",
-    img: "",
+    img: "src/assets/chars/rossi.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Tchikin Strogenov",
-    img: "",
+    img: "src/assets/chars/tchikin.jpg",
     opts: {
       game: ["dgs2"],
-      role: ["wit"],
+      role: [ ],
     }
   },
   {
     name: "Balmung",
-    img: "",
+    img: "src/assets/chars/balmung.jpg",
     opts: {
       game: ["dgs2"],
-      role: [],
+      ani: true
+    }
+  },
+  {
+    name: "Lady Baskerville",
+    img: "src/assets/chars/ladyb.jpg",
+    opts: {
+      game: ["dgs2"],
+      role: []
     }
   },
   {
     name: "Hershel Layton",
-    img: "",
+    img: "src/assets/chars/layton.jpg",
     opts: {
       game: ["vs"],
       role: ["vic", "assi"],
@@ -2273,7 +2315,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Luke Triton",
-    img: "",
+    img: "src/assets/chars/luke.jpg",
     opts: {
       game: ["vs"],
       role: ["assi"],
@@ -2281,15 +2323,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Arthur 'The Storyteller' Cantabella",
-    img: "",
+    img: "src/assets/chars/arthus.jpg",
     opts: {
       game: ["vs"],
-      role: ["wit", "vic", "cul"],
+      role: [  "vic", "cul"],
     }
   },
   {
     name: "Espella Cantabella",
-    img: "",
+    img: "src/assets/chars/espella.jpg",
     opts: {
       game: ["vs"],
       role: ["assi", "def"],
@@ -2297,7 +2339,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Zacharias Barnham",
-    img: "",
+    img: "src/assets/chars/barnham.jpg",
     opts: {
       game: ["vs"],
       role: ["pros"],
@@ -2305,7 +2347,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Eve 'Darklaw' Belduke",
-    img: "",
+    img: "src/assets/chars/evebel.jpg",
     opts: {
       game: ["vs"],
       role: ["pros", "cul"],
@@ -2313,7 +2355,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Labyrinthian Judge",
-    img: "",
+    img: "src/assets/chars/labjudge.jpg",
     opts: {
       game: ["vs"],
       role: [],
@@ -2321,15 +2363,15 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Eve",
-    img: "",
+    img: "src/assets/chars/eve.jpg",
     opts: {
       game: ["vs"],
-      role: [],
+      ani: true
     }
   },
   {
     name: "Prosecutor Flynch",
-    img: "",
+    img: "src/assets/chars/flynch.jpg",
     opts: {
       game: ["vs"],
       role: ["pros"],
@@ -2337,18 +2379,26 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Johny Smiles",
-    img: "",
+    img: "src/assets/chars/smiles.jpg",
     opts: {
       game: ["vs"],
-      role: ["wit"],
+      role: [ ]
     }
   },
   {
     name: "Olivia Aldente",
-    img: "",
+    img: "src/assets/chars/olivia.jpg",
     opts: {
       game: ["vs"],
-      role: ["wit", "vic"],
+      role: ["vic"]
     }
   },
+  {
+    name: "Allan",
+    img: "src/assets/chars/allan.jpg",
+    opts: {
+      game: ["vs"],
+      role: []
+    }
+  }
 ];
