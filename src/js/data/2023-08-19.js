@@ -15,12 +15,10 @@ dataSet[dataSetVersion].options = [
       { name: "Ace Attorney: Dual Destines", key: "aa5" },
       { name: "Ace Attorney: Spirit of Justice", key: "aa6" },
       { name: "Ace Attorney Investigations: Miles Edgeworth", key: "aai1" },
-      { name: "Gyakuten Kenji 2", key: "aai2" },
+      { name: "Gyakuten Kenji 2", ttoltip: "Unofficial title: \"Ace Attorney Investigation: Prosecutor's Path", key: "aai2" },
       { name: "Professor Layton vs. Phoenix Wright: Ace Attorney", checked: false, key: "vs" },
       { name: "The Great Ace Attorney: Adventures", key: "dgs1" },
-      { name: "The Great Ace Attorney 2: Resolve", key: "dgs2" },
-      
-      
+      { name: "The Great Ace Attorney 2: Resolve", key: "dgs2" }
     ]
   },
   {
@@ -40,7 +38,7 @@ dataSet[dataSetVersion].options = [
   {
     name: "Remove animals",
     key: "ani",
-    tooltip: "Check this to remove animals",
+    tooltip: "Check this if you don't want animals to be listed",
     checked: false
   },
 ];
@@ -567,7 +565,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Missile",
     img: "src/assets/chars/missile.jpg",
     opts: {
-      game: [ "aa2"],
+      game: [ "aa1"],
       ani: true
     }
   },
