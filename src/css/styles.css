@@ -134,12 +134,12 @@ body {
 
 .sorter > .left {
   grid-column: 1 / 2;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
 }
 
 .sorter > .right {
   grid-column: 3 / 4;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
 }
 
 .options {
