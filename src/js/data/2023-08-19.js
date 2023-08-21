@@ -15,7 +15,7 @@ dataSet[dataSetVersion].options = [
       { name: "Ace Attorney: Dual Destines", key: "aa5" },
       { name: "Ace Attorney: Spirit of Justice", key: "aa6" },
       { name: "Ace Attorney Investigations: Miles Edgeworth", key: "aai1" },
-      { name: "Gyakuten Kenji 2", ttoltip: "Unofficial title: \"Ace Attorney Investigation: Prosecutor's Path", key: "aai2" },
+      { name: "Gyakuten Kenji 2", ttoltip: "Unofficial title: \"Ace Attorney Investigations: Prosecutor's Path\"", key: "aai2" },
       { name: "Professor Layton vs. Phoenix Wright: Ace Attorney", checked: false, key: "vs" },
       { name: "The Great Ace Attorney: Adventures", key: "dgs1" },
       { name: "The Great Ace Attorney 2: Resolve", key: "dgs2" }
@@ -73,7 +73,7 @@ dataSet[dataSetVersion].characterData = [
     img: "src/assets/chars/judge.jpg",
     opts: {
       game: [ "aa1", "aa2", "aa3", "aai1", "aa4", "aa5", "aa6"],
-      role: [wit]
+      role: []
     }
   },
   {
@@ -570,7 +570,7 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
-    name: "Diego 'Godot' Armando",
+    name: "Diego \"Godot\" Armando",
     img: "src/assets/chars/godot.jpg",
     opts: {
       game: [ "aa3"],

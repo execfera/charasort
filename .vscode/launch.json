@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "etermellis.github.io/aacharsort/",
+            "url": "https://etermellis.github.io/Ace-Attorney-character-sorter/",
             "webRoot": "${workspaceFolder}"
         }
     ]

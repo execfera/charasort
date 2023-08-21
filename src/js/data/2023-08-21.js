@@ -73,7 +73,7 @@ dataSet[dataSetVersion].options = [
       img: "qNfxZKk.jpg",
       opts: {
         game: [ "aa1", "aa2", "aa3", "aai1", "aa4", "aa5", "aa6"],
-        role: [wit]
+        role: []
       }
     },
     {
