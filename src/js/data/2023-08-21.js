@@ -875,7 +875,7 @@ dataSet[dataSetVersion].options = [
     },
     {
       name: "Drew Misham",
-      img: "HPOo5VE.jp",
+      img: "HPOo5VE.jpg",
       opts: {
         game: [ "aa4"],
         role: ["vic"]
