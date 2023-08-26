@@ -1077,7 +1077,7 @@ dataSet[dataSetVersion].options = [
       name: "Candice Arme",
       img: "zog7zUA.jpg",
       opts: {
-        game: [ "aa4"],
+        game: ["aa5"],
         prof: ["det"],
         role: ["vic"]
       }
@@ -1830,7 +1830,7 @@ dataSet[dataSetVersion].options = [
       img: "QVqUo6a.jpg",
       opts: {
         game: ["aai2"],
-        prof: [],
+        prof: ["jud"],
         role: [ ]
       }
     },
@@ -2111,7 +2111,7 @@ dataSet[dataSetVersion].options = [
       img: "frudI5w.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        prof: [],
+        prof: ["jud"],
         role: [ "cul"]
       }
     },
@@ -2212,7 +2212,7 @@ dataSet[dataSetVersion].options = [
       img: "zsw4HX4.jpg",
       opts: {
         game: ["dgs1", "dgs2"],
-        prof: [],
+        prof: ["jud"],
         role: ["cul"]
       }
     },
@@ -2357,7 +2357,7 @@ dataSet[dataSetVersion].options = [
       img: "E97XvWZ.jpg",
       opts: {
         game: ["dgs1"],
-        prof: [],
+        prof: ["jud"],
         role: []
       }
     },
