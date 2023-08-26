@@ -47,7 +47,7 @@ dataSet[dataSetVersion].options = [
       key: "ani",
       tooltip: "Check this if you don't want animals to be listed",
       checked: false
-    },
+    }
   ];
   
   dataSet[dataSetVersion].characterData = [
