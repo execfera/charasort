@@ -371,7 +371,7 @@ dataSet[dataSetVersion].options = [
       name: "Lana Skye",
       img: "xZRNqeh.jpg",
       opts: {
-        game: [ "aa1", "aa2", "aa3", "aa4", "aa5", "aa6"],
+        game: [ "aa1"],
         prof: ["pros"],
         role: ["def"]
       }
@@ -1170,7 +1170,7 @@ dataSet[dataSetVersion].options = [
         game: ["aa5", "aa6"],
         prof: [],
         role: [],
-        animal: true,
+        ani: true,
       }
     },
     {
@@ -1754,7 +1754,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Dein Mann",
+      name: "Deid Mann",
       img: "vYSBZUW.jpg",
       opts: {
         game: ["aai1"],
@@ -2386,6 +2386,15 @@ dataSet[dataSetVersion].options = [
         game: ["dgs1"],
         prof: [],
         role: [ ]
+      }
+    },
+    {
+      name: "Bruce Fairplay",
+      img: "WWOuTWa.jpg",
+      opts: {
+        game: ["dgs1"],
+        prof: [],
+        role: []
       }
     },
     {
