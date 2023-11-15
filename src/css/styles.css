@@ -284,3 +284,20 @@ a:hover {
 a:visited {
   color: #6600FF;
 }
+
+.changelog {
+  margin: auto;
+}
+
+.changelog td, .changelog th {
+  padding: 8px 5px;
+  vertical-align: middle;
+}
+
+.changelog td[rowspan], .changelog td[rowspan] ~ td {
+  border-top: 1px solid black;
+}
+
+.changelog td[rowspan] {
+  text-align: right;
+}

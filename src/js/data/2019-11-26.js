@@ -1,6 +1,8 @@
 dataSetVersion = "2019-11-26"; // Change this when creating a new data set version. YYYY-MM-DD format.
 dataSet[dataSetVersion] = {};
 
+dataSet[dataSetVersion].changelog = ["Added Okunoda Miyoi"];
+
 dataSet[dataSetVersion].options = [
   {
     name: "Filter by Series Entry",

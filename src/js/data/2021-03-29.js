@@ -1,6 +1,8 @@
 dataSetVersion = "2021-03-29"; // Change this when creating a new data set version. YYYY-MM-DD format.
 dataSet[dataSetVersion] = {};
 
+dataSet[dataSetVersion].changelog = ["Added Unconnected Marketeers (trial)"];
+
 dataSet[dataSetVersion].options = [
   {
     name: "Filter by Series Entry",

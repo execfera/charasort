@@ -53,8 +53,14 @@ let totalBattles    = 0;
 let sorterURL       = window.location.host + window.location.pathname;
 let storedSaveType  = localStorage.getItem(`${sorterURL}_saveType`);
 
+const dateMap = Object.keys(dataSet)
+  .map((date) => ({ str: date, val: new Date(date) }))
+  .sort((date1, date2) => date2.val - date1.val);
+
 /** Initialize script. */
 function init() {
+  /** Adds changelog. */
+  addChangelog();
 
   /** Define button behavior. */
   document.querySelector('.starting.start.button').addEventListener('click', start);
@@ -132,6 +138,44 @@ function init() {
 
   /** Decode query string if available. */
   if (window.location.search.slice(1) !== '') decodeQuery();
+}
+
+/** Extracts changelogs from dataset and adds them to the page */
+function addChangelog() {
+  const tableBody = document.querySelector(".changelog tbody");
+
+  const changelogs = dateMap
+    .map(({ str, val }) => [val, dataSet[str].changelog])
+    .filter(([_date, changelog]) => changelog)
+    .slice(0, 5);
+
+  for (let [date, changelog] of changelogs) {
+    const tr1 = document.createElement("tr");
+
+    const dateTd = document.createElement("td");
+    dateTd.rowSpan = changelog.length;
+    dateTd.textContent = date.toLocaleString(
+      "en-US",
+      { year: "numeric", month: "long", day: "numeric" }
+    );
+    tr1.appendChild(dateTd);
+
+    const log1Td = document.createElement("td");
+    log1Td.textContent = changelog[0];
+    tr1.appendChild(log1Td);
+    
+    tableBody.appendChild(tr1);
+
+    changelog.slice(1).forEach((log) => {
+      const trN = document.createElement("tr");
+      
+      const logNTd = document.createElement("td");
+      logNTd.textContent = log;
+      trN.appendChild(logNTd);
+      
+      tableBody.appendChild(trN);
+    });
+  }
 }
 
 /** Begin sorting. */
