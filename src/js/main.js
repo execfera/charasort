@@ -676,15 +676,10 @@ function setLatestDataset() {
   timeTaken = 0;
   choices   = '';
 
-  const latestDateIndex = Object.keys(dataSet)
-    .map(date => new Date(date))
-    .reduce((latestDateIndex, currentDate, currentIndex, array) => {
-      return currentDate > array[latestDateIndex] ? currentIndex : latestDateIndex;
-    }, 0);
-  currentVersion = Object.keys(dataSet)[latestDateIndex];
+  currentVersion = dateMap[0].str;
 
-  characterData = dataSet[currentVersion].characterData;
   options = dataSet[currentVersion].options;
+  characterData = dataSet[currentVersion].characterData;
 
   populateOptions();
 }
@@ -755,16 +750,10 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
      * If timestamp is before or after any of the datasets, get the closest one.
      * If timestamp is between any of the datasets, get the one in the past, but if timeError is set, get the one in the future.
      */
-    const seedDate = { str: timestamp, val: new Date(timestamp) };
-    const dateMap = Object.keys(dataSet)
-      .map(date => {
-        return { str: date, val: new Date(date) };
-      })
-    const beforeDateIndex = dateMap
-      .reduce((prevIndex, currDate, currIndex) => {
-        return currDate.val < seedDate.val ? currIndex : prevIndex;
-      }, -1);
-    const afterDateIndex = dateMap.findIndex(date => date.val > seedDate.val);
+    const seedDate = new Date(timestamp);
+    const beforeDateIndex = dateMap.findIndex((date) => date.val < seedDate);
+    const afterDateIndex = dateMap.slice().reverse()
+      .findIndex((date) => date.val > seedDate);
     
     if (beforeDateIndex === -1) {
       currentVersion = dateMap[afterDateIndex].str;
