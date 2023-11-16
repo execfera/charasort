@@ -62,7 +62,12 @@ function init() {
   /** Adds changelog. */
   addChangelog();
 
+  /** Load saved dark mode setting. */
+  loadDarkMode();
+
   /** Define button behavior. */
+  document.querySelector('.colorchange .toggle').addEventListener('click', () => toggleDarkMode());
+
   document.querySelector('.starting.start.button').addEventListener('click', start);
   document.querySelector('.starting.load.button').addEventListener('click', loadProgress);
 
@@ -176,6 +181,21 @@ function addChangelog() {
       tableBody.appendChild(trN);
     });
   }
+}
+
+/** Load saved dark mode setting from local storage */
+function loadDarkMode() {
+  const darkMode = localStorage.getItem(`${sorterURL}_darkMode`);
+  toggleDarkMode(darkMode === "true");
+}
+
+/** Toggles between dark and light mode
+ * 
+ * @param {Boolean | undefined} force
+ */
+function toggleDarkMode(force) {
+  document.body.classList.toggle("darkmode", force);
+  localStorage.setItem(`${sorterURL}_darkMode`, document.body.classList.contains("darkmode"));
 }
 
 /** Begin sorting. */
