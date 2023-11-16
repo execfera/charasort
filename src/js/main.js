@@ -132,7 +132,7 @@ function init() {
 
   /** Show load button if save data exists. */
   if (storedSaveType) {
-    document.querySelector('.starting.load.button > span').insertAdjacentText('beforeend', storedSaveType);
+    document.querySelector('.starting.load.button').insertAdjacentText('beforeend', storedSaveType);
     document.querySelectorAll('.starting.button').forEach(el => {
       el.style['grid-row'] = 'span 3';
       el.classList.remove("hidden");
@@ -661,9 +661,12 @@ function generateImage() {
     const imgButton = document.querySelector('.finished.getimg.button');
     const resetButton = document.createElement('a');
 
+    const imgButtonCont = document.createElement('div');
+
     imgButton.removeEventListener('click', generateImage);
     imgButton.innerHTML = '';
-    imgButton.insertAdjacentHTML('beforeend', `<a href="${dataURL}" download="${filename}">Download Image</a><br><br>`);
+    imgButton.appendChild(imgButtonCont);
+    imgButtonCont.insertAdjacentHTML('beforeend', `<a href="${dataURL}" download="${filename}">Download Image</a><br><br>`);
 
     resetButton.insertAdjacentText('beforeend', 'Reset');
     resetButton.addEventListener('click', (event) => {
@@ -671,7 +674,7 @@ function generateImage() {
       imgButton.innerHTML = 'Generate Image';
       event.stopPropagation();
     });
-    imgButton.insertAdjacentElement('beforeend', resetButton);
+    imgButtonCont.insertAdjacentElement('beforeend', resetButton);
   });
 }
 

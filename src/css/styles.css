@@ -68,17 +68,22 @@ body.darkmode {
 .sorter {
   margin: 0px auto;
   display: grid;
-  grid-template-columns: 120px 1fr 120px;
+  grid-template-columns: max-content 170px max-content;
   grid-gap: 5px;
-  width: 420px;
 }
 
 .button {
   border: 1px solid var(--border-color);
   text-align: center;
-  padding: 10%;
+  padding: 0.5em;
   grid-column: 2 / 3;
   cursor: pointer;
+}
+
+.starting.button, .sorting.button, .finished.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .starting.start.button {
@@ -135,22 +140,24 @@ body.darkmode {
 }
 
 .sorter > .image {
-  width: 120px;
-  height: 180px;
-  margin: auto;
+  max-width: 180px;
+  max-height: 180px;
+  align-self: center;
   grid-row: 1 / 7;
   cursor: pointer;
   background-color: var(--image-bg-color);
 }
 
 .sorter > .text {
-  width: 120px;
-  height: 60px;
+  min-width: 100%;
+  width: min-content;
+  min-height: 60px;
+  overflow-wrap: anywhere;
 }
 
 .sorter > .text > p {
-  margin: 0.5em 5px 0px;
-  width: calc(100%-10px);
+  margin: 0.5em 5px;
+  width: calc(100% - 10px);
   text-align: center;
   font-size: 0.8em;
   line-height: 1.5em;
@@ -159,11 +166,13 @@ body.darkmode {
 .sorter > .left {
   grid-column: 1 / 2;
   border: 1px solid var(--border-color);
+  box-sizing: border-box;
 }
 
 .sorter > .right {
   grid-column: 3 / 4;
   border: 1px solid var(--border-color);
+  box-sizing: border-box;
 }
 
 .options {
@@ -208,6 +217,7 @@ label:hover {
 }
 
 .results {
+  background-color: var(--bg-color);
   font-size: 0.75em;
   display: flex;
   align-content: flex-start;
