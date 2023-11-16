@@ -14,6 +14,7 @@ body {
   font-size: 16px;
   background-color: var(--bg-color);
   color: var(--main-color);
+  color-scheme: light;
 }
 
 body.darkmode {
@@ -25,6 +26,7 @@ body.darkmode {
   --link-color: #DD44CC;
   --link-hover-color: #FF6600;
   --link-visited-color: #66CCFF;
+  color-scheme: dark;
 }
 
 .hidden {

@@ -186,7 +186,11 @@ function addChangelog() {
 /** Load saved dark mode setting from local storage */
 function loadDarkMode() {
   const darkMode = localStorage.getItem(`${sorterURL}_darkMode`);
-  toggleDarkMode(darkMode === "true");
+  if (["true", "false"].includes(darkMode)) {
+    toggleDarkMode(darkMode === "true");
+  } else {
+    toggleDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }
 }
 
 /** Toggles between dark and light mode
