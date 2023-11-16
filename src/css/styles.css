@@ -27,6 +27,10 @@ body.darkmode {
   --link-visited-color: #66CCFF;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .container {
   display: flex;
   flex-flow: column nowrap;
@@ -37,7 +41,6 @@ body.darkmode {
 .progress {
   margin: 1em auto;
   width: 500px;
-  display: none;
 }
 
 .progressbar {
@@ -84,17 +87,14 @@ body.darkmode {
 
 .starting.load.button {
   grid-row: span 3;
-  display: none;
 }
 
 .sorting.button, .finished.button {
   grid-row: span 2;
-  display: none;
 }
 
 .loading.button {
   grid-row: span 6;
-  display: none;
 }
 
 .loading.button > div {
@@ -146,7 +146,6 @@ body.darkmode {
 .sorter > .text {
   width: 120px;
   height: 60px;
-  display: none;
 }
 
 .sorter > .text > p {
@@ -197,7 +196,6 @@ label:hover {
 .image.selector {
   margin-top: 0.5em;
   width: 500px;
-  display: none;
   text-align: center;
   font-size: 0.75em;
 }
@@ -205,7 +203,6 @@ label:hover {
 .time.taken {
   margin-top: 0.5em;
   width: 500px;
-  display: none;
   text-align: center;
   font-size: 0.75em;
 }
@@ -289,7 +286,6 @@ label:hover {
 
 .info {
   margin: 2em auto 3em;
-  display: block;
   text-align: center;
   font-size: 0.6875em;
   width: 80%;
