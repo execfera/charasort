@@ -3,7 +3,7 @@ dataSet[dataSetVersion] = {};
 
 dataSet[dataSetVersion].changelog = [
   "Added 100th Black Market",
-  "Unfinished Dream of All Living Ghost",
+  "Added Unfinished Dream of All Living Ghost",
 ];
 
 dataSet[dataSetVersion].options = [
