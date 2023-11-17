@@ -913,7 +913,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Goutokuji Mike",
-    img: "E6IlBzB.png",
+    img: "FltSdtv.png",
     opts: {
       series: ["UM"],
       stage: ["st1"]
@@ -921,7 +921,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Yamashiro Takane",
-    img: "0gqyjHu.png",
+    img: "Aaq99GQ.png",
     opts: {
       series: ["UM"],
       stage: ["st2"]
@@ -929,7 +929,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Komakusa Sannyo",
-    img: "krihsYQ.png",
+    img: "DKupiv1.png",
     opts: {
       series: ["UM"],
       stage: ["st3"]
@@ -1010,7 +1010,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Okunoda Miyoi",
-    img: "JZnExhN.png",
+    img: "a5V63gx.png",
     opts: {
       series: ["book"],
       stage: []

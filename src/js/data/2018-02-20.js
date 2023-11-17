@@ -524,7 +524,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Toramaru Shou",
-    img: "8bMDDAo.png",
+    img: "5yihisu.png",
     opts: {
       series: ["UFO", "DS", "HM"],
       stage: ["st5"]
@@ -836,7 +836,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Yorigami Joon",
-    img: "0aPaTm8.png",
+    img: "V9OznT1.png",
     opts: {
       series: ["AoCF"],
       stage: ["st6"]

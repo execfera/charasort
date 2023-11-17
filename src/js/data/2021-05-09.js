@@ -937,7 +937,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Tamatsukuri Misumaru",
-    img: "BHwfCAQ.png",
+    img: "0V9jLUm.png",
     opts: {
       series: ["UM"],
       stage: ["st4"]
@@ -945,7 +945,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Kudamaki Tsukasa",
-    img: "KNy3FZq.png",
+    img: "hiKwpr7.png",
     opts: {
       series: ["UM"],
       stage: ["st5", "st6", "ex"]
@@ -953,7 +953,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Iizunamaru Megumu",
-    img: "QA63m27.png",
+    img: "4fhGB1j.png",
     opts: {
       series: ["UM"],
       stage: ["st5"]
@@ -961,7 +961,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Tenkyuu Chimata",
-    img: "Ga4AYtv.png",
+    img: "7ebXBQi.png",
     opts: {
       series: ["UM"],
       stage: ["st6"]
@@ -969,7 +969,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Himemushi Momoyo",
-    img: "iH2wqbd.png",
+    img: "UG0f5r4.png",
     opts: {
       series: ["UM"],
       stage: ["ex"]

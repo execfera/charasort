@@ -410,7 +410,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Toramaru Shou",
-    img: "8bMDDAo.png",
+    img: "5yihisu.png",
     opts: { series: ["UFO", "DS", "HM"], stage: ["st5"] }
   },
   {
@@ -495,7 +495,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Imaizumi Kagerou",
-    img: "b5UMjD8.png",
+    img: "qwwL0bB.png",
     opts: { series: ["DDC", "ISC"], stage: ["st3"] }
   },
   {

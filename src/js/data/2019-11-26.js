@@ -985,7 +985,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Okunoda Miyoi",
-    img: "JZnExhN.png",
+    img: "a5V63gx.png",
     opts: {
       series: ["book"],
       stage: []
