@@ -219,7 +219,6 @@ label:hover {
 }
 
 .results {
-  background-color: var(--bg-color);
   font-size: 0.75em;
   display: flex;
   align-content: flex-start;
