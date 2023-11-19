@@ -1,6 +1,12 @@
 dataSetVersion = "2018-02-20"; // Change this when creating a new data set version. YYYY-MM-DD format.
 dataSet[dataSetVersion] = {};
 
+dataSet[dataSetVersion].changelog = [
+  "Added Antinomy of Common Flowers",
+  "Added Hidden Star in Four Seasons",
+  "Corrected several characters assigned to the wrong series entry",
+];
+
 dataSet[dataSetVersion].options = [
   {
     name: "Filter by Series Entry",

@@ -1,6 +1,8 @@
 dataSetVersion = "2017-05-01"; // Change this when creating a new data set version. YYYY-MM-DD format.
 dataSet[dataSetVersion] = {};
 
+dataSet[dataSetVersion].changelog = ["Initial version"];
+
 dataSet[dataSetVersion].options = [
   {
     name: "Filter by Series Entry",
