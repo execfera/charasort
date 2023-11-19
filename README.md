@@ -1,6 +1,5 @@
 # charasort
-A web based character sorter. Allows users to run through a manual merge sort of their favorite
-characters from a set.
+A web based character sorter. Allows users to run through a manual merge sort of their favorite characters from a set.
 
 **Features**
  * Entirely client side, no backend server required.
@@ -19,21 +18,23 @@ This is a list of things you need to change for your sorter, for each file.
 
  * `index.html`
    * Sorter name: Change under `starting start button` and the `<title>` tags.
-   * Starting banner images: 120px x 180px, under `left sort image` and `right sort image`.
+   * Starting banner images: Same aspect ratio as character images, under `left sort image` and `right sort image`.
    * OpenGraph tags: `og:site_name`, `og:description` and `og:image` will show up on embeds when linked to social media such as Facebook, Twitter and Discord.
    * Sorter info: Insert whatever you like under the `info` tag.
    * Website icon: Remember to get your own `favicon.ico`!
 
  * `src/js/data.js`
 
-    Change `imageRoot` if you are not uploading your images to imgur.
+    Change `imageRoot` to whatever the root URL of your images is.
 
  * `src/js/data/YYYY-MM-DD.js`
 
     Creating your own set of data is relatively simple. First, change the `dataSetVersion` date to the date when you are creating the dataset. Example: `dataSetVersion = 2018-02-20`. The actual filename does not matter, it is just for your own easy reference.
     
-    Further down, each file comprises of two sets of data: `characterData` and `options`.
+    Further down, each file comprises of three sets of data: `changelog`, `characterData` and `options`.
 
+    `changelog` is an array of strings explaining what has changed since the last dataset.
+    
     `characterData` is an array of objects filled with character data. Its layout is as follows.
 
     ```
