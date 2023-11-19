@@ -593,7 +593,7 @@ function result(imageNum = 3) {
 
 /** Undo previous choice. */
 function undo() {
-  if (timeTaken) { return; }
+  if (timeTaken || battleNo === 1) { return; }
 
   choices = battleNo === battleNoPrev ? choices : choices.slice(0, -1);
 
