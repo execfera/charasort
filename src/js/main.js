@@ -781,7 +781,7 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
      */
     const seedDate = new Date(timestamp);
     const beforeDateIndex = dateMap.findIndex((date) => date.val < seedDate);
-    const afterDateIndex = dateMap.slice().reverse()
+    const afterDateIndex = (dateMap.length - 1) - dateMap.slice().reverse()
       .findIndex((date) => date.val > seedDate);
     
     if (beforeDateIndex === -1) {
