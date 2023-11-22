@@ -53,10 +53,21 @@ let totalBattles    = 0;
 let sorterURL       = window.location.host + window.location.pathname;
 let storedSaveType  = localStorage.getItem(`${sorterURL}_saveType`);
 
+const dateMap = Object.keys(dataSet)
+  .map((date) => ({ str: date, val: new Date(date) }))
+  .sort((date1, date2) => date2.val - date1.val);
+
 /** Initialize script. */
 function init() {
+  /** Adds changelog. */
+  addChangelog();
+
+  /** Load saved dark mode setting. */
+  loadDarkMode();
 
   /** Define button behavior. */
+  document.querySelector('.colorchange .toggle').addEventListener('click', () => toggleDarkMode());
+
   document.querySelector('.starting.start.button').addEventListener('click', start);
   document.querySelector('.starting.load.button').addEventListener('click', loadProgress);
 
@@ -121,10 +132,10 @@ function init() {
 
   /** Show load button if save data exists. */
   if (storedSaveType) {
-    document.querySelector('.starting.load.button > span').insertAdjacentText('beforeend', storedSaveType);
+    document.querySelector('.starting.load.button').insertAdjacentText('beforeend', storedSaveType);
     document.querySelectorAll('.starting.button').forEach(el => {
       el.style['grid-row'] = 'span 3';
-      el.style.display = 'block';
+      el.classList.remove("hidden");
     });
   }
 
@@ -132,6 +143,63 @@ function init() {
 
   /** Decode query string if available. */
   if (window.location.search.slice(1) !== '') decodeQuery();
+}
+
+/** Extracts changelogs from dataset and adds them to the page */
+function addChangelog() {
+  const tableBody = document.querySelector(".changelog tbody");
+
+  const changelogs = dateMap
+    .map(({ str, val }) => [val, dataSet[str].changelog])
+    .filter(([_date, changelog]) => changelog)
+    .slice(0, 5);
+
+  for (let [date, changelog] of changelogs) {
+    const tr1 = document.createElement("tr");
+
+    const dateTd = document.createElement("td");
+    dateTd.rowSpan = changelog.length;
+    dateTd.textContent = date.toLocaleString(
+      "en-US",
+      { year: "numeric", month: "long", day: "numeric" }
+    );
+    tr1.appendChild(dateTd);
+
+    const log1Td = document.createElement("td");
+    log1Td.textContent = changelog[0];
+    tr1.appendChild(log1Td);
+    
+    tableBody.appendChild(tr1);
+
+    changelog.slice(1).forEach((log) => {
+      const trN = document.createElement("tr");
+      
+      const logNTd = document.createElement("td");
+      logNTd.textContent = log;
+      trN.appendChild(logNTd);
+      
+      tableBody.appendChild(trN);
+    });
+  }
+}
+
+/** Load saved dark mode setting from local storage */
+function loadDarkMode() {
+  const darkMode = localStorage.getItem(`${sorterURL}_darkMode`);
+  if (["true", "false"].includes(darkMode)) {
+    toggleDarkMode(darkMode === "true");
+  } else {
+    toggleDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }
+}
+
+/** Toggles between dark and light mode
+ * 
+ * @param {Boolean | undefined} force
+ */
+function toggleDarkMode(force) {
+  document.body.classList.toggle("darkmode", force);
+  localStorage.setItem(`${sorterURL}_darkMode`, document.body.classList.contains("darkmode"));
 }
 
 /** Begin sorting. */
@@ -259,16 +327,16 @@ function start() {
 
   /** Disable all checkboxes and hide/show appropriate parts while we preload the images. */
   document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.disabled = true);
-  document.querySelectorAll('.starting.button').forEach(el => el.style.display = 'none');
-  document.querySelector('.loading.button').style.display = 'block';
-  document.querySelector('.progress').style.display = 'block';
+  document.querySelectorAll('.starting.button').forEach(el => el.classList.add("hidden"));
+  document.querySelector('.loading.button').classList.remove("hidden");
+  document.querySelector('.progress').classList.remove("hidden");
   loading = true;
 
   preloadImages().then(() => {
     loading = false;
-    document.querySelector('.loading.button').style.display = 'none';
-    document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'block');
-    document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'block');
+    document.querySelector('.loading.button').classList.add("hidden");
+    document.querySelectorAll('.sorting.button').forEach(el => el.classList.remove("hidden"));
+    document.querySelectorAll('.sort.text').forEach(el => el.classList.remove("hidden"));
     display();
   });
 }
@@ -469,14 +537,14 @@ function progressBar(indicator, percentage) {
  * @param {number} [imageNum=3] Number of images to display. Defaults to 3.
  */
 function result(imageNum = 3) {
-  document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
-  document.querySelector('.image.selector').style.display = 'block';
-  document.querySelector('.time.taken').style.display = 'block';
+  document.querySelectorAll('.finished.button').forEach(el => el.classList.remove("hidden"));
+  document.querySelector('.image.selector').classList.remove("hidden");
+  document.querySelector('.time.taken').classList.remove("hidden");
   
-  document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'none');
-  document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'none');
-  document.querySelector('.options').style.display = 'none';
-  document.querySelector('.info').style.display = 'none';
+  document.querySelectorAll('.sorting.button').forEach(el => el.classList.add("hidden"));
+  document.querySelectorAll('.sort.text').forEach(el => el.classList.add("hidden"));
+  document.querySelector('.options').classList.add("hidden");
+  document.querySelector('.info').classList.add("hidden");
 
   const header = '<div class="result head"><div class="left">Order</div><div class="right">Name</div></div>';
   const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <a href="${location.protocol}//${sorterURL}">Do another sorter?</a>`;
@@ -525,7 +593,7 @@ function result(imageNum = 3) {
 
 /** Undo previous choice. */
 function undo() {
-  if (timeTaken) { return; }
+  if (timeTaken || battleNo === 1) { return; }
 
   choices = battleNo === battleNoPrev ? choices : choices.slice(0, -1);
 
@@ -583,8 +651,8 @@ function clearProgress() {
   localStorage.removeItem(`${sorterURL}_saveData`);
   localStorage.removeItem(`${sorterURL}_saveType`);
 
-  document.querySelectorAll('.starting.start.button').forEach(el => el.style['grid-row'] = 'span 6');
-  document.querySelectorAll('.starting.load.button').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('.starting.start.button').forEach(el => el.style['grid-row'] = null);
+  document.querySelectorAll('.starting.load.button').forEach(el => el.classList.add("hidden"));
 }
 
 function generateImage() {
@@ -592,14 +660,19 @@ function generateImage() {
   const tzoffset = (new Date()).getTimezoneOffset() * 60000;
   const filename = 'sort-' + (new Date(timeFinished - tzoffset)).toISOString().slice(0, -5).replace('T', '(') + ').png';
 
-  html2canvas(document.querySelector('.results')).then(canvas => {
+  html2canvas(document.querySelector('.results'), {
+    backgroundColor: getComputedStyle(document.body).backgroundColor,
+  }).then(canvas => {
     const dataURL = canvas.toDataURL();
     const imgButton = document.querySelector('.finished.getimg.button');
     const resetButton = document.createElement('a');
 
+    const imgButtonCont = document.createElement('div');
+
     imgButton.removeEventListener('click', generateImage);
     imgButton.innerHTML = '';
-    imgButton.insertAdjacentHTML('beforeend', `<a href="${dataURL}" download="${filename}">Download Image</a><br><br>`);
+    imgButton.appendChild(imgButtonCont);
+    imgButtonCont.insertAdjacentHTML('beforeend', `<a href="${dataURL}" download="${filename}">Download Image</a><br><br>`);
 
     resetButton.insertAdjacentText('beforeend', 'Reset');
     resetButton.addEventListener('click', (event) => {
@@ -607,7 +680,7 @@ function generateImage() {
       imgButton.innerHTML = 'Generate Image';
       event.stopPropagation();
     });
-    imgButton.insertAdjacentElement('beforeend', resetButton);
+    imgButtonCont.insertAdjacentElement('beforeend', resetButton);
   });
 }
 
@@ -632,15 +705,10 @@ function setLatestDataset() {
   timeTaken = 0;
   choices   = '';
 
-  const latestDateIndex = Object.keys(dataSet)
-    .map(date => new Date(date))
-    .reduce((latestDateIndex, currentDate, currentIndex, array) => {
-      return currentDate > array[latestDateIndex] ? currentIndex : latestDateIndex;
-    }, 0);
-  currentVersion = Object.keys(dataSet)[latestDateIndex];
+  currentVersion = dateMap[0].str;
 
-  characterData = dataSet[currentVersion].characterData;
   options = dataSet[currentVersion].options;
+  characterData = dataSet[currentVersion].characterData;
 
   populateOptions();
 }
@@ -711,16 +779,10 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
      * If timestamp is before or after any of the datasets, get the closest one.
      * If timestamp is between any of the datasets, get the one in the past, but if timeError is set, get the one in the future.
      */
-    const seedDate = { str: timestamp, val: new Date(timestamp) };
-    const dateMap = Object.keys(dataSet)
-      .map(date => {
-        return { str: date, val: new Date(date) };
-      })
-    const beforeDateIndex = dateMap
-      .reduce((prevIndex, currDate, currIndex) => {
-        return currDate.val < seedDate.val ? currIndex : prevIndex;
-      }, -1);
-    const afterDateIndex = dateMap.findIndex(date => date.val > seedDate.val);
+    const seedDate = new Date(timestamp);
+    const beforeDateIndex = dateMap.findIndex((date) => date.val < seedDate);
+    const afterDateIndex = (dateMap.length - 1) - dateMap.slice().reverse()
+      .findIndex((date) => date.val > seedDate);
     
     if (beforeDateIndex === -1) {
       currentVersion = dateMap[afterDateIndex].str;

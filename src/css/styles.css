@@ -1,6 +1,36 @@
 body {
+  --main-color: black;
+  --bg-color: white;
+  --border-color: black;
+  --progress-bar-color: lightgreen;
+  --loading-pulse-color: #333;
+  --link-color: #990000;
+  --link-hover-color: #FF6600;
+  --link-visited-color: #6600FF;
+
+  --image-bg-color: transparent;
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  color-scheme: light;
+}
+
+body.darkmode {
+  --main-color: #ddd;
+  --bg-color: #111;
+  --border-color: #ddd;
+  --progress-bar-color: forestgreen;
+  --loading-pulse-color: #ccc;
+  --link-color: #DD44CC;
+  --link-hover-color: #FF6600;
+  --link-visited-color: #66CCFF;
+  color-scheme: dark;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .container {
@@ -13,13 +43,12 @@ body {
 .progress {
   margin: 1em auto;
   width: 500px;
-  display: none;
 }
 
 .progressbar {
   position: relative;
   width: 492px;
-  border: 1px solid black;
+  border: 1px solid var(--border-color);
   padding: 3px;
   margin: 2px 0px;
 }
@@ -34,24 +63,29 @@ body {
 
 .progressfill {
   height: 20px;
-  background-color: lightgreen;
+  background-color: var(--progress-bar-color);
   width: 0%;
 }
 
 .sorter {
   margin: 0px auto;
   display: grid;
-  grid-template-columns: 120px 1fr 120px;
+  grid-template-columns: max-content 170px max-content;
   grid-gap: 5px;
-  width: 420px;
 }
 
 .button {
-  border: 1px solid black;
+  border: 1px solid var(--border-color);
   text-align: center;
-  padding: 10%;
+  padding: 0.5em;
   grid-column: 2 / 3;
   cursor: pointer;
+}
+
+.starting.button, .sorting.button, .finished.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .starting.start.button {
@@ -60,24 +94,21 @@ body {
 
 .starting.load.button {
   grid-row: span 3;
-  display: none;
 }
 
 .sorting.button, .finished.button {
   grid-row: span 2;
-  display: none;
 }
 
 .loading.button {
   grid-row: span 6;
-  display: none;
 }
 
 .loading.button > div {
   width: 25px;
   height: 25px;
   margin: 50px auto;
-  background-color: #333;
+  background-color: var(--loading-pulse-color);
 
   border-radius: 100%;  
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
@@ -111,22 +142,24 @@ body {
 }
 
 .sorter > .image {
-  width: 120px;
-  height: 180px;
-  margin: auto;
+  max-width: 180px;
+  max-height: 180px;
+  align-self: center;
   grid-row: 1 / 7;
   cursor: pointer;
+  background-color: var(--image-bg-color);
 }
 
 .sorter > .text {
-  width: 120px;
-  height: 60px;
-  display: none;
+  min-width: 100%;
+  width: min-content;
+  min-height: 60px;
+  overflow-wrap: anywhere;
 }
 
 .sorter > .text > p {
-  margin: 0.5em 5px 0px;
-  width: calc(100%-10px);
+  margin: 0.5em 5px;
+  width: calc(100% - 10px);
   text-align: center;
   font-size: 0.8em;
   line-height: 1.5em;
@@ -134,12 +167,14 @@ body {
 
 .sorter > .left {
   grid-column: 1 / 2;
-  border: 1px solid #000000;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
 }
 
 .sorter > .right {
   grid-column: 3 / 4;
-  border: 1px solid #000000;
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
 }
 
 .options {
@@ -160,7 +195,7 @@ label {
 }
 
 label:hover {
-  color: #990000;
+  color: var(--link-color);
 }
 
 .options > .large.option, .options > hr {
@@ -172,7 +207,6 @@ label:hover {
 .image.selector {
   margin-top: 0.5em;
   width: 500px;
-  display: none;
   text-align: center;
   font-size: 0.75em;
 }
@@ -180,7 +214,6 @@ label:hover {
 .time.taken {
   margin-top: 0.5em;
   width: 500px;
-  display: none;
   text-align: center;
   font-size: 0.75em;
 }
@@ -213,7 +246,7 @@ label:hover {
   display: grid;
   width: 211px;
   grid-template-columns: repeat(2, 1fr);
-  border: 1px solid #000;
+  border: 1px solid var(--border-color);
   margin-right: 5px;
 }
 
@@ -223,16 +256,17 @@ label:hover {
 
 .result.image img {
   height: 160px;
+  background-color: var(--image-bg-color);
 }
 
 .result.spacer {
   height: 1px;
-  background-color: #000;
+  background-color: var(--main-color);
 }
 
 .result.head {
-  background-color: #000;
-  color: #FFF;
+  background-color: var(--main-color);
+  color: var(--bg-color);
 }
 
 .result > .left {
@@ -257,13 +291,12 @@ label:hover {
   width: 160px;
   padding: 1px 0em 1px 0em;
   grid-column: 2 / 3;
-  border-left: 1px solid #000;
+  border-left: 1px solid var(--border-color);
   text-align: center;
 }
 
 .info {
   margin: 2em auto 3em;
-  display: block;
   text-align: center;
   font-size: 0.6875em;
   width: 80%;
@@ -271,16 +304,67 @@ label:hover {
 }
 
 a {
-  color: #990000;
+  color: var(--link-color);
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
 }
 
 a:hover {
-  color: #FF6600;
+  color: var(--link-hover-color);
 }
 
 a:visited {
-  color: #6600FF;
+  color: var(--link-visited-color);
+}
+
+.changelog {
+  margin: auto;
+}
+
+.changelog td, .changelog th {
+  padding: 8px 5px;
+  vertical-align: middle;
+}
+
+.changelog td[rowspan], .changelog td[rowspan] ~ td {
+  border-top: 1px solid var(--border-color);
+}
+
+.changelog td[rowspan] {
+  text-align: right;
+}
+
+.colorchange {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 2em;
+  height: 2em;
+}
+
+.colorchange .toggle {
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+
+  cursor: pointer;
+  color: inherit;
+}
+
+.colorchange .toggle:hover {
+  color: var(--link-color);
+}
+
+.colorchange .toggle svg {
+  width: 100%;
+  height: 100%;
+}
+
+body:not(.darkmode) .colorchange .toggle svg.light,
+.darkmode .colorchange .toggle svg.dark {
+  display: none;
 }
