@@ -1817,7 +1817,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Raymond Shields",
+      name: "Eddie Fender",
       img: "dYWPeCM.jpg",
       opts: {
         game: ["aai2"],
@@ -1826,7 +1826,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Justine Courtney",
+      name: "Verity Gavèlle",
       img: "QVqUo6a.jpg",
       opts: {
         game: ["aai2"],
@@ -1835,7 +1835,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Sebastian Debeste",
+      name: "Eustace Winner",
       img: "eO4iDlc.jpg",
       opts: {
         game: ["aai2"],
@@ -1844,7 +1844,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Di-Jun Huang",
+      name: "Di-Jun Wang",
       img: "V2fyLBT.jpg",
       opts: {
         game: ["aai2"],
@@ -1853,7 +1853,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Nicole Swift",
+      name: "Tabby Lloyd",
       img: "NhT0T3j.jpg",
       opts: {
         game: ["aai2"],
@@ -1862,7 +1862,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Horace Knightley",
+      name: "Bronco Knight",
       img: "G8c78T2.jpg",
       opts: {
         game: ["aai2"],
@@ -1871,7 +1871,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Ethan Rooke",
+      name: "Bastian Rook",
       img: "h6IcKAi.jpg",
       opts: {
         game: ["aai2"],
@@ -1880,7 +1880,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Patricia Roland",
+      name: "Fifi Laguarde",
       img: "K1dSR1n.jpg",
       opts: {
         game: ["aai2"],
@@ -1889,7 +1889,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Simon Keyes",
+      name: "Simeon Saint",
       img: "pWRjDNe.jpg",
       opts: {
         game: ["aai2"],
@@ -1898,7 +1898,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Jay Elbird",
+      name: "Rocco Carcerato",
       img: "CClrqMp.jpg",
       opts: {
         game: ["aai2"],
@@ -1907,7 +1907,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Rocky",
+      name: "Teddy",
       img: "SrGRD0M.jpg",
       opts: {
         game: ["aai2"],
@@ -1917,7 +1917,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Sirhan Dogen",
+      name: "Bodhidharma Kanis",
       img: "TTa2SVP.jpg",
       opts: {
         game: ["aai2"],
@@ -1926,7 +1926,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Jeffrey Master",
+      name: "Samson Tangaroa",
       img: "UZ2x8ga.jpg",
       opts: {
         game: ["aai2"],
@@ -1935,7 +1935,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Katherine Hall",
+      name: "Judy Bound",
       img: "aa4anaV.jpg",
       opts: {
         game: ["aai2"],
@@ -1944,7 +1944,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Delicia Scones",
+      name: "Delicia Scone",
       img: "xHbY1Ts.jpg",
       opts: {
         game: ["aai2"],
@@ -1953,7 +1953,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Dane Gustavia",
+      name: "Carmelo Gusto",
       img: "cJof5Rm.jpg",
       opts: {
         game: ["aai2"],
@@ -1962,7 +1962,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Isaac Dover (a.k.a. Pierre Hoquet)",
+      name: "Artie Frost (a.k.a. Paul Halique)",
       img: "F88iG6z.jpg",
       opts: {
         game: ["aai2"],
@@ -1971,7 +1971,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Karin Jenson",
+      name: "Florence Niedler",
       img: "MAaetK5.jpg",
       opts: {
         game: ["aai2"],
@@ -1980,7 +1980,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Bonnie Young",
+      name: "Hilda Hertz",
       img: "bazH9iP.jpg",
       opts: {
         game: ["aai2"],
@@ -1989,7 +1989,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Anubis",
+      name: "Helmut",
       img: "lh1ksEk.jpg",
       opts: {
         game: ["aai2"],
@@ -1999,7 +1999,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Blaise Debeste",
+      name: "Excelsius Winner",
       img: "3ls2XtA.jpg",
       opts: {
         game: ["aai2"],
@@ -2008,7 +2008,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Jill Crane",
+      name: "Rosie Ringer",
       img: "IIxI8Gz.jpg",
       opts: {
         game: ["aai2"],
@@ -2017,7 +2017,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "John Marsh",
+      name: "Shaun Fenn",
       img: "rk2tSMx.jpg",
       opts: {
         game: ["aai2"],
@@ -2026,7 +2026,7 @@ dataSet[dataSetVersion].options = [
       }
     },
     {
-      name: "Jack Cameron",
+      name: "Alf Aldown",
       img: "XYD2qR4.jpg",
       opts: {
         game: ["aai2"],
