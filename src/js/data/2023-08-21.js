@@ -15,7 +15,7 @@ dataSet[dataSetVersion].options = [
         { name: "Ace Attorney: Dual Destines", key: "aa5" },
         { name: "Ace Attorney: Spirit of Justice", key: "aa6" },
         { name: "Ace Attorney Investigations: Miles Edgeworth", key: "aai1" },
-        { name: "Gyakuten Kenji 2", tooltip: "Unofficial title: \"Ace Attorney Investigations 2: Prosecutor's Path\"", key: "aai2" },
+        { name: "Ace Attorney Investigations 2: Prosecutor's Gambit", key: "aai2" },
         { name: "The Great Ace Attorney: Adventures", key: "dgs1" },
         { name: "The Great Ace Attorney 2: Resolve", key: "dgs2" }
       ]
