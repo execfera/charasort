@@ -75,7 +75,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Hakurei Reimu",
     img: "c5DqpgX.png",
     opts: {
-      series: [ "book", "EoSD", "PCB", "IaMP", "IN", "PoFV", "StB", "SWR", "MoF", "SA", "UFO", "soku", "DS", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS", "VD", "WBaWC", "SFW", "UM", "UDoALG", "FW" ],
+      series: [ "book", "EoSD", "PCB", "IaMP", "IN", "PoFV", "StB", "MoF", "SWR", "SA", "UFO", "soku", "DS", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS", "VD", "WBaWC", "SFW", "UM", "UDoALG", "FW" ],
       stage: ["st4"]
     }
   },
@@ -83,7 +83,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Kirisame Marisa",
     img: "tJnkSzK.png",
     opts: {
-      series: [ "book", "EoSD", "PCB", "IaMP", "IN", "PoFV", "StB", "SWR", "MoF", "SA", "UFO", "soku", "DS", "GFW", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS", "VD", "WBaWC", "SFW", "UM", "BM", "UDoALG", "FW" ],
+      series: [ "book", "EoSD", "PCB", "IaMP", "IN", "PoFV", "StB", "MoF", "SWR", "SA", "UFO", "soku", "DS", "GFW", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS", "VD", "WBaWC", "SFW", "UM", "BM", "UDoALG", "FW" ],
       stage: ["st4", "ex"]
     }
   },
@@ -325,7 +325,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Shameimaru Aya",
     img: "8TLXMST.png",
     opts: {
-      series: [ "book", "PoFV", "StB", "SWR", "MoF", "soku", "HM", "ISC", "HSiFS" ],
+      series: [ "book", "PoFV", "StB", "MoF", "SWR", "soku", "HM", "ISC", "HSiFS" ],
       stage: ["st4"]
     }
   },
@@ -517,7 +517,7 @@ dataSet[dataSetVersion].characterData = [
     name: "Tatara Kogasa",
     img: "kJbv4dc.png",
     opts: {
-      series: ["UFO", "TD", "DS", "HM", "SFW"],
+      series: ["UFO", "DS", "TD", "HM", "SFW"],
       stage: ["st2", "ex"]
     }
   },
