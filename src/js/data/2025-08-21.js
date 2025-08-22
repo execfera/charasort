@@ -40,7 +40,6 @@ dataSet[dataSetVersion].options = [
       { name: "Sunken Fossil World", tooltip: "17.5 - Gouyoku Ibun", key: "SFW" },
       { name: "Unconnected Marketeers", tooltip: "18 - Kouryuudou", key: "UM" },
       { name: "100th Black Market", tooltip: "18.5 - Bulletphilia-tachi no Yami-Ichiba", key: "BM" },
-	  //TODO yuuma
       { name: "Unfinished Dream of All Living Ghost", tooltip: "19 - Juuouen", key: "UDoALG" },
       { name: "Fossilized Wonders", tooltip: "20 - Kinjoukyou", key: "FW" },
     ]
@@ -915,6 +914,14 @@ dataSet[dataSetVersion].characterData = [
     }
   },
   {
+	name: "Toutetsu Yuuma",
+	img: "WEbfrcr.png",
+	opts: {
+		series: ["SFW", "UDoALG"],
+		stage: []
+	}
+  },
+  {
     name: "Goutokuji Mike",
     img: "FltSdtv.png",
     opts: {
@@ -977,6 +984,94 @@ dataSet[dataSetVersion].characterData = [
       series: ["UM"],
       stage: ["ex"]
     }
+  },
+  {
+	name: "Biten Son",
+	img: "111176253_p0.png",
+	opts: {
+		series: ["UDoALG"],
+		stage: []
+	}
+  },
+  {
+	name: "Mitsugashira Enoko",
+	img: "111420339_p0.png",
+	opts: {
+		series: ["UDoALG"],
+		stage: []
+	}
+  },
+  {
+	name: "Tenkajin Chiyari",
+	img: "111576609_p0.png",
+	opts: {
+		series: ["UDoALG"],
+		stage: []
+	}
+  },
+  {
+	name: "Yomotsu Hisami",
+	img: "111798695_p0.png",
+	opts: {
+		series: ["UDoALG"],
+		stage: []
+	}
+  },
+  {
+	name: "Nippaku Zanmu",
+	img: "111935114_p0.png",
+	opts: {
+		series: ["UDoALG"],
+		stage: []
+	}
+  },
+  {
+	name: "Chirizuka Ubame",
+	img: "130505432_p0.png",
+	opts: {
+		series: ["FW"],
+		stage: ["st1"]
+	}
+  },
+  {
+	name: "Houjuu Chimi",
+	img: "130756809_p0.png",
+	opts: {
+		series: ["FW"],
+		stage: ["st2"]
+	}
+  },
+  {
+	name: "Michigami Nareko",
+	img: "131015689_p0.png",
+	opts: {
+		series: ["FW"],
+		stage: ["st3"]
+	}
+  },
+  {
+	name: "Asama Yuiman",
+	img: "Th20Yuiman.png",
+	opts: {
+		series: ["FW"],
+		stage: ["st4"]
+	}
+  },
+  {
+	name: "Iwanaga Ariya",
+	img: "Th20Ariya.png",
+	opts: {
+		series: ["FW"],
+		stage: ["st6"]
+	}
+  },
+  {
+	name: "Watari Nina",
+	img: "Th20Nina.png",
+	opts: {
+		series: ["FW"],
+		stage: ["ex"]
+	}
   },
   {
     name: "Hieda no Akyuu",
@@ -1054,6 +1149,14 @@ dataSet[dataSetVersion].characterData = [
   {
     name: "Okunoda Miyoi",
     img: "a5V63gx.png",
+    opts: {
+      series: ["book"],
+      stage: []
+    }
+  },
+  {
+    name: "Miyadeguchi Mizuchi",
+    img: "mizuchi.png",
     opts: {
       series: ["book"],
       stage: []
