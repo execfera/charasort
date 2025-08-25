@@ -987,7 +987,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Biten Son",
-	img: "111176253_p0.png",
+	img: "3xkDnd7.png",
 	opts: {
 		series: ["UDoALG"],
 		stage: []
@@ -995,7 +995,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Mitsugashira Enoko",
-	img: "111420339_p0.png",
+	img: "TSgiF99.png",
 	opts: {
 		series: ["UDoALG"],
 		stage: []
@@ -1003,7 +1003,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Tenkajin Chiyari",
-	img: "111576609_p0.png",
+	img: "aS8jkha.png",
 	opts: {
 		series: ["UDoALG"],
 		stage: []
@@ -1011,7 +1011,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Yomotsu Hisami",
-	img: "111798695_p0.png",
+	img: "UUrPbz0.png",
 	opts: {
 		series: ["UDoALG"],
 		stage: []
@@ -1019,7 +1019,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Nippaku Zanmu",
-	img: "111935114_p0.png",
+	img: "QZZ4h0k.png",
 	opts: {
 		series: ["UDoALG"],
 		stage: []
@@ -1027,7 +1027,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Chirizuka Ubame",
-	img: "130505432_p0.png",
+	img: "bmJBRI1.png",
 	opts: {
 		series: ["FW"],
 		stage: ["st1"]
@@ -1035,7 +1035,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Houjuu Chimi",
-	img: "130756809_p0.png",
+	img: "eeVC9Rk.png",
 	opts: {
 		series: ["FW"],
 		stage: ["st2"]
@@ -1043,7 +1043,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Michigami Nareko",
-	img: "131015689_p0.png",
+	img: "DOsJWg8.png",
 	opts: {
 		series: ["FW"],
 		stage: ["st3"]
@@ -1051,7 +1051,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Asama Yuiman",
-	img: "Th20Yuiman.png",
+	img: "BB6LJdU.png",
 	opts: {
 		series: ["FW"],
 		stage: ["st4"]
@@ -1059,7 +1059,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Iwanaga Ariya",
-	img: "Th20Ariya.png",
+	img: "KhIESOa.png",
 	opts: {
 		series: ["FW"],
 		stage: ["st6"]
@@ -1067,7 +1067,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
 	name: "Watari Nina",
-	img: "Th20Nina.png",
+	img: "UzGFRPh.png",
 	opts: {
 		series: ["FW"],
 		stage: ["ex"]
@@ -1156,7 +1156,7 @@ dataSet[dataSetVersion].characterData = [
   },
   {
     name: "Miyadeguchi Mizuchi",
-    img: "mizuchi.png",
+    img: "GGoseKW.png",
     opts: {
       series: ["book"],
       stage: []
